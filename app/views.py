@@ -512,7 +512,7 @@ def ManPowerService(request):
 
     if request.method == 'POST':
 
-        form_name = 'man-power-service'
+        form_name = 'man-power-supply-service'
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
@@ -606,7 +606,7 @@ def PhotoVideoService(request):
 
     if request.method == 'POST':
 
-        form_name = 'photoVideo-service'
+        form_name = 'photo&Video-service'
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
