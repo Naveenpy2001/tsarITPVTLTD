@@ -1,0 +1,410 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '../css/aboutus.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/06a08d1706.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <title>About Us - TSAR Company</title>
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+
+    <section id="main">
+      <div class="random">
+        <p style="padding: 10px 100px; font-size: 12x">
+          <a href="/" class="link-home">Home</a>
+          <i class="fa-solid fa-angle-right"></i> About Us
+        </p>
+        <div class="slideshow-container">
+          <div
+            class="mySlides fade"
+            style="
+              background: url(./media/about-banner.jpg) top/cover no-repeat;
+              height: 550px;
+            "
+          >
+            
+            <div class="mainDiv">
+              <div class="col-left">
+                <h1>
+                  <q
+                    >Acquiring the right talent is the most important key to
+                    growth Hiring was and still is - the most important thing we
+                    do.
+                  </q>
+                  <span class="ceo-name">CEO - Wesly Rakesh</span>
+                </h1>
+              </div>
+            </div>
+            <div class="text"></div>
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext"></div>
+            <img
+              src="./media/about-banner2.webp"
+              style="width: 100%; height: 550px"
+            />
+            <div class="text"></div>
+          </div>
+          <!-- <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img
+              src="../media/bannerMain.jpeg"
+              style="width: 100%; height: 500px"
+            />
+            <div class="text">Caption Three</div>
+          </div> -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <nav>
+        <div class="flex-btn">
+          <a href="#bynumbers" class="a"
+            ><button class="about">By the Numbers</button></a
+          >
+          <a href="#" class="a"><button class="about">Our History</button></a>
+          <a href="#our-mission" class="a"
+            ><button class="about">Our Mission</button></a
+          >
+          <a href="#our-vission" class="a"
+            ><button class="about">Our Vision</button></a
+          >
+          <a href="#commitement" class="a"
+            ><button class="about">Our Commitement</button></a
+          >
+          <a href="#exprtise" class="a"
+            ><button class="about">Our Expertise</button></a
+          >
+        </div>
+      </nav>
+      <section id="bynumbers">
+        <div class="container-block">
+          <div class="text-count">
+            <h2 class="text-b">
+              Powered by a global team of 224,700+ diverse and passionate people
+              across 60 countries, we deliver smarter, better ways for all our
+              stakeholders to benefit from technology.
+            </h2>
+            <div class="span-row">
+              <span class="span"
+                ><h1 class="span-h">210+</h1>
+                Delivery Centers</span
+              >
+              <span class="span"
+                ><h1 class="span-h">10K</h1>
+                Clients using our software and products</span
+              >
+              <span class="span"
+                ><h1 class="span-h">2,000+</h1>
+                Patents driving innovation</span
+              >
+
+              <span class="span"
+                ><h1 class="span-h">5.13Mn</h1>
+                Lives impacted by HCL Foundation</span
+              >
+            </div>
+          </div>
+          <div class="global-video">
+            <video autoplay loop muted class="back-video">
+              <source src="./media/global.mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section class="img-container image-1" id="our-mission">
+        <div class="back">
+          <div class="text-our">
+            <h1 class="title">Our Mission</h1>
+            <p class="our">
+              "To provide the best in class, creative, unique Software Solutions
+              that can solve all our client’s business problems that they face
+              on day to day bases. We provide software & solutions for companies
+              of all sizes and all industry sectors. We thrive in achieving
+              excellence in providing the best IT solutions to our clients so
+              that they can meet their business needs in the most effective and
+              efficient way.
+            </p>
+            <p class="our">
+              "Our dedicated team provides you solutions that make achieving
+              business objectives easier and in a much efficient way. We provide
+              the highest standard of products to our client base belonging to
+              all verticals. We outsource IT services to different industries
+              across the globe which includes Complex Software Solutions, web
+              application & Other IT services. Our team members are young and
+              trained. We listen and provide services to our clients that are
+              tailor made for their business. We have sustainable base of
+              clients who trust us for our quality service in the field of
+              Software & Web Application development.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="img-container image-2" id="our-vission">
+        <div class="back">
+          <div class="text-our">
+            <h1 class="title">Our Vision</h1>
+            <p class="our">
+              "TSAR - IT IT vision helps us understand and provide a sense of
+              direction on how we drive our business. It serves as a beacon
+              directing all our thoughts and efforts towards achieving our goal.
+              Since inception, TSAR - IT IT has truly evolved over the years
+              from a start-up IT services company to a trusted IT partner for
+              leaders in the telecom world. Our vision is to be amongst the top
+              five software services companies focused on the communications
+              industry.
+            </p>
+            <p class="our" style="font-family: poppins;">
+              "TSAR IT - Inovative Solutions & Consultancy we focus on high
+              quality & timely delivery of our Services. We provide cost
+              effective and customized solutions.m
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- 
+      <section style="background-color: #f7f7fc">
+        <div class="block-padding">
+          <h1 class="title">Case Studies</h1>
+          <p class="context">
+            We don’t just paint visions of progress. We make them happen for the
+            world’s leading enterprises.
+          </p>
+          <div class="cards-col">
+            <div class="case-cards">
+              <img src="../media/digital-m.jpeg" alt="" class="case-img" />
+              <h1 class="case-head">
+                Reimagining IT service management through artificial
+                intelligence
+              </h1>
+              <p class="case-text">
+                We redefined business process for a leading furniture retailer
+              </p>
+              <div class="text-visible">
+                <a href="#" class="case-learn-more">learn more </a
+                ><i class="fa-solid arrow-visible fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="case-cards">
+              <img src="../media/digital-m.jpeg" alt="" class="case-img" />
+              <h1 class="case-head">
+                Reimagining shipping through machine learning data science
+              </h1>
+              <p class="case-text">
+                TSAR IT redsigned operating system to improve predictability and
+                CX for global logistics provider
+              </p>
+              <div class="text-visible">
+                <a href="#" class="case-learn-more">learn more </a
+                ><i class="fa-solid arrow-visible fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="case-cards">
+              <img src="../media/digital-m.jpeg" alt="" class="case-img" />
+              <h1 class="case-head">
+                Achieving agility the cloud for Keurig Pepper
+              </h1>
+              <p class="case-text">
+                hybrid cloud architecture and technology standardization
+                provides simplification, flexibility and 40% reduction in IT
+                operating cost
+              </p>
+              <div class="text-visible">
+                <a href="#" class="case-learn-more">learn more </a
+                ><i class="fa-solid arrow-visible fa-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+      <section id="commitement">
+        <div class="container-img-text">
+          <div class="text-contain">
+            <h1 class="big-text"></h1>
+            <p class="small-text">
+              We are delivering long-lasting impact through our actions as a
+              company and through our pacts with stakeholders for a more
+              sustainable future.
+            </p>
+            <a href="#" class="report">
+              TSAR IT Foundation <i class="fa-solid blue fa-arrow-right"></i>
+            </a>
+            <a href="#" class="report"
+              >TSAR IT Sustainability Annual Report 2022
+              <i class="fa-solid blue fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="exprtise">
+        <div class="area-text-header">
+          <h1 class="main-head">Our Areas of Expertise</h1>
+          <p class="p">
+            With expertise in Digital, Engineering and Cloud, we deliver
+            solutions that fulfill the traditional, transformational and future
+            needs of clients across the globe
+          </p>
+        </div>
+        <div class="our-expertise-col">
+          <div class="our-expertise">
+            <div class="hover-move">
+              <div class="anime-logo">
+                <img src="./media/digital.svg" alt="" class="logo-nk" />
+              </div>
+              <h1 class="our-h1">Digital</h1>
+              <p class="our-context">
+                TSAR IT’s end-to-end Digital offerings enable enterprises to
+                increase business resilience, improve operational efficiency and
+                deepen client engagement.
+              </p>
+            </div>
+            <div class="p-bottom">
+              <a href="#" class="our-link">learn more </a>
+              <i class="fa-solid move-2 fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="our-expertise">
+            <div class="hover-move">
+              <div class="anime-logo">
+                <img
+                  src="./media/engineering1.svg"
+                  alt=""
+                  class="logo-nk"
+                />
+              </div>
+              <h1 class="our-h1">Engineering</h1>
+              <p class="our-context">
+                TSAR IT Engineering and R&D services (ERS) empower enterprises
+                to improve time-to-profit, accelerate product development and
+                maximize return on innovation.
+              </p>
+            </div>
+            <div class="p-bottom">
+              <a href="#" class="our-link">learn more </a
+              ><i class="fa-solid move-2 fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="our-expertise">
+            <div class="hover-move">
+              <div class="anime-logo">
+                <img src="./media/cloud.svg" alt="" class="logo-nk" />
+              </div>
+              <h1 class="our-h1">Cloud</h1>
+              <p class="our-context">
+                TSAR IT’s exclusive CloudSMART offerings and services enable
+                organizations to optimize cloud to accelerate innovation and
+                agility at scale.
+              </p>
+            </div>
+            <div class="p-bottom">
+              <a href="#" class="our-link">learn more </a
+              ><i class="fa-solid move-2 fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="our-expertise">
+            <div class="hover-move">
+              <div class="anime-logo">
+                <img src="./media/software.svg" alt="" class="logo-nk" />
+              </div>
+              <h1 class="our-h1">Software</h1>
+              <p class="our-context">
+                TSAR IT’s Software division develops, markets and supports
+                software for digital transformation, data, analytics and
+                insights, AI and automation and enterprise security.
+              </p>
+            </div>
+            <div class="p-bottom">
+              <a href="#" class="our-link">learn more </a
+              ><i class="fa-solid move-2 fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section>
+        <div class="partners-col">
+          <div class="our-parrtner-ecosystem">
+            <div class="flex-box">
+              <h1 class="title">Our Partner Ecosystem</h1>
+              <p>
+                Our collaborative ecosystem of market leaders brings together
+                TSAR IT’s world-class innovation and deep partner expertise to
+                innovate for the future and drive value.
+              </p>
+              <a href="#" class="learn-more"
+                ><button class="contact three-1">
+                  Discover more
+                  <i class="fa-solid move fa-arrow-right"></i></button
+              ></a>
+            </div>
+          </div>
+          <div class="scrolling-imgs">
+            <h1>scroll here our clients</h1>
+          </div>
+        </div>
+      </section>
+    </section> -->
+
+    <div class="footer-col">
+      <div class="company-logo">
+        <h1 class="big">TSAR IT</h1>
+        <div></div>
+      </div>
+      <div class="newsletter">
+        <div class="header">
+          <h1>news shelter</h1>
+        </div>
+        <div class="block">
+          <input type="email" name="" id="" placeholder="example@gmail.com" class="input-letter">
+          <button class="contact two three" >send</button>
+        </div>
+      </div>
+      <style>
+        .footer-col{
+          display: flex;
+          align-items: center;
+        }
+        .header{
+          font-weight: 400;
+          margin: 10px 0;
+          text-align: center;
+        }
+        .input-letter{
+          padding: 10px 30px;
+          outline: none;
+        }
+        .three{
+          padding: 3px 20px;
+         margin-left: 30%;
+         border-radius: 2px;
+        }
+      </style>
+      <div class="ct-us">
+        <div class="btns-s">
+          <a href="/contact">
+            <button class="contact one">
+              Contact Us <i class="fa-solid move fa-arrow-right"></i>
+            </button>
+          </a>
+          <button class="contact two">
+            Subscribe <i class="fa-solid move fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+{% include 'footer.html' %}
+    <script src="../JavaScript/about.js"></script>
+  </body>
+</html>

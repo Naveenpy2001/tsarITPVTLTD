@@ -1,0 +1,1080 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home-page</title>
+    <link rel="shortcut icon" href="./media/c-logo.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static './css/home.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/06a08d1706.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100.900;1,100.900&display=swap");
+      :root {
+        --primaryBackground: #212529;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        line-height: 1.5;
+        font-family: "Raleway", "Poppins", sans-serif;
+        /* font-weight: 500; */
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      :before,
+      :after {
+        box-sizing: border-box;
+      }
+      ::-webkit-scrollbar {
+        width: 18px;
+        background-color: #ffffff;
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 0;
+        background-color: #05053930;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 0;
+        background: linear-gradient(200deg, #040429 30%, #28286efe);
+      }
+      /* slider */
+      body {
+        transform: translateY(0);
+        opacity: 1;
+        animation: animate 0.5s linear;
+      }
+      @keyframes animate {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .container {
+        position: relative;
+        display: flex;
+        justify-content: start;
+        padding: 100px 0;
+        margin: 0 0;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .main-video-back {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+      }
+      .info {
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+        color: #fff;
+        padding: 20px 30px;
+        width: 50%;
+        z-index: 99;
+      }
+      .name {
+        color: #ffffff;
+        font-family: "Raleway", Sans-serif;
+        font-size: 28px;
+        font-weight: 500;
+        letter-spacing: 0px;
+        padding: 10px 0;
+      }
+      .info-text {
+        font-size: 16px;
+        padding: 20px 0;
+        margin: 0 0 20px 0;
+        color: #aeaeae;
+      }
+      .contact-1 {
+        padding: 20px 0;
+        transform: translateY(50px);
+      }
+      .domain {
+        padding: 10px 0;
+      }
+      .contact-link {
+        padding: 13px 40px;
+        border: 1px solid #fff;
+        text-decoration: none;
+        color: #000000;
+        background-color: #f8f8f8;
+        transition: background-color, color 0.25s linear;
+      }
+      .contact-link:hover {
+        background-color: #12132d;
+        color: #ffffff;
+      }
+      /* banner styles end */
+      /* typing text */
+      .container-1 p {
+        font-size: 24px;
+        font-family: leelawadee ui;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+        text-align: left;
+        overflow: hidden;
+      }
+      .container-1 p span.typed-text {
+        font-weight: 500;
+        color: #fff;
+      }
+      .container-1 p span.cursor {
+        display: inline-block;
+        background-color: #ccc;
+        width: 3px;
+        animation: blink 1s infinite;
+      }
+      .container-1 p span.cursor.typing {
+        animation: none;
+      }
+      @keyframes blink {
+        0% {
+          background-color: #ccc;
+        }
+        49% {
+          background-color: #ccc;
+        }
+        50% {
+          background-color: transparent;
+        }
+        99% {
+          background-color: transparent;
+        }
+        100% {
+          background-color: #ccc;
+        }
+      }
+      /* section - 2 */
+      .about-content {
+        display: flex;
+        padding: 50px 30px;
+        padding-top: 0;
+        /* background:linear-gradient(230deg,#040429 40%,#28286efe); */
+        box-shadow: 0 4px 8px 2px #767676fe;
+      }
+      .about-section {
+        width: 100%;
+        padding: 30px;
+        color: #030303;
+      }
+      .about-top {
+        transform: translateY(-50px);
+      }
+      .about {
+        font-size: 30px;
+        margin: 10px 0;
+        font-weight: 600;
+        color: #1f24bc;
+      }
+      .learn-more-btn {
+        text-decoration: none;
+        border: 1px solid;
+        color: #ffffff;
+        background-color: #12132d;
+        padding: 8px 40px;
+        display: block;
+        width: 17%;
+        transform: translateY(50px);
+      }
+      .arrow-2 {
+        transition: transform 0.2s linear;
+      }
+      .learn-more-btn:hover {
+        color: #12132d;
+        background-color: #fff;
+      }
+      .learn-more-btn:hover .arrow-2 {
+        transform: translateX(5px);
+      }
+      p {
+        padding: 5px 10px;
+      }
+      .video-container {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      video {
+        width: 100%;
+      }
+      .back-video {
+        position: relative;
+      }
+      .video-back {
+        position: absolute;
+        top: 0;
+      }
+      video.video {
+        height: 100%;
+        width: 100%;
+        z-index: -999;
+      }
+      /* services styles */
+
+      .title {
+        font-size: 42px;
+        font-weight: 600;
+        color: darkblue;
+        text-shadow: 0 2px 6px rgba(14, 14, 94, 0.274);
+        padding: 10px 20px;
+        margin: 20px 0px;
+        border-left: 5px solid var(--primaryBackground);
+      }
+      .services-container {
+        display: flex;
+        /* border: 1px solid #000; */
+        padding: 20px 20px;
+        flex-wrap: wrap;
+        background-color: #ffffff;
+        justify-content: center;
+      }
+
+      .services {
+        width: 280px;
+        height: 300px;
+        box-shadow: 0 2px 6px 2px #898989;
+        padding: 15px 15px;
+        margin: 0 30px 80px 30px;
+        transition: all 0.25s linear;
+        background-color: #ffff;
+        z-index: 999;
+        transform: translateY(-30px);
+      }
+      .s-title {
+        /* margin: 5px 0; */
+        font-size: 18px;
+      }
+
+      .learn-more {
+        text-decoration: none;
+        color: #191c63;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        font-weight: 600;
+        transition: color 0.15s linear;
+        margin: 10px 0;
+      }
+
+      .arrow-1 {
+        margin: 0 10px;
+      }
+      .learn-more:hover {
+        color: #12132d;
+      }
+
+      .service-logo {
+        width: 100%;
+        height: 85%;
+        filter: grayscale(100%);
+        transition: filter 0.25s linear;
+      }
+      .service-logo:hover {
+        filter: grayscale(0);
+      }
+      .learn-more:hover .arrow-1 {
+        transform: translateX(400%);
+        color: #000;
+        transition: transform 0.2s linear;
+      }
+
+      /* our clients */
+      .clients-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* overflow-x: scroll; */
+      }
+      .clients {
+        width: 220px;
+        /* border: 1px solid #000; */
+        margin: 10px;
+      }
+      .client-img {
+        width: 100%;
+        aspect-ratio: 3/2;
+        object-fit: contain;
+        mix-blend-mode: color-burn;
+        filter: grayscale(100%);
+        transition: filter 0.3s linear;
+        cursor: pointer;
+      }
+
+      .img-gray {
+        filter: grayscale(100%);
+        transition: filter 0.2s linear;
+      }
+      .client-img:hover {
+        filter: grayscale(0);
+      }
+      .img-gray:hover {
+        filter: grayscale(0);
+      }
+      .angle-arrow {
+        padding: 4px 10px;
+        /* border: 1px solid #000; */
+        background-color: #191c63;
+        color: #fff;
+        border-radius: 50%;
+      }
+      /* awards */
+      .awards-col::-webkit-scrollbar {
+        width: 4px;
+        height: 8px;
+        background-color: #ffffff;
+      }
+      .awards-col::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: #05053930;
+      }
+      .awards-col::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: linear-gradient(200deg, #040429 30%, #28286efe);
+        cursor: pointer;
+      }
+      .awards-col {
+        display: -webkit-inline-box;
+        justify-content: center;
+        align-items: center;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        width: 100%;
+        background-color: #12144b22;
+        position: relative;
+      }
+      /* .left-client-arrow{
+    position: absolute;
+    top: 50%;
+} */
+
+      .awards {
+        width: 325px;
+        height: 100%;
+        border: 1px solid #000;
+        padding: 15px;
+        margin: 0 0;
+        text-align: center;
+        cursor: pointer;
+        background: #12132d;
+        color: #fff;
+        padding-bottom: 10px;
+      }
+      .client-name {
+        font-size: 24px;
+      }
+      .client-p {
+        font-weight: 400;
+        font-size: 14px;
+        font-style: italic;
+      }
+
+      /* join */
+      .join {
+        display: flex;
+      }
+      .title-join {
+        background-color: #090b3b;
+        color: #ffffff;
+        padding: 8px 10px;
+        font-size: 32px;
+      }
+
+      .join-text {
+        font-weight: 500;
+        margin: 20px 0;
+        font-size: 20px;
+        padding: 26px 20px;
+      }
+      .col-join {
+        width: 100%;
+      }
+      .col-img {
+        width: 100%;
+      }
+      .img-join {
+        width: 100%;
+      }
+      .span-row {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px 0;
+        padding: 0 20px;
+        color: #0a0b3f;
+      }
+
+      .span-row .span {
+        width: 50%;
+        padding: 10px 10px;
+        border-bottom: 1px solid #000;
+        margin: 10px 0;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .join-btn {
+        display: flex;
+        margin: 25px 0;
+        justify-content: center;
+      }
+      .join-buttons {
+        width: 100%;
+        padding: 12px 10px;
+        margin: 0 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        cursor: pointer;
+      }
+      .button {
+        transition: background-color 0.2s linear;
+      }
+      .button:nth-child(1) {
+        background-color: #191c63;
+        color: #fff;
+      }
+      .button:nth-child(1):hover {
+        background-color: #ffffff;
+        color: #191c63;
+      }
+      .button:nth-child(2):hover {
+        background-color: #191c63;
+        color: #ffffff;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 340px;
+        padding: 30px;
+      }
+      .job-link {
+        color: #070db6;
+        text-decoration: none;
+        padding: 10px 0;
+      }
+      input,
+      textarea {
+        width: 90%;
+        padding: 8px 25px;
+        margin: 5px 0;
+        border: 2px solid #8f8f8f;
+        border-radius: 3px;
+        caret-color: red;
+      }
+      input::placeholder {
+        color: #000;
+        font-style: italic;
+      }
+      input:focus {
+        border: 2px solid #000;
+      }
+      .block {
+        width: 50%;
+      }
+      .submit-btn {
+        width: 15%;
+        padding: 8px 10px;
+        margin: 24px 0;
+        border: 1px solid #000;
+        background-color: #fff;
+        cursor: pointer;
+      }
+      .submit-btn:hover {
+        background-color: rgb(9, 18, 67);
+        transition: all 0.2s linear;
+        color: #fff;
+      }
+
+      .swiper-pagination-bullet {
+        display: none;
+      }
+      .card {
+        position: relative;
+        background-color: #fff;
+        height: 190px;
+        width: 390px;
+        margin: 0 0;
+      }
+      .card .card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        position: relative;
+        z-index: 100;
+      }
+      .swiper {
+        width: 980px;
+      }
+      .slide-section {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+      }
+
+      .slide-section .card .image {
+        height: 140px;
+        width: 240px;
+        padding: 3px;
+        background: #ffffff;
+        /* box-shadow: 0px -1px 4px 2px rgba(0, 0, 0, 0.25); */
+      }
+      .slide-section .card .image img {
+        height: 100%;
+        width: 100%;
+        /* aspect-ratio: 3/2; */
+      }
+      .card .media-icons {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .card .media-icons i {
+        color: #fff;
+        opacity: 0.7;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .card .media-icons i:hover {
+        opacity: 1;
+      }
+      .card .name-profession {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .name-profession .name {
+        font-size: 20px;
+        font-weight: 600;
+        color: #222;
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      {% include './header.html' %}
+    </header>
+    <section style="padding: 0px; margin: 0">
+      <div class="container">
+        <div class="info">
+          <div class="name">
+            <h1 style="font-weight: 500; color: rgb(80, 80, 221)">
+              TSAR-IT PVT LTD
+            </h1>
+          </div>
+          <div class="info-text">
+            <div class="domain">
+              <div class="container-1">
+                <p>
+                  <span class="typed-text"></span
+                  ><span class="cursor">&nbsp;</span>
+                </p>
+              </div>
+            </div>
+            <p>
+              <q>
+                Explore The ServicesWe Offer For You" we are experts in these services, we have strong experience and technical expert team.
+              </q>
+            </p>
+          </div>
+          <div class="contact-1">
+            <a href="/contact" class="contact-link"
+              >Contact Us &nbsp;&nbsp;&nbsp;&nbsp;
+              <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+        <div class="main-video-back">
+          <video autoplay loop muted>
+            <source src="./media/background-banner.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="about-content">
+        <div class="about-section">
+          <h1
+            class="title"
+            style="
+              font-size: 54px;
+              color: #12132d;
+              transform: translateY(-30px);
+              border: 0;
+              padding: 10px 0;
+            "
+          >
+            About Us
+          </h1>
+
+          <div class="about-top">
+            <h1 class="about">ABOUT OUR COMPANY</h1>
+            <p>
+              <q
+                >"If you Take any Type of Project We are Ready to Install and
+                Give Maintenance of project".</q
+              >
+            </p>
+            <p>
+              we like challenges to solve and give solutions to your business
+              growth and you can monitor your business and employees work
+              easily,
+            </p>
+            <p>
+              we will change your business hard work to easily.We offer services
+              for a wide range of fields such as software development, web
+              development, graphic development, cross platform development etc.
+              For more information navigate to our services section.
+            </p>
+            <p>
+              "Explore The ServicesWe Offer For You" we are experts in these
+              services, we have strong experience and technical expert team, we
+              have our own German Technology server, our team will complete and
+              give you project in time, we will provide our services like how
+              clients feel comfortable, we can handle any type of project with
+              low coast and we are expert in install and maintaining projects,
+              we have strong man power in all over Andhra Pradesh and Telangana
+              and Tamilnadu states ..
+            </p>
+
+            <a href="/about" class="learn-more-btn"
+              >More
+              <i class="fa-solid arrow-2 fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="video-container">
+          <div id="gifContainer">
+            <video autoplay muted loop>
+              <source src="./media/square-abstract-1.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h1 class="title" style="padding: 20px 20px; margin: 50px 0">
+        Explore Our Services
+      </h1>
+
+      <div class="services-container back-video">
+        <div class="services">
+          <img src={% static "./media/web-dev.jpeg" %} alt=""
+          class="service-logo" />
+          <a href="#" class="learn-more"
+            ><h3 class="s-title">Web development</h3>
+            <i class="fa-solid arrow-1 fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="services">
+          <img src="./media/app-dev.jpeg" alt="" class="service-logo" />
+          <a href="#" class="learn-more"
+            ><h3 class="s-title">app development</h3>
+            <i class="fa-solid arrow-1 fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="services">
+          <img src="./media/IT-promotions.jpeg" alt="" class="service-logo" />
+          <a href="#" class="learn-more"
+            ><h3 class="s-title">IT Promotions</h3>
+            <i class="fa-solid arrow-1 fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="services">
+          <img src="./media/Payroll.jpeg" alt="" class="service-logo" />
+          <a href="#" class="learn-more">
+            <h3 class="s-title">Payroll Jobs</h3>
+            <i class="fa-solid arrow-1 fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="services">
+          <img src="./media/ngo.jpeg" alt="" class="service-logo" />
+          <a href="#" class="learn-more"
+            ><h3 class="s-title">NGO Consultancy</h3>
+            <i class="fa-solid arrow-1 fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="services">
+          <img src="./media/d-marketing.jpeg" alt="" class="service-logo" />
+          <a href="#" class="learn-more">
+            <h3 class="s-title">Digital Marketing</h3>
+            <i class="fa-solid arrow-1 fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="services">
+          <img src="./media/markeing.jpeg" alt="" class="service-logo" />
+          <a href="#" class="learn-more">
+            <h3 class="s-title">Internship</h3>
+            <i class="fa-solid arrow-1 fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="services">
+          <img src="./media/SEO.jpeg" alt="" class="service-logo" />
+          <a href="#" class="learn-more">
+            <h3 class="s-title">SEO</h3>
+            <i class="fa-solid arrow-1 fa-arrow-right"></i
+          ></a>
+        </div>
+        <div class="video-back">
+          <video autoplay muted loop class="video">
+            <source src="./media/background.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h1 class="title">Explore Our Clients</h1>
+    </section>
+
+    <section class="slide-section">
+      <div class="swiper mySwiper container">
+        <div class="swiper-wrapper content">
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img src="./media/client-1.png" alt="" class="img-gray" />
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img src="./media/client-2.png" alt="" class="img-gray" />
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img src="./media/client-3.png" alt="" class="img-gray" />
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img src="./media/client-4.png" alt="" class="img-gray" />
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img src="./media/client-5.png" alt="" class="img-gray" />
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img src="./media/client-6.png" alt="" class="img-gray" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+      <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+      <script src="./JavaScript/home-slide.js"></script>
+    </section>
+
+    <!-- clients feed-back -->
+
+    <section>
+      <h1 class="title">Clients Feedback</h1>
+      <div class="slide-section">
+        <div class="swiper mySwiper container">
+          <div class="swiper-wrapper content">
+            <div class="swiper-slide card">
+              <div class="awards">
+                <div class="client-logo">
+                  <h1 class="name-client">ji Chandra</h1>
+                  <p class="client-p">Blue Morpho Manager.</p>
+                  <p
+                    class="client-p"
+                    style="margin-top: 15px; margin-bottom: 0"
+                  >
+                    <q>
+                      Really Awesome Services and Take Caring of Projects.
+                    </q>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide card">
+              <div class="awards">
+                <div class="client-logo">
+                  <h1 class="name-client">Prasada Rao</h1>
+                  <p class="client-p">BGM Founder</p>
+                  <p
+                    class="client-p"
+                    style="margin-top: 15px; margin-bottom: 0"
+                  >
+                    <q>
+                      Nice Services, This Company will Provide World wide NGO
+                      Projects.
+                    </q>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide card">
+              <div class="awards">
+                <div class="client-logo">
+                  <h1 class="name-client">Srinivasulu</h1>
+                  <p class="client-p">Jewelnidhi Manager</p>
+                  <p
+                    class="client-p"
+                    style="margin-top: 15px; margin-bottom: 0"
+                  >
+                    <q> Excellent Web Application Creation and Maintenance. </q>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide card">
+              <div class="awards">
+                <div class="client-logo">
+                  <h1 class="name-client">Umesh Kumar</h1>
+                  <p class="client-p">Zippr Manager</p>
+                  <p
+                    class="client-p"
+                    style="margin-top: 15px; margin-bottom: 0"
+                  >
+                    <q> Good Company to Supply Manpower in South India. </q>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+        <script src={% static "https://unpkg.com/swiper@8/swiper-bundle.min.js" %}></script>
+        <script src={% static "./JavaScript/home-slide.js" %}></script>
+      </div>
+    </section>
+
+    <section>
+      <div class="join">
+        <div class="col-join">
+          <h1 class="title-join">Join TSAR</h1>
+          <p class="join-text">
+            Bring your big ideas and dreams. We ensure that the work is
+            engaging, our culture is empowering and the learning opportunities
+            are enriching.
+          </p>
+          <div class="span-row">
+            <span class="span">Take Risks</span>
+            <span class="span">Put Customers First</span>
+            <span class="span">Drive Excellence</span>
+            <span class="span">Build Credibility</span>
+            <span class="span">Stay Agile</span>
+            <span class="span">Be Humane</span>
+          </div>
+          <div class="join-btn">
+            <button class="join-buttons button">Life at TSAR</button>
+            <button class="join-buttons button">Search & apply</button>
+          </div>
+        </div>
+        <div class="col-img">
+          <img src="./media/join-with.jpeg" alt="" class="img-join" />
+        </div>
+      </div>
+    </section>
+    <section class="form-sec">
+      <h1 class="title" style="text-align: center; color: #000000; border: 0">
+        Talk to us
+        <p style="text-align: center; font-size: 14px; color: #000000">
+          This form is for business inquiries. Click here for
+          <a href="#" class="job-link"> job applications</a> and for
+          <a href="#" class="job-link">employee reference checks</a>.
+        </p>
+      </h1>
+      <form action="{% url 'indexContact' %}" method="post">
+        {% csrf_token %}
+        <div class="block">
+          <input type="text" name="username" id="username" placeholder="name" />
+        </div>
+        <div class="block">
+          <input
+            type="email"
+            name="useremail"
+            id="useremail"
+            placeholder="email"
+          />
+        </div>
+        <div class="block">
+          <input
+            type="email"
+            name="businessmail"
+            id="businessmail"
+            placeholder="Business email"
+          />
+          <span id="warn"></span>
+        </div>
+        <div class="block">
+          <input
+            type="number"
+            name="userphno"
+            id="userphno"
+            placeholder="Phone No."
+          />
+        </div>
+        <div class="block">
+          <input
+            type="text"
+            name="userjob"
+            id="userjob"
+            placeholder="job title"
+          />
+        </div>
+        <div class="block">
+          <input
+            type="text"
+            name="userCompany"
+            id="userCompany"
+            placeholder="company"
+          />
+        </div>
+        <div class="block">
+          <textarea
+            name="message"
+            id="message"
+            cols="80"
+            rows="5"
+            placeholder="Tell us more"
+          ></textarea>
+        </div>
+        <button class="submit-btn">Submit</button>
+      </form>
+    </section>
+    {% include 'footer.html' %}
+    <script>
+
+      // let inputField1 = document.getElementById('useremail');
+      // let warn = document.getElementById('warn')
+      // inputField1.onclick = () => {
+      //   if (inputField1.value === ""){
+      //     inputField1.style.border = '2px solid red';
+      //   }
+      // }
+
+    </script>
+    <script>
+      const slider = document.getElementById("slider");
+      const slides = document.querySelectorAll(".slide");
+      const slideWidth = slides[0].clientWidth;
+      let currentIndex = 0;
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlider();
+      }
+
+      function updateSlider() {
+        const newPosition = -currentIndex * slideWidth;
+        slider.style.transform = `translateX(${newPosition}px)`;
+      }
+
+      setInterval(nextSlide, 2000); // Change slide every 2 seconds
+    </script>
+
+    <script>
+      const typedTextSpan = document.querySelector(".typed-text");
+      const cursorSpan = document.querySelector(".cursor");
+
+      const textArray = [
+        "Web Development",
+        "App Development",
+        "Digital Marketing",
+      ];
+
+      const typingDelay = 200;
+      const erasingDelay = 60;
+      const newTextDelay = 200; // Delay between current and next text
+      let textArrayIndex = 0;
+      let charIndex = 0;
+
+      function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+          if (!cursorSpan.classList.contains("typing"))
+            cursorSpan.classList.add("typing");
+          typedTextSpan.textContent +=
+            textArray[textArrayIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, typingDelay);
+        } else {
+          cursorSpan.classList.remove("typing");
+          setTimeout(erase, newTextDelay);
+        }
+      }
+
+      function erase() {
+        if (charIndex > 0) {
+          if (!cursorSpan.classList.contains("typing"))
+            cursorSpan.classList.add("typing");
+          typedTextSpan.textContent = textArray[textArrayIndex].substring(
+            0,
+            charIndex - 1
+          );
+          charIndex--;
+          setTimeout(erase, erasingDelay);
+        } else {
+          cursorSpan.classList.remove("typing");
+          textArrayIndex++;
+          if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+          setTimeout(type, typingDelay + 1100);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // On DOM Load initiate the effect
+        if (textArray.length) setTimeout(type, newTextDelay + 250);
+      });
+    </script>
+
+    <!-- initializing swiper slider -->
+  </body>
+</html>

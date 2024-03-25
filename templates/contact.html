@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - TSAR Company</title>
+    <script
+      src="https://kit.fontawesome.com/06a08d1706.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+      :root {
+        --primaryBackground: #212529;
+      }
+      ::selection {
+        background-color: #050540;
+        color: #fff;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* line-height: 1.1; */
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      :before,
+      :after {
+        box-sizing: border-box;
+      }
+      ::-webkit-scrollbar {
+        width: 18px;
+        background-color: #ffffff;
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 0;
+        background-color: #05053930;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 0;
+        background: linear-gradient(200deg, #040429 30%, #28286efe);
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      .container-contact {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        overflow: hidden;
+      }
+      .back {
+        background: url("./media/-bg.jpg") center/cover no-repeat;
+      }
+      .contact-us {
+        display: flex;
+      }
+      .context {
+        padding: 30px;
+      }
+
+      .address-column,
+      .form-column {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .address-column {
+        background-color: #fff;
+        padding: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-column {
+        background-color: #fff;
+        padding: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      form {
+        width: 100%;
+        margin: 50px auto;
+        padding: 10px 15px;
+      }
+      .form-column > h2 {
+        font-size: 28px;
+        margin: 15px 0;
+        padding: 10px 30px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 20px 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+      }
+      input::placeholder {
+        font-style: italic;
+        color: #040429;
+      }
+      textarea::placeholder {
+        font-style: italic;
+        color: #040429;
+      }
+      button {
+        background-color: #12132d;
+        color: #fff;
+        padding: 19px 60px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      button:hover {
+        background-color: #36364a;
+      }
+      .address-column {
+        display: grid;
+        place-items: center;
+        padding: 20px;
+      }
+      .connect {
+        font-size: 40px;
+      }
+      .title {
+        font-size: 38px;
+      }
+      .numbers {
+        font-size: 28px;
+        padding: 0 0 0 40px;
+        font-weight: 400;
+        font-style: italic;
+      }
+      .fa-phone,
+      .fa-envelope {
+        color: #12132d;
+      }
+      main {
+        padding: 30px 50px;
+        display: flex;
+        font-size: 24px;
+        gap: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: #12132d;
+      }
+      .reach-us {
+        text-align: center;
+        font-size: 24px;
+        margin: 40px 0;
+      }
+      .reach-us > p {
+        font-size: 20px;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+    <section class="back">
+      <main>
+        <a href="">Home </a> >
+        <p>Contact Us</p>
+      </main>
+      <div class="container-contact">
+        <div class="contact-us">
+          <div
+            class="address-column"
+            style="padding: 50px 50px; background-color: #12132d"
+          >
+            <div
+              class="context"
+              style="
+                margin: 80px 0;
+                background-color: #fff;
+                padding: 10px;
+                padding: 80px 30px;
+              "
+            >
+              <h1 class="title">Contact Us</h1>
+              <p style="font-size: 22px; font-weight: 400">
+                Let's talk. Learn more about TSAR-IT and how we're supercharging
+                progress with our clients, our people and in our communities.
+              </p>
+
+              <div style="margin: 80px 0">
+                <h2 class="connect">Connect With Us</h2>
+                <br />
+                <!-- <h3 class="title">Our Mobile No.</h3> -->
+                <p class="numbers">
+                  <i class="fa-solid fa-phone"></i> +91 9491301258
+                </p>
+                <p class="numbers">
+                  <i class="fa-solid fa-phone"></i> +91 8142616767
+                </p>
+                <br />
+                <!-- <h3 class="title">Our Email Id :</h3> -->
+                <p class="numbers">
+                  <i class="fa-solid fa-envelope"></i> info@tsaritservices.com
+                </p>
+                <p class="numbers">
+                  <i class="fa-solid fa-envelope"></i> tsaritservices@gmail.com
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="reach-us">
+              <h2>Please Fill The Form</h2>
+              <p>To Reach Out Us</p>
+            </div>
+            <form action="#" method="post">
+              <div class="block">
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="First Name :"
+                />
+              </div>
+              <div class="block">
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Last Name :"
+                />
+              </div>
+              <div class="block">
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="email address"
+                />
+              </div>
+              <div class="block">
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Phone No. "
+                />
+              </div>
+              <div class="block">
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Regarding Subject "
+                />
+              </div>
+              <div class="block">
+                <textarea
+                  name="message"
+                  id="message"
+                  cols="80"
+                  rows="5"
+                  placeholder="Tell us more"
+                ></textarea>
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-top: 30px;
+                "
+              >
+                <button class="submit-btn">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% include 'footer.html' %}
+  </body>
+</html>

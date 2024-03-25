@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TSAR IT ||  BPO-Services</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --primaryBackground:#212529;
+}
+::selection{
+    background-color: #050540;
+    color: #fff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* line-height: 1.1; */
+	font-family: "Raleway", 'Poppins', sans-serif;
+	font-weight: 500;
+}
+html{scroll-behavior: smooth;}
+:before,:after{
+	box-sizing: border-box;
+}
+::-webkit-scrollbar{
+    width: 18px;
+    background-color: #ffffff;
+}
+::-webkit-scrollbar-track{
+    border-radius: 0;
+    background-color: #05053930;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 0;
+    background:linear-gradient(200deg,#040429 30%,#28286efe);
+}
+/* slider */
+.animation{
+    transform: translateY(0);
+    opacity: 1;
+    animation: animate .50s linear;
+}
+@keyframes animate{
+    from{
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+    opacity: 1;
+    }
+}
+.img-container {
+  display: flex;
+      background: url('./media/BPO-banner.jpg') center/cover no-repeat;
+}
+.back{
+    background: url('./media/bpo-serive.jpg') center/cover no-repeat;
+}
+.left-text {
+    display: grid;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    padding: 30px 50px;
+    /* background: linear-gradient(to right,#6d137d,#651784,#24023f); */
+    background: linear-gradient(to right,#00000047,#00000041);
+    color: #ffffff;
+}
+.banner{
+    width: 0%;
+    /* filter: grayscale(100%); */
+}
+.banner .back{
+    width: 100%;
+    height: 100%;
+}
+.title {
+    font-size: 60px;
+    text-shadow: 0 1px 4px #e1e1e1;
+}
+.h4{
+    font-size: 28px;
+    text-shadow: 0 1px 4px #e1e1e1;
+}
+.p{
+    width: 80%;
+    text-shadow: 0 1px 4px #e1e1e1;
+}
+li{
+    margin: 10px 0;
+}
+#overview{
+    background-color: #ffffff;
+}
+.contact-with-client {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #dddddd;
+    display: inline;
+    padding: 11px 30px;
+}
+.contact-with-client:hover{
+    background-color: #050540;
+    color: #d6d6d6;
+    transition: all .3s linear;
+}
+section{
+    padding: 30px;
+}
+a{
+    text-decoration: none;
+}
+nav{
+    display: flex;
+    align-items: center;
+    padding:0px 30px;
+    padding-right: 4px;
+    background-color: #e4e4e4;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    margin: 20px 0;
+}
+.company-name {
+    width: 40%;
+}
+.title-2 {
+    font-weight: 500;
+    font-size: 30px;
+}
+.nav-link-col {
+    width: 100%;
+    display: flex;
+}
+.nav-links {
+    color: #000;
+    border: 3px solid #e4e4e4;
+    padding: 20px 20px;
+}
+.nav-links:hover{
+    border-bottom: 3px solid var(--primaryBackground);
+    background-color: rgb(228, 228, 255);
+    transition: all .2s linear;
+}
+.contac-col {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.contact-button {
+    text-decoration: none;
+    color: #f0eeee;
+    border: 1px solid #fff;
+    padding: 15px 30px;
+    cursor: pointer;
+    background-color: #ff7442;
+}
+.contact-button:hover{
+    background-color: #ff4400;
+    color: #ffffff;
+    transition: all .3s linear;
+}
+/* ---------------------------- */
+.block-flex {
+    display: flex;
+    flex-direction: column;
+}
+.text-container {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+}
+.left-col {
+    width: 100%;
+    padding: 5px;
+}
+.right-col {
+    width: 100%;
+}
+.col-img-text {
+    display: flex;
+    margin: 20px 0;
+    padding: 10px;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: row;
+}
+.container-overview{
+    display: flex;
+    /* padding-top: 80px; */
+    flex-direction: row-reverse;
+}
+.img-contain {
+    width: 70%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.text-rel{
+    position: absolute;
+    padding: 14px 40px;
+    font-size: 30px;
+    background-color: #050540;
+    color: #fff;
+    bottom: 15%;
+    left: -2%;
+}
+.img-2{
+    width: 100%;
+    height: 90%;
+}
+.text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    font-size: 20px;
+}
+/* ------------------------------------- */
+.box-container {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+.ul{
+    padding: 20px 20px; list-style: '>  ';
+    padding: 20px 20px; list-style: '>  ';
+}
+.boxes {
+    padding: 20px;
+    margin: 0 10px;
+    width: 330px;
+    position: relative;
+    border-top: 6px solid darkblue;
+    background:#fff;
+    color: #000000;
+    box-shadow: 0 4px 8px 3px #454545;
+    transition: all .1s linear;
+}
+.boxes:hover{
+    box-shadow: 0px 0px 3px 5px rgb(150, 0, 0);
+}
+.logo {
+    width: 100%;
+    height: 50px;
+}
+.title-service {
+    font-size: 25px;
+    font-weight: 600  ;
+    margin: 10px 0;
+    position: relative;
+}
+.context {
+    font-size: 16px;
+    padding: 10px 3px;
+}
+
+.learn-more {
+    position: absolute;
+    bottom: 5%;
+}
+/* ---------------------------------- */
+.form-contain {
+    display: grid;
+    place-items: center;
+}
+form{
+    width: 90%;
+}
+/* .job-links {
+} */
+.h-3{
+    padding: 10px 0;
+    font-size: 34px;
+    margin: 5px 0;
+}
+.links-col{
+    margin: 20px 0;
+}
+.block-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 300px;
+}
+.blcok {
+    display: flex;
+    width: 50%;
+}
+.user-input {
+    width: 90%;
+    margin: 5px 0;
+    padding: 10px 20px;
+    caret-color: red;
+}
+select, option{
+    width: 90%;
+    padding: 10px 20px;
+    margin: 5px 0;
+}
+.user-input::placeholder{
+    font-style: italic;
+}
+.cneter-button {
+    display: grid;
+    place-items: center;
+    margin: 25px 0;
+}
+.submit-btn{
+    padding: 10px 60px;
+    /* width:11%; */
+    border: 1px solid #000;
+    border-radius: 3px;
+    background-color: #21258fa7;
+    color: #fff;
+    transition: all .2s linear;
+    cursor: pointer;
+}
+.submit-btn:hover{
+    background-color: #0d0f4e;
+    color: #fff;
+}
+
+/* scroll animatons styles */
+  section{
+    overflow: hidden;
+  }
+  .reveal{
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all .50s linear;
+}
+.reveal.active{
+    transform: translateX(0);
+    opacity: 1;
+    overflow: hidden;
+}
+
+</style>
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+    <main style="padding: 10px 10px;">
+      <p><a href="/">Home</a> > <a href="/">Services </a>> BPO-Services</p>
+    </main>
+    <section style="padding: 15px 10px;">
+      <div class="img-container">
+        <div class="left-text">
+          <h1 class="title animation">TSAR IT</h1>
+          <h4 class="h4 animation">BPO-Services</h4>
+          <p class="p animation">BPO-Service refers to the process of creating software applications specifically designed to run on mobile devices such as smartphones and tablets, as well as other platforms like desktop computers and wearable devices.</p>
+          <div>
+            <a href="/contact" class="contact-with-client animation">Contact with Client </a>
+          </div>
+        </div>
+        <div class="banner animation">
+            <img src="./media/Web Development.png" alt="" class="back">
+        </div>
+      </div>
+    </section>
+    <nav class="animation">
+      <div class="company-name animation">
+        <h1>BPO-Services</h1>
+      </div>
+      <div class="nav-link-col">
+        <a href="#overview" class="nav-links">Overview</a>
+        <a href="#solutions" class="nav-links">Solutions</a>
+      </div>
+      <div class="contac-col">
+        <a href="#contact"><button class="contact-button">Contact with us</button></a>
+      </div>
+    </nav>
+    
+    <section id="overview">
+                  <!-- <h1 style="font-size: 28px; font-weight: 600;">The right Development to reinvent everyday</h1> -->
+
+        <div class="container-overview">
+            <div class="img-contain animation">
+                <img src="./media/BPO-serv.png" alt="" class="img-2">
+                <h1 class="text-rel">BPO Service</h1>
+            </div>
+            <div class="text-container animation">
+            <h1 style="font-size: 28px; width: 100%; margin: 10px 20px;">It’s why we built the BPO-Services that works for people</h1>
+            <span style="margin: 20px 30px;" class="animation">
+              <ul style="margin: 20px 20px;" class="animation">
+                <li>BPO stands for Business Process Outsourcing. It refers to the practice of contracting specific business processes or tasks to third-party service providers, typically located in countries where labor costs are lower.</li>
+                <li>Involves customer-facing processes such as customer support, technical support, sales, and marketing.   </li>
+                <li>Encompasses internal, administrative functions including data entry, payroll processing, accounting, human resources, and finance.
+</li>
+              </ul>
+            </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal back" id="solutions">
+        <h1 class="reveal" style="font-size: 45px; font-weight: 600; margin: 20px 0; padding: 20px 30px; color: #000000">Markets change, and we know it           </h1>
+        <div class="box-container reveal">
+            <div class="boxes class="reveal"">
+                <div class="logo">
+    
+                </div>
+                <h1 class="title-service">Customer Support Outsourcing</h1>
+                <p class="context">Handling customer inquiries, complaints, and requests via phone, email, live chat, or social media channels.Proactively reaching out to customers for surveys, feedback collection, appointment reminders, or follow-up calls.
+</p>
+                <ul class="ul">
+                  <li>Document Classifier</li>
+                  <li>Contextual Search</li>
+                  <li>Intelligent Request Routing</li>
+                  <li>Customer Intent Prediction</li>
+                </ul>
+                
+            </div>
+            <div class="boxes class="reveal">
+                <div class="logo">
+    
+                </div>
+                <h1 class="title-service">Technical Support Outsourcing</h1>
+                <p class="context">Providing technical assistance and troubleshooting support for software, hardware, and IT-related issues.Providing technical assistance and troubleshooting support for software, hardware, and IT-related issues.Offering remote assistance and solutions for resolving technical problems, system errors, and network issues.</p>
+                <ul class="ul">
+                  <li>Generative AI Models</li>
+                  <li>Conversational AI, Visual IVR, Chatbots</li>
+                </ul>
+            </div>
+            <div class="boxes class="reveal"">
+                <div class="logo">
+    
+                </div>
+                <h1 class="title-service">Customer Relationship Management (CRM) Outsourcing</h1>
+                <p class="context">
+                  Managing customer data, updating CRM systems, and ensuring data accuracy and completeness.
+Collecting, analyzing, and reporting customer feedback and satisfaction survey results to drive improvements in products and services.
+</p>
+                <ul class="ul"><li>AI Decision Agents</li></ul>
+            </div>
+            <div class="boxes class="reveal"">
+                <div class="logo">
+    
+                </div>
+                <h1 class="title-service">Sales and Lead Generation Outsourcing</h1>
+                <p class="context">Handling sales inquiries, product information requests, and order processing for customers.
+Conducting outbound sales calls for lead generation, prospecting, appointment setting, and sales follow-ups.
+</p>
+                <ul class="ul"><li>Process Mining</li></ul>
+            </div>
+        </div>
+    </section>
+    <section class="reveal" id="contact">
+        <div class="form-contain">
+          <h1 class="h-3">Request For Services</h1>
+          <p class="links-col">
+              Help us find the answer to your questions by entering the details below:
+              </p>
+            <form action="/ServiceBPO" method="post" class="reveal">
+              {% csrf_token %}
+                    <div class="block-container">
+                        <div class="blcok">
+                        <input type="text" name="first_name" id="first_name" class="user-input" placeholder="First name*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="last_name" id="last_name" class="user-input" placeholder="Last name*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="email" name="email" id="email" class="user-input" placeholder="Businesss email*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="phoneNo" id="phoneNo" class="user-input" placeholder="Phone*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="job_title" id="job_title" class="user-input" placeholder="Job Title" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <select name="select_service" id="BPO-Services">
+                            <option value="BPO-Services">BPO-Services</option>
+                        </select>
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="company" id="company" class="user-input" placeholder="Company" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <textarea rows="4" cols="10" name="message" id="message" class="user-input" placeholder="" autocomplete="off"> </textarea>
+                    </div>
+                    </div>
+                    <div class="cneter-button class="reveal"">
+                        <button class="submit-btn">Submit</button>
+                    </div>
+            </form>
+        </div>
+    </section>
+    {% include 'footer.html' %}
+<script>
+window.addEventListener("scroll", reveal);
+let reveals = document.querySelectorAll(".reveal");
+function reveal() {
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var revealTop = reveals[i].getBoundingClientRect().top;
+    var revealPoint = 50;
+    if (revealTop < windowHeight - revealPoint) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+    </script>
+  </body>
+</html>

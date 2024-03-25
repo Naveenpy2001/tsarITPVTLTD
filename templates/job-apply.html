@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TSAR-IT</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+      :root {
+        --primaryBackground: #212529;
+      }
+      ::selection {
+        background-color: #050540;
+        color: #fff;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      :before,
+      :after {
+        box-sizing: border-box;
+      }
+      ::-webkit-scrollbar {
+        width: 18px;
+        background-color: #ffffff;
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 0;
+        background-color: #05053930;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 0;
+        background: linear-gradient(200deg, #040429 30%, #28286efe);
+      }
+      .resume-sec {
+        display: flex;
+        align-items: center;
+        height: 150px;
+        justify-content: center;
+      }
+      #op {
+        text-align: center;
+        padding: 10px 0;
+        font-size: 12px;
+      }
+      .container-job-apply {
+        padding: 100px;
+      }
+      .resume-contain {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+      }
+      .doc {
+        border: 2px dashed #000;
+        padding: 20px 80px;
+        text-align: center;
+        margin: 0 25px;
+        cursor: pointer;
+        background-color: #e6e6e6;
+      }
+      .doc:active {
+        background-color: #0505a0;
+        color: #fff;
+      }
+      .container-job-form {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 40px 0;
+      }
+      .header {
+        margin: 15px 0;
+        font-size: 24px;
+      }
+      hr {
+        margin: 15px 0;
+      }
+      .form {
+        border: 1px solid #000;
+        padding: 40px 200px;
+        width: 70%;
+      }
+      .block {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+      }
+      label {
+        width: 250px;
+        text-align: end;
+        margin: 0 10px;
+      }
+      label.label {
+        width: 100px;
+        text-align: end;
+      }
+      label::after {
+        content: " : ";
+      }
+      .user-input,
+      select {
+        padding: 4px 20px;
+        caret-color: red;
+        border: 2px solid #606060;
+        outline: none;
+        width: 35%;
+      }
+      .user-input:focus {
+        border: 2px solid #080b54;
+      }
+      .loginbtn {
+        padding: 5px 30px;
+        background-color: #fff;
+        border: 1px solid #080b54;
+        border-radius: 3px;
+        cursor: pointer;
+        margin: 10px 0;
+      }
+      .loginbtn:hover {
+        background-color: #0505a0;
+        color: #fff;
+      }
+      .pop-form {
+        background-color: #0000009e;
+        display: none;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 100px 200px 800px 200px;
+      }
+      .login-form {
+        background-color: #ffffff;
+        padding: 40px 60px;
+        position: relative;
+      }
+      #close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: 1px solid #000;
+        padding: 2px 7px;
+        cursor: pointer;
+      }
+      #close:hover {
+        background-color: red;
+        color: #fff;
+      }
+      .user-input-pop {
+        padding: 5px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+    <div class="container-job-apply">
+      <div class="top">
+        <h1 class="header">Career Opportunities: Jr Frontend Developer</h1>
+        <p>
+          Already a registered user?
+          <a href="#" class="pop-login" onclick="openForm()">Please sign in</a>
+        </p>
+      </div>
+      <hr />
+      <div class="resume-sec">
+        <div class="resume-contain">
+          <input type="file" id="fileInput" style="display: none" />
+          <button onclick="uploadFile()" class="doc">Upload resume</button>
+        </div>
+        <div class="cover-letter-contain">
+          <input type="file" id="fileInput" style="display: none" />
+          <button onclick="uploadFile()" class="doc">Upload CV</button>
+        </div>
+      </div>
+      <center>
+        <p id="op">Name : -</p>
+      </center>
+      <center>
+        <p>
+          Accepted file types: DOCX, PDF, Image and Text (MSG, PPT and XLS file
+          types are not accepted for resume or cover letters)
+        </p>
+      </center>
+    </div>
+    <hr />
+    <section>
+      <div class="container-job-form">
+        <form action="" class="form">
+          <div class="block">
+            <label for="">Email Address </label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">Retype Email Address</label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">Choose Password </label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">Retype Password</label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">First Name</label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">Middle Name</label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">Last Name</label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">Country/Region Code</label>
+            <select name="" id="">
+              <option value="">select</option>
+            </select>
+          </div>
+          <div class="block">
+            <label for="">Phone Number</label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">Source Type</label>
+            <select name="" id="">
+              <option value="">select</option>
+            </select>
+          </div>
+          <div class="block">
+            <label for="">Sub-Source*</label>
+            <select name="" id="">
+              <option value="">select</option>
+            </select>
+          </div>
+          <div class="block">
+            <label for="">Employee ID</label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">Date</label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">Gender</label>
+            <select name="" id="">
+              <option value="">select</option>
+              <option value="">male</option>
+              <option value="">female</option>
+            </select>
+          </div>
+          <div class="block">
+            <label for="">Aadhar Card Number </label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">Are you a fresher?</label>
+            <select name="" id="">
+              <option value="">select</option>
+              <option value="">yes</option>
+              <option value="">no</option>
+            </select>
+          </div>
+          <div class="block">
+            <label for="">Have you applied with FSL in the last 30 days?</label>
+            <select name="" id="">
+              <option value="">select</option>
+              <option value="">yes</option>
+              <option value="">no</option>
+            </select>
+          </div>
+          <div class="block">
+            <label for="">Previous Employee ID</label>
+            <input type="text" autocomplete="off" class="user-input" />
+          </div>
+          <div class="block">
+            <label for="">Country/Region of Residence:* </label>
+            <select name="" id="">
+              <option value="">select</option>
+            </select>
+          </div>
+          <div class="block">
+            <label for="">Notification:</label>
+            <div style="display: flex; flex-direction: column">
+              <span>
+                <input type="checkbox" name="" id="" /> Receive new job posting
+                notifications</span
+              >
+              <span
+                ><input type="checkbox" name="" id="" /> Hear more about career
+                opportunities</span
+              >
+            </div>
+          </div>
+          <div class="block">
+            <label for="">Terms of Use:*</label>
+            <input type="checkbox" name="" id="" />
+            <span style="color: red">
+              Hear more about career opportunities</span
+            >
+          </div>
+          <div style="display: flex; justify-content: center">
+            <button class="loginbtn">submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="pop-form" id="myform">
+        <form action="" class="login-form">
+          <span id="close" onclick="closeForm()">✕</span>
+          <h1 style="text-align: center; margin: 5px 0 40px 0">Sign In</h1>
+          <div class="block">
+            <label for="" class="label">Email </label>
+            <input type="text" name="" id="" class="user-input-pop" />
+          </div>
+          <div class="block">
+            <label for="" class="label">Password </label>
+            <input type="password" name="" id="" class="user-input-pop" />
+          </div>
+          <div class="block" style="display: flex; justify-content: end">
+            <a href="" class="" style="text-decoration: none"
+              >Forgot Password?</a
+            >
+          </div>
+          <div style="display: flex; justify-content: center">
+            <button class="loginbtn">submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <script>
+      let span = document.getElementById("op");
+      function uploadFile() {
+        // Trigger click on file input
+        document.getElementById("fileInput").click();
+
+        // Listen for changes in the file input
+        document
+          .getElementById("fileInput")
+          .addEventListener("change", handleFileSelect);
+      }
+
+      function handleFileSelect(event) {
+        const fileInput = event.target;
+        const files = fileInput.files;
+
+        if (files.length > 0) {
+          const selectedFile = files[0];
+          // Do something with the selected file
+          console.log("Selected File:", selectedFile.name);
+          span.textContent = selectedFile.name;
+          // You can perform additional actions here, such as uploading the file to a server.
+        }
+      }
+
+      const openForm = () => {
+        document.getElementById("myform").style.display = "flex";
+      };
+
+      const closeForm = () => {
+        document.getElementById("myform").style.display = "none";
+      };
+    </script>
+  {% include 'footer.html' %}
+  </body>
+</html>

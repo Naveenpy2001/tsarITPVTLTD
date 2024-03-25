@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Your Company Accessibility Page</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+      :root {
+        --primaryBackground: #212529;
+      }
+      ::selection {
+        background-color: #050540;
+        color: #fff;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* line-height: 1.1; */
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      :before,
+      :after {
+        box-sizing: border-box;
+      }
+      ::-webkit-scrollbar {
+        width: 18px;
+        background-color: #ffffff;
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 0;
+        background-color: #05053930;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 0;
+        background: linear-gradient(200deg, #040429 30%, #28286efe);
+      }
+      .banner {
+        background: url("./media/Accessbility.png") center/cover no-repeat;
+        padding: 350px 0;
+        margin: 10px 15px;
+      }
+      .container {
+        padding: 10px 60px;
+      }
+      .container > h1 {
+        color: #12132d;
+        font-size: 38px;
+        margin: 10px 0;
+        font-weight: 300;
+      }
+      h2 {
+        margin: 20px 0;
+      }
+      p {
+        margin: 10px 25px;
+        font-weight: 400;
+        color: #222222;
+        text-align: justify;
+      }
+        html{
+            scroll-behavior: smooth;
+        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav li {
+        display: inline;
+        margin-right: 10px;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      main {
+        padding: 20px;
+      }
+      h1 {
+        padding: 5px 15px;
+        border-left: 5px solid #12132d;
+      }
+
+
+.main{
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    background-color: #e4e4e4;
+    z-index: 99;
+}
+a{
+    text-decoration: none;
+    color: #565656;
+}
+a:hover{
+    color: #000;
+}
+.banner {
+          background: url("./media/Accessbility.png") center/cover no-repeat;
+          padding: 250px 0;
+          margin: 10px 0;
+        }
+        .banner > h1 {
+          color: #fff;
+        }
+        .reveal {
+        transform: translateY(50px);
+        opacity: 0;
+        transition: all 0.6s linear;
+      }
+
+      .reveal.active {
+        transform: translateX(0);
+        opacity: 1;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+<div class="main">
+    <a href="">Home</a> > Company Accessibility
+</div>
+<div class="sec">
+      <div class="banner">
+        <!-- <h1>TSAR - IT</h1>
+        <h3>Company Accessibility</h3> -->
+      </div>
+    </div>
+    <main>
+      <section id="home">
+        <h1>Welcome to Our Company</h1>
+        <p>
+          Welcome to TSAR IT - Where Inclusivity Meets Innovation! At TSAR IT,
+          we are more than just a business; we are a community driven by a
+          passion for accessibility and innovation. Our journey began with a
+          simple yet powerful belief - that everyone, regardless of their
+          abilities, deserves equal access to the opportunities and services our
+          modern world provides. Our mission is clear: to create solutions that
+          empower individuals of all backgrounds and abilities to thrive in an
+          inclusive digital landscape.
+        </p>
+        <div class="reveal">
+          <p> We strive to break down barriers,
+          champion diversity, and redefine what is possible. With a relentless
+          commitment to accessibility, we embark on a quest to make technology
+          and services universally usable. What sets us apart is not just our
+          cutting-edge technology but our people - a dedicated team of
+          professionals who share a common vision. We embrace diversity as a
+          strength, fostering a workplace where every idea is valued, and every
+          voice is heard. </p>
+        </div>
+          <div class="reveal">
+            <p>Together, we harness the power of collaboration to
+          push the boundaries of what is achievable. Our portfolio of services
+          is designed with inclusivity in mind, ensuring that our solutions
+          cater to a wide range of users. Whether it's creating accessible
+          websites, developing user-friendly applications, or providing
+          consultancy on inclusive design, we are here to make a lasting impact.
+          But it's not just about what we do; it's about why we do it. We
+          believe that by embracing accessibility, we contribute to a world
+          where everyone has the opportunity to participate fully, unlocking
+          their true potential. Join us on this journey of innovation and
+          inclusion. Together, let's build a future where technology knows no
+          barriers, and every individual can navigate the digital world with
+          confidence. At TSAR IT, we don't just imagine a more accessible world;
+          we make it happen.</p>
+          </div>
+      </section>
+
+      <section id="services">
+        <div class="reveal">
+          <h2>Our Services</h2>
+        </div>
+        <div class="services">
+          <div class="reveal">
+            <h2>1. Web Accessibility Solutions</h2>
+          <p>
+            At TSAR IT, we understand the importance of a seamlessly
+            accessible online presence. Our team specializes in creating
+            websites that are not only visually appealing but also adhere to the
+            highest standards of accessibility. From responsive design to
+            compatibility with screen readers, we ensure that every user can
+            navigate your website effortlessly.
+          </p>
+          </div>
+          <div class="reveal">
+            <h2>2. Inclusive Application Development</h2>
+          <p>
+            Take your digital solutions to the next level with our inclusive
+            application development services. We design and develop applications
+            that prioritize user experience for everyone. Whether it's a mobile
+            app or a desktop software, we guarantee that your applications are
+            user-friendly, accessible, and aligned with the principles of
+            universal design.
+          </p>
+          </div>
+          <div class="reveal">
+            <h2>3. Accessibility Consultancy</h3>
+            <p>Navigating the landscape of accessibility standards can be complex. That's where our consultancy services come in. Our experts provide in-depth assessments, audits, and guidance to ensure your digital platforms comply with the latest accessibility standards. From WCAG compliance to user testing, we've got you covered.</p>
+          </div>
+            <div class="reveal">
+              <h2>4. Inclusive Design Workshops</h2>
+            <p>Empower your team with the knowledge and skills needed to create inclusive digital experiences. Our inclusive design workshops offer hands-on training, covering topics such as user empathy, accessibility principles, and best practices. Equip your team to integrate accessibility seamlessly into every stage of the design and development process.</p>
+            </div>
+            <div class="reveal">
+              <h2>5. Assistive Technology Integration</h2>
+            <p>We believe in leveraging technology to enhance the lives of individuals with diverse abilities. Our assistive technology integration services help organizations implement and optimize tools that cater to specific user needs. From voice recognition to screen magnification, we tailor solutions that make technology more accessible for everyone.</p>
+            </div>
+            <div class="reveal">
+              <h2>6. Ongoing Support and Maintenance</h2>
+            <p>Accessibility is not a one-time effort but an ongoing commitment. Our team provides continuous support and maintenance services to ensure that your digital assets remain accessible and up-to-date. Whether it's addressing emerging standards or implementing new features, we're here to support your long-term accessibility goals.</p>
+            </div>
+        </div>
+        <div class="reveal">
+          <p>At TSAR IT, we are not just service providers; we are partners in your journey towards a more inclusive digital future. Explore our services and let's collaborate to create a world where technology knows no barriers.</p>
+        </div>
+        <br><br><br><br><br><br>
+      </section>
+    </main>
+    {% include 'footer.html' %}
+    <script src="../JavaScript/scroll.js"></script>
+  </body>
+</html>

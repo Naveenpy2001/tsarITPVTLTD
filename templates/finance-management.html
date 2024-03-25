@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TSAR IT</title>
+    <script src="https://kit.fontawesome.com/06a08d1706.js" crossorigin="anonymous"></script>
+    <style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+  :root {
+    --primaryBackground: #212529;
+  }
+  ::selection {
+    background-color: #050540;
+    color: #fff;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* line-height: 1.1; */
+    font-family: "Raleway", "Poppins", sans-serif;
+    font-weight: 500;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  :before,
+  :after {
+    box-sizing: border-box;
+  }
+  ::-webkit-scrollbar {
+    width: 18px;
+    background-color: #ffffff;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: #05053930;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: linear-gradient(200deg, #040429 30%, #28286efe);
+  }
+  /* slider */
+  .animation {
+    transform: translateY(0);
+    opacity: 1;
+    animation: animate 0.50s linear;
+  }
+  @keyframes animate {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+ 
+  .img-container {
+    display: flex;
+      background: url("./media/hsmbanner.png") bottom/cover no-repeat;
+  }
+ 
+  .left-text {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 450px;
+    padding: 30px 50px;
+    /* background: linear-gradient(to right,#6d137d,#651784,#24023f); */
+    background: linear-gradient(to right, #00000047, #00000041);
+    color: #ffffff;
+  }
+  .banner {
+    width: 0%;
+    /* filter: grayscale(100%); */
+  }
+  .banner .back {
+    width: 100%;
+    height: 100%;
+  }
+  .title {
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+   
+  }
+  .h4 {
+    font-size: 28px;
+    text-shadow: 0 1px 4px #e1e1e1;
+  }
+  .p {
+    width: 80%;
+    text-shadow: 0 1px 4px #e1e1e1;
+  }
+  li {
+    margin: 10px 0;
+  }
+  #overview {
+    background-color: #ffffff;
+  }
+  .contact-with-client {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #dddddd;
+    display: inline;
+    padding: 11px 30px;
+  }
+  .contact-with-client:hover {
+    background-color: #050540;
+    color: #d6d6d6;
+    transition: all 0.3s linear;
+  }
+  section {
+    padding: 0 15px;
+  }
+  a {
+    text-decoration: none;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    padding: 0px 30px;
+    padding-right: 4px;
+    background-color: #e4e4e4;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin: 30px 0;
+  }
+  .company-name {
+    width: auto;
+    padding: 0 40px;
+    border-right: 2px solid #161616
+  }
+  .title-2 {
+    font-weight: 600;
+    font-size: 34px;
+    text-align: center;
+    padding: 50px 0;
+  }
+  .nav-link-col {
+    width: 100%;
+    display: flex;
+  }
+  .nav-links {
+    color: #000;
+    border: 3px solid #e4e4e4;
+    padding: 20px 20px;
+  }
+  .nav-links:hover {
+    border-bottom: 3px solid var(--primaryBackground);
+    background-color: rgb(228, 228, 255);
+    transition: all 0.2s linear;
+  }
+  .contac-col {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-right: 20px;
+  }
+  .contact-button {
+    text-decoration: none;
+    color: #f0eeee;
+    border: 1px solid #fff;
+    padding: 15px 40px;
+    cursor: pointer;
+    background-color: #ff8051;
+  }
+  .contact-button:hover {
+    background-color: #ff4400;
+    color: #ffffff;
+    transition: all 0.3s linear;
+  }
+  /* ---------------------------- */
+.over-view{
+  padding: 100px 50px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 1px solid #b3b3b3;
+  box-shadow: 0 2px 6px 4px #d1d1d1;
+  margin: 60px 0;
+  background: linear-gradient(to right,#5c5c5c32,#acacac0f);
+
+}
+#overview > h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #080c59;
+  text-shadow: 0 3px 5px #1f2151;
+  text-align: center;
+  padding: 80px 0;
+  padding-bottom: 10px;
+}
+.over-view > p {
+  width: 90%;
+  padding:20px 0 20px 0;
+  font-size: 18px;
+}
+
+  /* features */
+  .container-main{
+    padding: 0px 0px;
+    background-color: #ffffff;
+  }
+  .main:nth-child(even){
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 2px 6px 3px #929292;
+    padding: 100px 80px;
+    margin: 0px 0;
+    background-color: #ffffff;
+  }
+  .main:nth-child(odd){
+    display: flex;
+    flex-direction: row-reverse;
+    box-shadow: 0 2px 6px 3px #ababab;
+    padding: 100px 70px;
+    margin: 20px 0;
+    background: linear-gradient(to right,#5c5c5c32,#acacac0f);
+  }
+  .right:nth-child(even){
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 25px;
+  }
+  .right:nth-child(odd){
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 25px;
+  }
+
+  .left:nth-child(even){
+    width: 70%;
+    padding: 10px 25px;
+  color: #050505;
+  }
+   .left:nth-child(odd){
+    width: 70%;
+    padding: 10px 25px;
+    color: #ffffff;
+  }
+  .right-img{
+    width: 100%;
+    height: 300px;
+    mix-blend-mode: multiply;
+  }
+.title-hsm{
+  font-size: 40px;
+  font-weight: 600;
+  margin: 10px 0 15px 0;
+  padding: 20px 0 0 0;
+}
+.p-hsm:nth-child(even){
+  padding: 5px 8px;
+  width: 90%;
+  font-size: 18px;
+}
+.p-hsm:nth-child(odd){
+  padding: 5px 8px;
+  width: 50%;
+  font-size: 18px;
+}
+ul > li{
+  margin: 5px 60px;
+  list-style: '⇒   ';
+}
+/* .animation{
+  transform: translateY(0);
+  opacity: 1;
+  animation: trans .3s linear;
+}
+@keyframes trans{
+  from{
+    transform: translateY(50px);
+  opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+  opacity: 1;
+  }
+} */
+/* contact with us */
+ .form-contain {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    background: #000000a7;
+    width: 100%;
+    padding: 140px 100px 100% 100px;
+    z-index: 99;
+}
+form{
+    width: 90%;
+    background-color: #e4e4e4;
+    padding: 30px;
+    position: relative;
+}
+  
+.sec-back{
+  background:#fff;
+  display: none;
+}
+.h-3{
+    padding: 10px 0 40px 0;
+    font-size: 34px;
+    text-align: center;
+}
+.links-col{
+    margin: 20px 0;
+}
+.block-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 250px;
+}
+.blcok {
+    display: flex;
+    width: 50%;
+}
+.user-input {
+    width: 90%;
+    margin: 5px 0;
+    padding: 10px 20px;
+    caret-color: red;
+    border: 1px solid #000;
+}
+select, option{
+    width: 90%;
+    padding: 10px 20px;
+    margin: 5px 0;
+}
+.user-input::placeholder{
+    font-style: italic;
+}
+.cneter-button {
+    display: grid;
+    place-items: center;
+    margin: 25px 0;
+}
+.submit-btn{
+    padding: 10px 60px;
+    /* width:11%; */
+    border: 1px solid #000;
+    border-radius: 3px;
+    background-color: #21258fa7;
+    color: #fff;
+    transition: all .2s linear;
+    cursor: pointer;
+}
+.submit-btn:hover{
+    background-color: #0d0f4e;
+    color: #fff;
+}
+/* scroll animatons styles */
+  section{
+    overflow: hidden;
+  }
+  .reveal:nth-child(even){
+    transform: translateX(100px);
+    opacity: 0;
+    transition: all .50s linear;
+}
+  .reveal:nth-child(odd){
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all .50s linear;
+}
+.reveal.active{
+    transform: translateX(0);
+    opacity: 1;
+    overflow: hidden;
+}
+.close{
+  border: 1px solid #b9b9b9;
+  font-weight: 500;
+  padding: 3px 8px;
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ffffff;
+ cursor: pointer;
+}
+.close:hover{
+  background-color: red;
+  color: #fff;
+}
+.blur{
+   position: fixed;
+   top: 0;
+   background-color: #00000060;
+   padding:250px 200px 600px;
+   z-index: 99;
+   display: none;
+   
+}
+.main-view{
+    padding: 80px;
+    text-align: center;
+    background: linear-gradient(to left,#12132d,#1c1f79,#161ded);
+  color: #ffff;
+  border-radius: 10px;
+  position: relative;
+}
+.ct-btn{
+  padding: 12px 30px;
+  margin: 30px 0 0 0;
+  cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: linear-gradient(to right,#12132d,#1c1f79,#161ded);
+  color: #ffff;
+  transition: background 1s linear;
+}
+.ct-btn:hover{
+  background: linear-gradient(to left,#12132d,#1c1f79,#161ded);
+}
+.close-tab{
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid #000;
+  padding: 1px 6px;
+  background-color: #fff;
+  color: #000;
+}
+.close-tab:hover{
+  background-color: red;
+  color: #fff;
+}
+</style>
+
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+    <main style="padding: 10px 10px" id="home" class="animation">
+      <p>
+        <a href="/">Home</a> >
+        <a href="/">Products </a>> Finance Management 
+      </p>
+    </main>
+    <section style="padding: 15px 10px" id="home-2">
+      <div class="img-container animation">
+        <div class="left-text">
+          <h1 class="title animation"><a href="#" class="title animation">Finance Management</a></h1>
+      </div>
+    </section>
+
+     <nav class="animation">
+      <div class="company-name animation">
+        <a href="#home" style="color: #000;"><h1>HSM  </h1></a>
+      </div>
+      <div class="nav-link-col animation">
+        <a href="#overview" class="nav-links">Overview</a>
+        <a href="#features" class="nav-links">Features</a>
+      </div>
+      <div class="contac-col animation">
+        <button class="contact-button" onclick="showForm()">Contact with us</button>
+      </div>
+    </nav>
+    <section style="margin: 0; padding: 0;">
+      <div class="blur" id="show-warn">
+        <div class="main-view">
+          <span onclick="closeTab()" class="close-tab">✕</span>
+          <h1>
+          We are developing the product , now it's under construction, soon we are going to launch this product.
+If any one needs this software
+We will specially design as your basis and features.
+Don't hagitate to contact with us 
+Plz connect with us 
+We are for your needs of  software solutions
+        </h1>
+        <button class="ct-btn" onclick="showContactForm()">Contact With Us</button>
+        </div>
+      </div>
+    </section>
+    <section id="overview">
+      <h1>Overview of Finance Management</h1>
+        <div class="over-view reveal" style="overflow: hidden;">
+          
+          <p>
+A Finance Management (Finance Management) is a comprehensive software solution designed to streamline and automate the administrative, clinical, and financial functions within a healthcare institution. The primary goal of an Finance Management is to enhance the efficiency, accuracy, and overall quality of healthcare services.Implementing a Finance Management can lead to improved patient care, increased operational efficiency, better financial management, and enhanced overall decision-making within healthcare institutions. It also contributes to regulatory compliance and the adoption of best practices in the healthcare industry.</p>
+<div style="display: flex; justify-content: center; ">
+  <ul style="text-align: left; margin-left: 80px;">
+  <li style="list-style: circle;">Capture and manage patient demographics, contact details, and relevant information</li>
+  <li style="list-style: circle;">
+    Facilitate the scheduling of appointments for patients and manage the calendar for healthcare providers
+  </li>
+  <li style="list-style: circle;">
+    Manage billing processes, including invoicing, payment tracking, and financial reporting.
+  </li>
+</ul>
+</div>
+        </div>
+      </section>
+    <section id="features">
+      <div class="container-main animation">
+      <h1 style="text-align: center; font-size: 44px; padding: 80px 0; margin: 10px 0; color: #080c59;
+  text-shadow: 0 3px 5px #1f2151;">Explore Finance Management Features</h1>
+        <div class="main reveal">
+          
+          <div class="right">
+            
+            <img src="./media/hsm-img-1.jpg" alt="hsm-img" class="right-img">
+          </div>
+          <div class="left">
+            
+            <h1 class="title-hsm">
+              Multiple Doctor Management
+            </h1>
+            <p class="p-hsm">
+              Managing multiple doctors efficiently involves various aspects, including scheduling, communication, patient records, and overall practice management. Here are some key considerations and strategies for effective multiple doctor management
+            </p>
+          </div>
+        </div>
+        <div class="main reveal">
+          <div class="right">
+            
+            <img src="./media/hsm-img-3.gif" alt="hsm-img" class="right-img">
+          </div>
+          <div class="left">
+            <h1 class="title-hsm">
+              Patient Management
+            </h1>
+            <p class="p-hsm">
+              Patient Management Software is designed to streamline and automate various aspects of healthcare administration, enhancing the efficiency of patient care and overall practice management. Here are some common features and functionalities found in patient management software.
+              <ul>
+                <li>
+                Appointment Scheduling
+              </li>
+              <li>
+                Electronic Health Records (EHR):
+              </li>
+              <li>
+                Billing and Invoicing
+              </li>
+              <li>
+                Patient Registration
+              </li>
+              <li>
+                Prescription Management
+              </li>
+              </ul>
+
+            </p>
+          </div>
+        </div>
+        <div class="main reveal">
+          <div class="right">
+            <img src="./media/hsm-img-2.jpg" alt="hsm-img" class="right-img">
+          </div>
+          <div class="left">
+            
+            <h1 class="title-hsm">
+              Staff Management
+            </h1>
+            <p class="p-hsm">
+              Staff management software can significantly streamline various aspects of workforce management, including scheduling, communication, performance tracking, and administrative tasks. Here are some features and considerations to look for when selecting staff management software:
+             <ul>
+               <li>
+                Scheduling and Shift Planning
+              </li>
+              <li>
+                Time and Attendance Tracking
+              </li>
+              <li>
+                Communication Tools
+              </li>
+              <li>
+                Employee Self-Service
+              </li>
+              <li>
+                Performance Management
+              </li>
+             </ul>
+            </p>
+          </div>
+        </div>
+        <div class="main reveal">
+          <div class="right">
+            
+            <img src="./media/hsm-img-4.webp" alt="hsm-img" class="right-img">
+          </div>
+          <div class="left">
+            
+            <h1 class="title-hsm">
+              Accounting Management
+            </h1>
+            <p class="p-hsm">
+             Accounting management software is designed to help businesses streamline and automate financial processes, making it easier to manage financial transactions, track expenses, generate reports, and ensure compliance with accounting standards. Here are some popular accounting management software options
+            </p>
+          </div>
+        </div>
+        <div class="main reveal">
+          <div class="right">
+            
+            <img src="./media/hsm-img-6.jpg" alt="hsm-img" class="right-img">
+          </div>
+          <div class="left">
+            
+            <h1 class="title-hsm">
+              Pharmacy Management
+            </h1>
+            <p class="p-hsm">
+             Pharmacy management software plays a crucial role in streamlining the operations of a pharmacy, managing inventory, improving patient care, and ensuring compliance with regulatory requirements. Here are key features and considerations for pharmacy management software:
+             <ul>
+              <li>Inventory Management:</li>
+              <li>Prescription Management</li>
+              <li>Point of Sale (POS)</li>
+              <li>Patient Communication</li>
+             <li>Integration with Healthcare Systems</li>
+             </ul>
+            </p>
+          </div>
+        </div>
+        <div class="main reveal">
+          <div class="right">
+            
+            <img src="./media/hsm-img-7.png" alt="hsm-img" class="right-img">
+          </div>
+          <div class="left">
+            
+            <h1 class="title-hsm">
+              Billing Management
+            </h1>
+            <p class="p-hsm">
+              Billing management software is a crucial tool for healthcare providers, medical practices, and billing companies to streamline the billing process, enhance accuracy, and improve financial management. Generate accurate and detailed invoices for patient services, including consultation fees, procedures, and other billable items. The software should support both electronic and paper billing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- pop up form -->
+
+    <section class="sec-back" id="contact" style="padding: 0;">
+        <div class="form-contain">
+            <form class="" onsubmit="submitForm()">
+              <span class="close" onclick="closeForm()">✕</span>
+          <h1 class="h-3">Request for Service</h1>
+              
+                    <div class="block-container">
+                        <div class="blcok">
+                        <input type="text" name="userFirstName" id="userFirstName" class="user-input" placeholder="First name*" autocomplete="off" >
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="userLastName" id="" class="user-input" placeholder="Last name*" autocomplete="off" >
+                    </div>
+                    <div class="blcok">
+                        <input type="email" name="useremail" id="useremail" class="user-input" placeholder="Businesss email*" autocomplete="off" >
+                    </div>
+                    <div class="blcok">
+                        <input type="number" name="" id="" class="user-input" placeholder="Phone No.*" autocomplete="off" >
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="" id="" class="user-input" placeholder="Job Title" autocomplete="off" >
+                    </div>
+                    <div class="blcok">
+                        <select name="hsm" id="hsm">
+                            <option value="Finance Management">Finance Management</option>
+                        </select>
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="" id="" class="user-input" placeholder="Company" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <textarea rows="4" cols="10" name="" id="" class="user-input" placeholder="message" autocomplete="off"> </textarea>
+                    </div>
+                    </div>
+                    <div class="cneter-button class="reveal"">
+                        <button class="submit-btn" >Submit</button>
+                    </div>
+            </form>
+        </div>
+</section>
+    <script>
+
+       const submitForm = () => {
+        let submitBtn = document.querySelector('.submit-btn');
+        let inputFields = document.querySelector('.user-input');
+        if(inputFields.value === ""){
+          alert('fill the form');
+          inputFields.style.border = '1px solid red'
+        }
+        else{
+          submitBtn.textContent = "Submit Success !"
+        submitBtn.style.background = "green"
+        submitBtn.style.color = "#fff"
+        setInterval(() => {
+        document.getElementById('contact').style.display = "none"
+        },1000)
+        }
+      }
+
+      window.addEventListener("scroll", reveal);
+      let reveals = document.querySelectorAll(".reveal");
+      function reveal() {
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var revealTop = reveals[i].getBoundingClientRect().top;
+          var revealPoint = 270;
+          if (revealTop < windowHeight - revealPoint) {
+            reveals[i].classList.add("active");
+          } else {
+            reveals[i].classList.remove("active");
+          }
+        }
+      }
+      // scroll animation end
+      // form appear
+
+      
+      function showForm() {
+        document.getElementById('contact').style.display = 'block'
+      }
+
+      const closeForm = () => {
+        document.getElementById('contact').style.display = "none"
+      }
+
+      const showContactForm = () => {
+        document.getElementById('contact').style.display = 'block'
+      }
+      const closeTab = () => {
+        document.getElementById('show-warn').style.display = "none"
+      }
+
+      setTimeout(() => {
+        document.getElementById('show-warn').style.display = "block"
+      },1000)
+
+    </script>
+  {% include 'footer.html' %}
+  </body>
+</html>

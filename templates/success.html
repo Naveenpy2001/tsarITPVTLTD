@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>{% include './header.html' %}</header>
+    <center>
+      <h1>sent a request successfully</h1>
+      <h1>hi " <b>{{ username }}</b> "</h1>
+      <a href="/">
+        <button>explore more</button>
+      </a>
+      <h2>{{ message }}</h2>
+    </center>
+    {% include 'footer.html' %}
+  </body>
+</html>

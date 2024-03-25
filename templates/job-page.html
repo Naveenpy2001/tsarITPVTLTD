@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TSAR-IT | Jobs</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+      :root {
+        --primaryBackground: #212529;
+      }
+      ::selection {
+        background-color: #050540;
+        color: #fff;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      :before,
+      :after {
+        box-sizing: border-box;
+      }
+      ::-webkit-scrollbar {
+        width: 18px;
+        background-color: #ffffff;
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 0;
+        background-color: #05053930;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 0;
+        background: linear-gradient(200deg, #040429 30%, #28286efe);
+      }
+      .banner {
+        background: url("./media/job-banner.jpg") center/cover no-repeat;
+        padding: 200px 0;
+      }
+      .container-jobs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .jobs {
+        width: 70%;
+      }
+      form {
+        display: flex;
+        margin: 10px 0;
+        gap: 15px;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+      }
+      .job-links {
+        display: flex;
+        gap: 15px;
+        width: 70%;
+        justify-content: center;
+        margin: 20px 0;
+      }
+      .titles {
+        display: flex;
+        width: 100%;
+      }
+      .block-jobs {
+        display: flex;
+        width: 100%;
+      }
+      .div {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+      }
+      .job-input {
+        padding: 5px 20px;
+      }
+      .job-input::placeholder {
+        font-style: italic;
+        color: #1b1e7d;
+      }
+      .btn {
+        margin: 0 5px;
+        padding: 0 10px;
+        border: 1px solid #787878;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.2s linear;
+        background-color: #c3c3c3;
+      }
+      .btn:hover {
+        background-color: #1b1e7d;
+        color: #fff;
+        border: 1px solid #000000;
+      }
+      .remain {
+        text-align: center;
+        margin: 20px 0;
+      }
+      a {
+        text-decoration: none;
+      }
+      .title {
+        color: #04046d;
+        font-size: 20px;
+      }
+      .job-name {
+        color: #0d0d78;
+        position: relative;
+      }
+      .job-name::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 10%;
+        background-color: #1b1e7d;
+        transition: all 0.4s linear;
+      }
+      .job-name:hover::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+    <section>
+      <div class="container">
+        <div class="banner"></div>
+        <h1 class="remain">results <span>1</span> - <span>9</span></h1>
+        <div class="container-jobs">
+          <div class="jobs">
+            <form>
+              <div class="titles">
+                <div class="div title">
+                  <p class="title-p">Title</p>
+                </div>
+                <div class="div title">
+                  <p class="title-p">Location</p>
+                </div>
+                <div class="div title">
+                  <p class="title-p">Date</p>
+                </div>
+              </div>
+              <hr />
+              <div class="block-jobs">
+                <div class="div job-title">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="job-input"
+                    placeholder="Title"
+                  />
+                </div>
+                <div class="div job-location">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="job-input"
+                    placeholder="Location"
+                  />
+                </div>
+                <div class="div date">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="job-input"
+                    placeholder="Date"
+                  />
+                  <button class="btn filter">Filter</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="job-links">
+            <div class="div designation">
+              <a href="/jobApply" class="job-name"
+                >Jr.Frontend Developer</a
+              >
+            </div>
+            <div class="div location-of-job">Banglore,India</div>
+            <div class="div job-date">july / 09 / 2024</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% include 'footer.html' %}
+  </body>
+</html>

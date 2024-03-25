@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./aboutus.css" />
+    <style>
+      :root {
+  --primary: #12132d;
+  --primary-2: #1a1d6e;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+section {
+  padding: 10px 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-right: 20px;
+}
+
+.mySlides {
+  display: none;
+}
+.mySlides-2 {
+  display: none;
+}
+img {
+  vertical-align: middle;
+}
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+.mainDiv {
+  height: 500px;
+}
+.col-left {
+  width: 50%;
+  padding: 40px;
+  display: grid;
+  place-items: center;
+  height: 500px;
+  color: #fff;
+  background: linear-gradient(to right, #000 80%, #000 10%, #8181812d);
+}
+.col-left > h1 {
+  line-height: 40px;
+  padding: 0;
+  font-size: 21.1px;
+}
+.ceo-name {
+  display: block;
+  text-align: end;
+  transform: translateY(28px);
+}
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev,
+  .next,
+  .text {
+    font-size: 11px;
+  }
+  .dot {
+    height: 10px;
+    width: 10px;
+  }
+  @media only screen and (max-width: 500px) {
+    .prev,
+    .next,
+    .text {
+      font-size: 14px;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+html {
+  scroll-behavior: smooth;
+}
+.appr {
+  display: flex;
+}
+.aproach-text {
+  width: 100%;
+  padding: 40px;
+}
+.aproach-text > h1 {
+  margin: 20px 0;
+}
+.approach-img {
+  width: 100%;
+  padding: 40px;
+}
+.a {
+  display: block;
+  width: 100%;
+}
+.flex-btn {
+  display: flex;
+  color: #333;
+  width: 100%;
+}
+
+.about {
+  width: 100%;
+  border: 1px solid #fff;
+  padding: 12px 0;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+.about:hover {
+  background: linear-gradient(200deg, var(--primary), var(--primary-2));
+  color: #fff;
+}
+.container-block {
+  display: flex;
+  padding: 30px;
+  background-color: #04050a;
+  color: #ffff;
+}
+.text-count {
+  width: 100%;
+}
+.text-b {
+  padding: 20px 0;
+  color: #fff;
+}
+.global-video {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.span-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 20px 0;
+}
+.span {
+  display: flex;
+  flex-direction: column;
+  width: 29%;
+  margin: 15px 0;
+  font-size: 16px;
+  padding: 5px 0;
+}
+.span-h {
+  font-size: 56px;
+  margin: 5px 0;
+  background: -webkit-linear-gradient(120deg, #0b3fb7, #9047df);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.back-video {
+  width: 100%;
+}
+.block-padding {
+  padding: 40px 70px;
+}
+.cards-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+.case-cards {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 30px 0 0;
+  height: 550px;
+  width: 370px;
+  position: relative;
+  overflow: hidden;
+}
+.case-cards:hover {
+  background-color: #dee8ff;
+}
+.case-img {
+  width: 100%;
+  height: 250px;
+  transition: all 0.2s linear;
+}
+.case-cards:hover .case-img {
+  transform: scale(1.09);
+}
+
+.case-head,
+.case-text,
+.text-visible {
+  padding: 0 25px;
+}
+.case-head {
+  font-size: 24px;
+  margin: 20px 0;
+  margin-top: 20px;
+}
+.case-text {
+  font-size: 16px;
+}
+.case-learn-more {
+  width: 0;
+  overflow: hidden;
+  transition: all 0.01s ease-in-out;
+}
+.case-cards:hover .case-learn-more {
+  width: 100%;
+}
+.text-visible {
+  position: absolute;
+  bottom: 5%;
+  color: #000;
+  visibility: visible;
+  display: flex;
+}
+.arrow-visible {
+  display: flex;
+  padding: 0 5px;
+  margin: 2px 0;
+  align-items: center;
+}
+/* supercharging styles */
+.container-img-text {
+  background: url("../clients-png/text-back.jpg") center no-repeat;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-contain {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  text-shadow: 0 2px 6px #232323;
+}
+.big-text {
+  font-size: 44px;
+  font-weight: 500;
+}
+.title {
+  font-size: 44px;
+  font-weight: 500;
+}
+.context {
+  font-size: 18px;
+}
+.small-text {
+  width: 70%;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 26px;
+}
+.report {
+  color: #ffffff;
+  margin: 10px 0;
+  position: relative;
+  padding: 3px 4px;
+  font-size: 25px;
+}
+.blue {
+  transition: all 0.2s linear;
+}
+.report:hover .blue {
+  color: darkblue;
+}
+.report::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 9px 0 0 0;
+  height: 2.5px;
+  width: 0;
+  background-color: darkblue;
+  transition: all 0.2s linear;
+  font-size: 24px;
+}
+.report:hover::after {
+  width: 100%;
+}
+/* expertise styles */
+.area-text-header {
+  padding: 20px;
+  display: grid;
+  place-items: center;
+}
+.area-text-header .main-head {
+  font-size: 50px;
+  font-weight: 500;
+}
+.p {
+  width: 60%;
+  font-size: 23px;
+  text-align: center;
+  margin: 10px 0;
+}
+.our-expertise-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.our-expertise {
+  position: relative;
+  width: 300px;
+  height: 410px;
+  background-color: var(--primary);
+  color: #fff;
+  margin: 0 0.5px;
+  padding: 80px 30px;
+}
+.our-expertise:hover {
+  background: linear-gradient(80deg, #870790 0%, #0808efac 49%, #0808efac 49%);
+}
+.our-h1 {
+  font-size: 28px;
+  margin: 20px 0;
+  font-weight: 500;
+}
+.our-context {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 300;
+  height: 100%;
+}
+.p-bottom {
+  position: absolute;
+  bottom: 5%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.our-link {
+  display: block;
+  width: 0%;
+  color: #fff;
+  overflow: hidden;
+  /* transition: width .1s linear; */
+}
+.our-expertise:hover .our-link {
+  width: 100%;
+}
+.logo-nk {
+  transform: scale(1.2);
+}
+/* partners */
+.partners-col {
+  display: flex;
+}
+.our-parrtner-ecosystem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.flex-box {
+  display: grid;
+  place-items: left;
+  align-items: center;
+  padding: 60px 40px 60px 60px;
+}
+
+.flex-box > p {
+  font-size: 20px;
+  width: 60%;
+  margin: 20px 0;
+}
+.three-1 {
+  background-color: #e4ebff;
+  color: #000000;
+  border: 1px solid #000;
+  padding: 10px 30px;
+}
+.three-1:hover {
+  background-color: #0b3fb7;
+  color: #fff;
+}
+.scrolling-imgs {
+  display: flex;
+  width: 100%;
+  padding: 60px 20px;
+}
+/* footer logo */
+
+.footer-col {
+  display: flex;
+  height: 220px;
+  background: linear-gradient(to left, #12132d 1%, #2a2fba);
+  color: #fff;
+}
+.company-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Nunito;
+}
+.ct-us {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.big {
+  font-size: 80px;
+  margin: 0 10px;
+  padding: 0 20px;
+}
+.small {
+  font-size: 28px;
+  border-left: 3px solid #bbb;
+  padding: 0 20px;
+}
+.btns-s {
+  display: flex;
+  flex-direction: column;
+}
+.contact {
+  padding: 12px 50px;
+  margin: 10px 0;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color, color 0.2s linear;
+}
+.one {
+  background-color: inherit;
+  color: #ffffff;
+}
+.one:hover {
+  background-color: #fff;
+  color: #000;
+}
+.two:hover {
+  background-color: inherit;
+  color: #fff;
+}
+.move {
+  transition: all 0.3s linear;
+}
+.contact:hover .move {
+  transform: translateX(15px);
+}
+.container-impact-stories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider-impact {
+  display: flex;
+  padding: 10px 30px;
+}
+.people-image-banner {
+  width: 100%;
+  border: 1px solid #000;
+  margin: 10px;
+  padding: 20px;
+  background: linear-gradient(to right, #000, #000000f5, #00000024);
+}
+.text-about-impact {
+  width: 50%;
+  color: #fff;
+}
+.impact-bottom {
+  margin-top: 30px;
+}
+.impact-bottom > h1 {
+  margin: 10px 0;
+}
+#gallery {
+  padding: 50px;
+}
+
+    </style>
+    <script
+      src="https://kit.fontawesome.com/06a08d1706.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>About Us - TSAR Company</title>
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+    <section id="main">
+      <div class="random">
+        <p style="padding: 10px 100px; font-size: 12x">
+          <a href="/" class="link-home">Home</a>
+          <i class="fa-solid fa-angle-right"></i> About Us
+        </p>
+        <div class="slideshow-container">
+          <div
+            class="mySlides fade"
+            style="
+              background: url(.//rakesh-1.png) top/cover no-repeat;
+            "
+          >
+            <div class="numbertext">1 / 3</div>
+            <div class="mainDiv">
+              <div class="col-left">
+                <h1>
+                  <q
+                    >Acquiring the right talent is the most important key to
+                    growth Hiring was and still is - the most important thing we
+                    do.
+                  </q>
+                  <span class="ceo-name">CEO - Wesly Rakesh</span>
+                </h1>
+              </div>
+            </div>
+            <div class="text">Caption Text</div>
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img
+              src="../media/bannerMain.jpeg"
+              style="width: 100%; height: 500px"
+            />
+            <div class="text">Caption Two</div>
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img
+              src="../media/bannerMain.jpeg"
+              style="width: 100%; height: 500px"
+            />
+            <div class="text">Caption Three</div>
+          </div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+      </div>
+    </section>
+    <section class="appr">
+      <div class="aproach-text">
+        <h1>Heading</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
+          repellat?
+        </p>
+      </div>
+      <div class="approach-img">
+        <img src="" alt="Our Approach" />
+      </div>
+    </section>
+
+    <section>
+      <nav style="padding: 0 40px">
+        <div class="flex-btn">
+          <a href="#bynumbers" class="a"
+            ><button class="about">Our Approach</button></a
+          >
+          <a href="#" class="a"><button class="about">What we Do</button></a>
+          <!-- <a href="#main" class="a"
+            ><button class="about">Our people</button></a> -->
+
+          <a href="#commitement" class="a"
+            ><button class="about">Impact Stories</button></a
+          >
+          <a href="#exprtise" class="a"
+            ><button class="about">Gallery</button></a
+          >
+        </div>
+      </nav>
+      <section id="bynumbers">
+        <div class="container-block">
+          <div class="text-count">
+            <h2 class="text-b">What We Do</h2>
+            <div class="span-row">
+              <span class="span"
+                ><h1 class="span-h">210+</h1>
+                Delivery Centers</span
+              >
+              <span class="span"
+                ><h1 class="span-h">60+</h1>
+                Innovation Labs</span
+              >
+              <span class="span"
+                ><h1 class="span-h">10K</h1>
+                Clients using our software and products</span
+              >
+              <span class="span"
+                ><h1 class="span-h">2,000+</h1>
+                Patents driving innovation</span
+              >
+              <span class="span"
+                ><h1 class="span-h">17</h1>
+                Top employer in seventeen countries</span
+              >
+              <span class="span"
+                ><h1 class="span-h">5.13Mn</h1>
+                Lives impacted by HCL Foundation</span
+              >
+            </div>
+          </div>
+          <div class="global-video">
+            <h1>image</h1>
+          </div>
+        </div>
+      </section>
+
+      <section style="background-color: #f7f7fc">
+        <div class="block-padding">
+          <h1 class="title">Our Activity</h1>
+          <div class="cards-col">
+            <div class="case-cards">
+              <img src="../media/digital-m.jpeg" alt="" class="case-img" />
+              <h1 class="case-head">Reimagining IT service</h1>
+              <p class="case-text">
+                We redefined business process for a leading furniture retailer
+              </p>
+            </div>
+            <div class="case-cards">
+              <img src="../media/digital-m.jpeg" alt="" class="case-img" />
+              <h1 class="case-head">Reimagining shipping</h1>
+              <p class="case-text">TSAR IT redsigned operating system</p>
+            </div>
+            <div class="case-cards">
+              <img src="../media/digital-m.jpeg" alt="" class="case-img" />
+              <h1 class="case-head">Achieving agility</h1>
+              <div class="case-text">
+                hybrid cloud architecture and technology standardization
+                provides simplification, flexibility and 40% reduction in IT
+                operating cost
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container-impact-stories">
+          <div class="slider-impact">
+            <div class="people-image-banner">
+              <div class="text-about-impact">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, molestiae!</p>
+                <div class="impact-bottom">
+                  <h1>name</h1>
+                  <p class="impact-desc">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum, animi?
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="people-image-banner">
+              <div class="text-about-impact">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, molestiae!</p>
+                <div class="impact-bottom">
+                  <h1>name</h1>
+                  <p class="impact-desc">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum, animi?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+   <section id="gallery">
+        <h1>Gallery</h1>
+        <div class="images-container">
+          <div class="container-gallery">
+            <img src="" alt="img-1">
+            <img src="" alt="img-2">
+            <img src="" alt="img-3">
+          </div>
+        </div>
+      </section>
+
+    <div class="footer-col">
+      <div class="company-logo">
+        <h1 class="big">TSAR IT</h1>
+        <div>
+          <p class="small">Supercharging</p>
+          <p class="small">Progess™</p>
+        </div>
+      </div>
+      <div class="ct-us">
+        <div class="btns-s">
+          <button class="contact one">
+            Contact Us <i class="fa-solid move fa-arrow-right"></i>
+          </button>
+          <button class="contact two">
+            Subscribe <i class="fa-solid move fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+
+    <script src="./JavaScript/about.js"></script>
+  </body>
+</html>

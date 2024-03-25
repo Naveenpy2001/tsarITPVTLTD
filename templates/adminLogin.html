@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>admin login | TSAR-IT</title>
+    <script
+      src="https://kit.fontawesome.com/06a08d1706.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .container-admin-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 729px;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        /* background: rgb(16, 13, 250);
+        background: linear-gradient(
+          215deg,
+          rgba(16, 13, 250, 1) 26%,
+          rgba(16, 13, 250, 1) 51%,
+          rgba(252, 122, 0, 1) 51%,
+          rgba(252, 122, 0, 1) 75%
+        );
+        background-size: 200% 200%;
+        animation: moveBg 4s infinite alternate;
+      }
+      @keyframes moveBg {
+        from {
+          background-position: 0% 0%;
+        }
+        to {
+          background-position: 100% 100%;
+        }
+      
+      } */
+      }
+      .admin-login,
+      .logo-container {
+        display: grid;
+        place-items: center;
+      }
+      .admin-login {
+        background-color: #fff;
+        width: 30%;
+        padding: 30px 10px;
+        border-radius: 10px;
+      }
+      .logo-container {
+        margin: 15px 0;
+      }
+      .admin-logo {
+        width: 40%;
+        margin: 0 0 10px 0;
+      }
+      .block {
+        display: flex;
+        flex-direction: column;
+        margin: 3px 0;
+        width: 80%;
+      }
+      label {
+        margin: 2px 0;
+      }
+      input {
+        padding: 6px 10px;
+        outline: none;
+        width: 100%;
+      }
+      .flex {
+        display: flex;
+        font-size: 12px;
+        width: 80%;
+        margin: 5px 0;
+      }
+      .check {
+        width: 10%;
+      }
+      .checkBox {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0;
+      }
+      .forgot-paswd {
+        width: 100%;
+        text-align: end;
+      }
+      .block-btn {
+        margin-top: 25px;
+      }
+      .login-btn-admin {
+        padding: 5px 35px;
+        background-color: #0035bc;
+        border: 1px solid #000;
+        outline: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.2s linear;
+        color: #fff;
+      }
+      .login-btn-admin:hover {
+        background-color: tomato;
+        color: #ffff;
+      }
+      /* reset password */
+      .reset-password-container {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #0000005b;
+        padding: 133px 0 500px 0;
+        backdrop-filter: blur(10px);
+      }
+
+      .form-2 {
+        border: 1px solid #000;
+      }
+      .cancel {
+        position: absolute;
+        top: 9%;
+        right: 33%;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      .cancel:hover {
+        color: #fff;
+      }
+      .contaiener-video-bg {
+        width: 100%;
+      }
+      .dashboard-video {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+    <main>
+      <div class="contaiener-video-bg">
+        <video autoplay loop muted class="dashboard-video">
+          <source src="../media/TSAR-IT-BG.mp4" />
+        </video>
+      </div>
+      <div class="container-admin-login">
+        <form action="#" class="admin-login">
+          <div class="logo-container">
+            <img src="./media/TSAR-IT.png" alt="TSAR-IT" class="admin-logo" />
+            <i
+              class="fa-regular fa-circle-user"
+              style="font-size: 50px; font-weight: 100"
+            ></i>
+            <h1>ADMIN LOGIN</h1>
+          </div>
+          <div class="block">
+            <label for="">user name : </label>
+            <input type="email" name="" id="" />
+          </div>
+          <div class="block">
+            <label for="">password</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <div class="flex">
+            <div class="checkBox">
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                class="check"
+                onclick="showPswd()"
+              /><span>show password</span>
+            </div>
+          </div>
+          <div class="block-btn">
+            <button class="login-btn-admin">login</button>
+          </div>
+        </form>
+      </div>
+    </main>
+{% include 'footer.html' %}
+    <!-- resset password -->
+
+    <script>
+      const showPswd = () => {
+        let password = document.getElementById("password");
+        if (password.type === "password") {
+          password.type = "text";
+        } else {
+          password.type = "password";
+        }
+      };
+
+      const showPswds = () => {
+        let resetPassword = document.getElementById("re-password");
+        let resetConfurmPassword =
+          document.getElementById("re-confirmPassword");
+
+        if (
+          resetPassword.type === "password" &&
+          resetConfurmPassword.type === "password"
+        ) {
+          resetPassword.type = "text";
+          resetConfurmPassword.type = "text";
+        } else {
+          resetPassword.type = "password";
+          resetConfurmPassword.type = "password";
+        }
+      };
+
+      const showResetForm = () => {
+        document.getElementById("resetForm").style.display = "flex";
+      };
+      const closeForm = () => {
+        document.getElementById("resetForm").style.display = "none";
+      };
+    </script>
+  </body>
+</html>

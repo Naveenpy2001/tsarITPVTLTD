@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MEDIA || TSAR-IT</title>
+    <style>
+     
+      .media-form {
+        max-width: 500px;
+        margin: auto;
+      }
+      .media-input,
+      .media-textArea {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        display: inline-block;
+        box-sizing: border-box;
+      }
+      .media-button {
+        background-color: #0a0d74;
+        color: white;
+        padding: 10px 45px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+      }
+      .media-button:hover {
+        background-color: #161852;
+      }
+      .media-img {
+        max-width: 10%;
+        height: auto;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+    <h2>MEDIA-DASHBORAD</h2>
+
+    <form id="crudForm" class="media-form" >
+      <label class="media-label" for="headerTitle">Header Title:</label>
+      <input class="media-input" type="text" id="headerTitle" name="headerTitle" required />
+
+      <label class="media-label" for="image1">Image 1:</label>
+      <input class="media-input" type="file" id="image1" name="image1" accept="image/*" required />
+
+      <label class="media-label" for="image2">Image 2:</label>
+      <input class="media-input" type="file" id="image2" name="image2" accept="image/*" required />
+
+      <label class="media-label" for="content">Content:</label>
+      <textarea id="content" name="content" rows="4" class="media-textArea" required></textarea>
+
+      <button type="button" onclick="createOrUpdate()" class="media-button">Save</button>
+      <button type="button" class="media-button">edit</button>
+    </form>
+
+    <div id="displayData"></div>
+
+    <script>
+      // Function to create or update data
+      function createOrUpdate() {
+        var headerTitle = document.getElementById("headerTitle").value;
+        var image1Input = document.getElementById("image1");
+        var image2Input = document.getElementById("image2");
+        var content = document.getElementById("content").value;
+
+        // Read file content using FileReader
+        var reader1 = new FileReader();
+        reader1.onload = function (e) {
+          var image1Content = e.target.result;
+
+          var reader2 = new FileReader();
+          reader2.onload = function (e) {
+            var image2Content = e.target.result;
+
+            // Save to localStorage
+            var data = {
+              headerTitle: headerTitle,
+              image1: image1Content,
+              image2: image2Content,
+              content: content,
+            };
+
+            localStorage.setItem("crudData", JSON.stringify(data));
+
+            // Display the saved data
+            displayData();
+          };
+
+          // Read the second image
+          reader2.readAsDataURL(image2Input.files[0]);
+        };
+
+        // Read the first image
+        reader1.readAsDataURL(image1Input.files[0]);
+      }
+
+      // Function to display saved data
+      function displayData() {
+        var data = JSON.parse(localStorage.getItem("crudData"));
+        var displayDiv = document.getElementById("displayData");
+        displayDiv.innerHTML = "";
+
+        if (data) {
+          displayDiv.innerHTML += "<h3>" + data.headerTitle + "</h3>";
+          displayDiv.innerHTML +=
+            '<img src="' + data.image1 + '" alt="Image 1" class="media-img">';
+          displayDiv.innerHTML +=
+            '<img src="' + data.image2 + '" alt="Image 2" class="media-img">';
+          displayDiv.innerHTML += "<p>" + data.content + "</p>";
+        }
+      }
+
+      // Load saved data on page load
+      window.onload = displayData;
+    </script>
+  {% include 'footer.html' %}
+  </body>
+</html>

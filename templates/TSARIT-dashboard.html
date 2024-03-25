@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | TSAR-IT</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        text-transform: capitalize;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .navbar-vertical.navbar-expand-lg.show {
+        max-width: 230px;
+        border-radius: 0;
+      }
+      .dashboard-main {
+        width: 100%;
+        /* height: 700px; */
+        /* border: 1px solid #000; */
+        /* overflow-y: scroll; */
+        margin: 10px 0;
+      }
+      .div-block {
+        display: none;
+        justify-content: center;
+        margin: 0 10px;
+        width: 95%;
+        transform: translateY(-50px);
+        opacity: 0;
+        animation: dis 0.2s linear;
+      }
+      .sub-div-block {
+        display: none;
+        justify-content: center;
+        margin: 0 10px;
+        width: 95%;
+        transform: translateY(-50px);
+        opacity: 0;
+        animation: dis 0.2s linear;
+      }
+      .active {
+        display: flex;
+        width: 97%;
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .sub-active {
+        display: flex;
+        width: 97%;
+        transform: translateY(0);
+        opacity: 1;
+        animation: dis 0.2s linear;
+      }
+
+      .std-info {
+        width: 100%;
+      }
+      .std-info > h1 {
+        font-weight: 400;
+        margin: 20px 0;
+        border-left: 3px solid #090b52;
+        padding: 5px 15px;
+        animation: dis-2 0.4s linear;
+        transform: translateX(0);
+        opacity: 1;
+      }
+      @keyframes dis-2 {
+        from {
+          transform: translateX(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      table {
+        border: 1px solid #000;
+        width: 97%;
+        background-color: #fff;
+        table-layout: fixed;
+        font-size: 11px;
+        
+      }
+      tr,
+      .th,
+      .td {
+        border: 1.5px solid #030303;
+        padding: 4px 4px;
+        white-space: nowrap;
+        overflow: hidden;
+      text-overflow: ellipsis;
+      }
+      .th, .td{
+        width: auto;
+      }
+      tr:nth-child(even) {
+        background-color: #ff0090cb;
+        border: 2px solid #717171;
+        color: #fff;
+      }
+      .th {
+        font-size: 14px;
+        font-weight: 600;
+        color: #000;
+      }
+      .overflow-y-lg-auto {
+        overflow-y: hidden;
+      }
+      tr {
+        width: 100%;
+      }
+      i {
+        color: #000;
+      }
+      .search-student {
+        display: flex;
+        justify-content: center;
+        padding: 0px 0;
+      }
+      .search-block {
+        border: 2px solid #848484;
+        display: flex;
+        align-items: center;
+        border-radius: 300px;
+        padding-right: 3px;
+        background-color: #fff;
+        width: 50%;
+        padding: 6px 8px 6px 8px;
+      }
+
+      .search-icon {
+        padding: 0 0 0 10px;
+        display: flex;
+        align-items: center;
+      }
+      .search-input {
+        padding: 6px 30px;
+        outline: none;
+        border: none;
+        caret-color: red;
+        width: 94%;
+      }
+      .search-input::placeholder {
+        font-style: italic;
+        color: #000;
+        font-weight: 300;
+      }
+      .search-btn {
+        width: 19%;
+        padding: 5px 20px;
+        border: 1px solid #000;
+        border-radius: 300px;
+        background-color: #d8d8d8;
+        color: #000;
+        text-align: center;
+        transition: all 0.2s linear;
+      }
+      .search-btn:hover {
+        background-color: #2f2f2f;
+        color: #fff;
+      }
+      .dashboard-flex {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #e9e9e9;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0;
+        width: 100%;
+      }
+      .flex-boxes {
+        border: 1px solid #000;
+        width: 370px;
+        margin: 15px 15px;
+        padding: 20px 15px;
+        border-radius: 3px;
+        position: relative;
+      }
+      .right-arrow {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .nm {
+        padding: 15px 0;
+        border-bottom: 1px solid #7e7e7e;
+      }
+      .span-count-dashboard {
+        margin: 10px 15px 0 15px;
+        display: inline-block;
+        color: #ffffff;
+        font-weight: 600;
+      }
+      .career {
+        background-color: #009cfe;
+        color: #fff;
+      }
+      .services {
+        background-color: #a600ff;
+        color: #fff;
+      }
+      .industries {
+        background-color: #ff0000;
+        color: #fff;
+      }
+      .energy {
+        background-color: #ffd93f;
+        color: #fff;
+      }
+      .products {
+        background-color: #b16400;
+        color: #fff;
+      }
+      .contact {
+        background-color: #150756;
+        color: #fff;
+      }
+      .dashboard-head-title {
+        color: #fff;
+        font-weight: 400;
+        font-size: 26px;
+      }
+      .span-count-dashboard {
+        font-size: 25px;
+        font-weight: 300;
+      }
+      .sub-ul {
+        list-style: none;
+        display: none;
+      }
+      .career-active {
+        display: block;
+        animation: list 0.3s linear;
+        transform: translateY(0);
+        opacity: 1;
+      }
+      @keyframes list {
+        from {
+          transform: translateY(-30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .arrow-up {
+        margin-left: 10px;
+      }
+      .sub-nav-link {
+        color: #000;
+        font-size: 14px;
+        margin: 0 0 0 5px;
+        display: flex;
+        align-items: center;
+      }
+      .career-icon {
+        padding: 10px 15px;
+        font: 15px;
+        text-align: right;
+        color: #686868;
+      }
+      .jobs-post-portal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .jobs-posting-form {
+        border: 1px solid #000;
+        padding: 30px;
+      }
+      .block-jobField {
+        margin: 15px 0;
+      }
+      .jobPost-label {
+        width: 200px;
+        text-align: end;
+        margin: 0 5px;
+        font-size: 20px;
+        color: #000;
+      }
+      .input-jobs-post {
+        border: 1px solid #000;
+        outline: none;
+        padding: 2px 20px;
+      }
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .jobPost-submitBtn {
+        padding: 2px 20px;
+        border: 1px solid #000;
+        margin: 20px 0 0 0;
+        border-radius: 2px;
+        background-color: #6a9e75;
+        color: #ffffff;
+        box-shadow: 0 3px 0 0 #12132d;
+      }
+      .jobPost-submitBtn:hover {
+        background-color: #00b600;
+      }
+      .jobPost-submitBtn:active {
+        transform: translateY(4px);
+        box-shadow: 0 0 0 0 transparent;
+      }
+      /* media dashboard styles */
+      .media-form {
+        max-width: 500px;
+        margin: auto;
+      }
+      .media-input,
+      .media-textArea {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        display: inline-block;
+        box-sizing: border-box;
+        border: 1px solid #999;
+      }
+      .media-button {
+        background-color: #0a0d74;
+        color: white;
+        padding: 8px 45px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+      }
+      .media-button:hover {
+        background-color: #161852;
+      }
+      .media-img {
+        max-width: 10%;
+        height: auto;
+        margin: 10px;
+      }
+      .post-job-nav {
+        border: 1px solid #ccc;
+      }
+      .post-job-links {
+        padding: 10px 20px;
+        color: #000;
+        display: inline-block;
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/06a08d1706.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://unpkg.com/@webpixels/css@1.1.5/dist/index.css");
+
+      /* Bootstrap Icons */
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+    </style>
+  </head>
+  <body>
+  
+    <!-- Dashboard -->
+    <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+      <!-- Vertical Navbar -->
+      <nav
+        class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+        id="navbarVertical"
+      >
+        <div class="container-fluid">
+          <!-- Toggler -->
+          <button
+            class="navbar-toggler ms-n2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#sidebarCollapse"
+            aria-controls="sidebarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Brand -->
+          <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
+            <img src="./media/TSAR-IT.png" alt="TSAR-IT" />
+          </a>
+          <!-- User menu (mobile) -->
+          <div class="navbar-user d-lg-none">
+            <!-- Dropdown -->
+            <div class="dropdown">
+              <!-- Toggle -->
+              <a
+                href="#"
+                id="sidebarAvatar"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <div class="avatar-parent-child">
+                  <img
+                    src="./media/TSAR-IT.png"
+                    alt="TSAR-IT"
+                    class="avatar avatar- rounded-circle"
+                  />
+                  <span class="avatar-child avatar-badge bg-success"></span>
+                </div>
+              </a>
+              <!-- Menu -->
+              <div
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="sidebarAvatar"
+              >
+                <a href="#" class="dropdown-item">Profile</a>
+                <a href="#" class="dropdown-item">Settings</a>
+                <a href="#" class="dropdown-item">Billing</a>
+                <hr class="dropdown-divider" />
+                <a href="#" class="dropdown-item">Logout</a>
+              </div>
+            </div>
+          </div>
+          <!-- Collapse -->
+          <div class="collapse navbar-collapse" id="sidebarCollapse">
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showTabs('tabs1')">
+                  <i class="fa-solid fa-chart-line"></i> Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="careerTab()">
+                  <i class="fa-solid fa-graduation-cap"></i> career
+                  <i class="fa-solid arrow-up fa-chevron-down"></i>
+                </a>
+                <ul class="sub-ul" id="careers">
+                  <li class="sub-nav">
+                    <a href="#" class="sub-nav-link" onclick="showTabs('tabs2')"
+                      ><i class="fa-solid career-icon fa-users-line"></i
+                      >candidates applied jobs</a
+                    >
+                  </li>
+                  <li class="sub-nav">
+                    <a href="#" class="sub-nav-link" onclick="showTabs('tabs3')"
+                      ><i class="fa-solid career-icon fa-user-graduate"></i>HR
+                      Portal</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showTabs('tabs4')">
+                  <i class="fa-solid fa-briefcase"></i> services
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showTabs('tabs5')">
+                  <i class="fa-solid fa-industry"></i> industries
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showTabs('tabs6')">
+                  <i class="fa-solid fa-solar-panel"></i>energy
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showTabs('tabs7')">
+                  <i class="fa-solid fa-cart-flatbed"></i> products
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showTabs('tabs8')">
+                  <i class="fa-regular fa-id-card"></i> contact us
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showTabs('tabs9')">
+                  <i class="fa-regular fa-newspaper"></i> media
+                </a>
+              </li>
+            </ul>
+            <!-- Divider -->
+            <hr class="navbar-divider my-5 opacity-20" />
+            <!-- Navigation -->
+            <!-- Push content down -->
+            <div class="mt-auto"></div>
+            <!-- User (md) -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href=""> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Main content -->
+      <div style="width: 100%">
+        <!-- Header -->
+        <!-- Main -->
+        <main>
+          <div class="dashboard-main">
+            <div class="div-block active" id="tabs1">
+              <div class="std-info">
+                <h1>Dashboard</h1>
+                <div class="dashboard-flex">
+                  <div class="flex-boxes career">
+                    <h3 class="dashboard-head-title">career</h3>
+                    <span class="span-count-dashboard"> 00 </span>
+                  </div>
+
+                  <div class="flex-boxes services">
+                    <span class="right-arrow"> </span>
+                    <h3 class="dashboard-head-title">services</h3>
+                    <span class="span-count-dashboard"> 00 </span>
+                  </div>
+
+                  <div class="flex-boxes industries">
+                    <span class="right-arrow"> </span>
+                    <h3 class="dashboard-head-title">industries</h3>
+                    <span class="span-count-dashboard"> 00 </span>
+                  </div>
+
+                  <div class="flex-boxes energy">
+                    <span class="right-arrow"> </span>
+                    <h3 class="dashboard-head-title">energy</h3>
+                    <span class="span-count-dashboard"> 00 </span>
+                  </div>
+
+                  <div class="flex-boxes products">
+                    <span class="right-arrow"> </span>
+                    <h3 class="dashboard-head-title">products</h3>
+                    <span class="span-count-dashboard"> 00 </span>
+                  </div>
+
+                  <div class="flex-boxes contact">
+                    <span class="right-arrow"> </span>
+                    <h3 class="dashboard-head-title">contact us</h3>
+                    <span class="span-count-dashboard"> 00 </span>
+                  </div>
+                </div>
+                <br /><br />
+                <form action="" class="search-student">
+                  <div class="search-block">
+                    <span class="search-icon"
+                      ><i class="fa-solid fa-magnifying-glass"></i></span
+                    ><input
+                      type="search"
+                      name=""
+                      id=""
+                      class="search-input"
+                      placeholder="search . . ."
+                    />
+                    <button class="search-btn">search</button>
+                  </div>
+                </form>
+                <br />
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="th">No.</th>
+                      <th class="th">name</th>
+                      <th class="th">mail</th>
+                      <th class="th">businessmail</th>
+                      <th class="th">phone no.</th>
+                      <th class="th">job title</th>
+                      <th class="th">company</th>
+                      <th class="th">tell us more</th>
+                    </tr>
+                  </thead>
+                  {% for allData in homePage %}
+                  <tr>
+                    <td class="td">{{ allData.id  }}</td>
+                    <td class="td">{{ allData.username  }}</td>
+                    <td class="td">{{ allData.useremail  }}</td>
+                    <td class="td">{{ allData.busines_email }}</td>
+                    <td class="td">{{ allData.userphno }}</td>
+                    <td class="td">{{ allData.userjob }}</td>
+                    <td class="td">{{ allData.userCompany }}</td>
+                    <td class="td">{{ allData.message }}</td>
+                  </tr>
+                  {% endfor %}
+                  
+                </table>
+              </div>
+            </div>
+            <div class="div-block" id="tabs2">
+              <div class="std-info">
+                <h1>candidates applied jobs</h1>
+                <div class="std-info">
+                  <form action="" class="search-student">
+                    <div class="search-block">
+                      <span class="search-icon"
+                        ><i class="fa-solid fa-magnifying-glass"></i></span
+                      ><input
+                        type="search"
+                        name=""
+                        id=""
+                        class="search-input"
+                        placeholder="search . . ."
+                      />
+                      <button class="search-btn">search</button>
+                    </div>
+                  </form>
+                  <br />
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th">No.</th>
+                        <th class="th">name</th>
+                        <th class="th">e-mail</th>
+                        <th class="th">uploaded resume</th>
+
+                        <th class="th">phone no.</th>
+                        <th class="th">job title</th>
+                        <th class="th">tell us more</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="td">01.</td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                    </tr>
+                    <tr>
+                      <td class="td">02.</td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="div-block" id="tabs3">
+              <div class="std-info">
+                <h1>HR Portal</h1>
+                <div class="std-info">
+                  <nav class="post-job-nav">
+                    <a
+                      href="#"
+                      class="post-job-links"
+                      onclick="showSubTabs('sub-tab-1')"
+                      >posting job</a
+                    >
+                    <a
+                      href="#"
+                      class="post-job-links"
+                      onclick="showSubTabs('sub-tab-2')"
+                      >updating job</a
+                    >
+                    <a
+                      href="#"
+                      class="post-job-links"
+                      onclick="showSubTabs('sub-tab-3')"
+                      >deleting job</a
+                    >
+                  </nav>
+                  <br />
+                  <div class="div-block sub-tab-content sub-active" id="sub-tab-1">
+                    <div class="jobs-post-portal">
+                      <form action="#" class="jobs-posting-form">
+                        <div class="block-jobField">
+                          <label for="" class="jobPost-label">job ID : </label>
+                          <input
+                            type="text"
+                            name=""
+                            id=""
+                            class="input-jobs-post"
+                          />
+                        </div>
+                        <div class="block-jobField">
+                          <label for="" class="jobPost-label"
+                            >job role :
+                          </label>
+                          <input
+                            type="text"
+                            name=""
+                            id=""
+                            class="input-jobs-post"
+                          />
+                        </div>
+                        <div class="block-jobField">
+                          <label for="" class="jobPost-label">Location :</label>
+                          <input
+                            type="text"
+                            name=""
+                            id=""
+                            class="input-jobs-post"
+                          />
+                        </div>
+                        <div class="block-jobField">
+                          <label for="" class="jobPost-label">salary :</label>
+                          <input
+                            type="text"
+                            name=""
+                            id=""
+                            class="input-jobs-post"
+                          />
+                        </div>
+                        <div class="block-jobField">
+                          <label for="" class="jobPost-label"
+                            >qualification :</label
+                          >
+                          <input
+                            type="text"
+                            name=""
+                            id=""
+                            class="input-jobs-post"
+                          />
+                        </div>
+                        <div class="block-jobField">
+                          <label for="" class="jobPost-label">skills :</label>
+                          <input
+                            type="text"
+                            name=""
+                            id=""
+                            class="input-jobs-post"
+                          />
+                        </div>
+                        <div class="block-jobField">
+                          <label for="" class="jobPost-label">date :</label>
+                          <input
+                            type="date"
+                            name=""
+                            id=""
+                            class="input-jobs-post"
+                          />
+                        </div>
+                        <div class="block-jobField">
+                          <label for="" class="jobPost-label"
+                            >job description :</label
+                          >
+                          <textarea
+                            name=""
+                            id=""
+                            cols="20"
+                            rows="4"
+                            class="input-jobs-post"
+                          ></textarea>
+                        </div>
+                        <div class="flex" class="block-jobField">
+                          <button class="jobPost-submitBtn">Submit</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                    <div class="div-block sub-tab-content" id="sub-tab-2">
+                      <div class="jobs-post-portal">
+                        <form action="#" class="jobs-posting-form">
+                          <h1>update job</h1>
+                          <div class="block-jobField">
+                            <label for="" class="jobPost-label"
+                              >job ID :
+                            </label>
+                            <input
+                              type="text"
+                              name=""
+                              id=""
+                              class="input-jobs-post"
+                            />
+                          </div>
+                          <div class="block-jobField">
+                            <label for="" class="jobPost-label"
+                              >job role :
+                            </label>
+                            <input
+                              type="text"
+                              name=""
+                              id=""
+                              class="input-jobs-post"
+                            />
+                          </div>
+                          <div class="block-jobField">
+                            <label for="" class="jobPost-label"
+                              >Location :</label
+                            >
+                            <input
+                              type="text"
+                              name=""
+                              id=""
+                              class="input-jobs-post"
+                            />
+                          </div>
+                          <div class="block-jobField">
+                            <label for="" class="jobPost-label">salary :</label>
+                            <input
+                              type="text"
+                              name=""
+                              id=""
+                              class="input-jobs-post"
+                            />
+                          </div>
+                          <div class="block-jobField">
+                            <label for="" class="jobPost-label"
+                              >qualification :</label
+                            >
+                            <input
+                              type="text"
+                              name=""
+                              id=""
+                              class="input-jobs-post"
+                            />
+                          </div>
+                          <div class="block-jobField">
+                            <label for="" class="jobPost-label">skills :</label>
+                            <input
+                              type="text"
+                              name=""
+                              id=""
+                              class="input-jobs-post"
+                            />
+                          </div>
+                          <div class="block-jobField">
+                            <label for="" class="jobPost-label">date :</label>
+                            <input
+                              type="date"
+                              name=""
+                              id=""
+                              class="input-jobs-post"
+                            />
+                          </div>
+                          <div class="block-jobField">
+                            <label for="" class="jobPost-label"
+                              >job description :</label
+                            >
+                            <textarea
+                              name=""
+                              id=""
+                              cols="20"
+                              rows="4"
+                              class="input-jobs-post"
+                            ></textarea>
+                          </div>
+                          <div class="flex" class="block-jobField">
+                            <button class="jobPost-submitBtn">update</button>
+                          </div>
+                        </form>
+                      </div>
+                      </div>
+                      <div class="div-block sub-tab-content" id="sub-tab-3">
+                        <div class="jobs-post-portal">
+                          <h1>update content here</h1>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              <div class="div-block" id="tabs4">
+                <div class="std-info">
+                  <h1>services</h1>
+                  <form action="" class="search-student">
+                    <div class="search-block">
+                      <span class="search-icon"
+                        ><i class="fa-solid fa-magnifying-glass"></i></span
+                      ><input
+                        type="search"
+                        name=""
+                        id=""
+                        class="search-input"
+                        placeholder="search . . ."
+                      />
+                      <button class="search-btn">search</button>
+                    </div>
+                  </form>
+                  <br />
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th">No.</th>
+                        <th class="th">from</th>
+                        <th class="th">first name</th>
+                        <th class="th">last name</th>
+                        <th class="th">mail</th>
+
+                        <th class="th">phone no.</th>
+                        <th class="th">job title</th>
+                        <th class="th">service from</th>
+                        <th class="th">company</th>
+                        <th class="th">tell us more</th>
+                        <th class="th">time</th>
+                      </tr>
+                    </thead>
+                    {% for services in allServices %}
+                    <tr>
+                      <td class="td">{{ services.id }}</td>
+                      <td class="td">{{ services.form_name }}</td>
+                      <td class="td">{{ services.first_name }}</td>
+                      <td class="td">{{ services.last_name }}</td>
+                      <td class="td">{{ services.email }}</td>
+                      <td class="td">{{ services.phone }}</td>
+                      <td class="td">{{ services.jobTitle }}</td>
+                      <td class="td">{{ services.select }}</td>
+                      <td class="td">{{ services.company }}</td>
+                      <td class="td">{{ services.message }}</td>
+                      <td class="td">{{ services.timestamp }}</td>
+                      
+                    </tr>
+                    {% endfor %}
+                    
+                    
+                  </table>
+                </div>
+              </div>
+            
+            <div class="div-block" id="tabs5">
+              <div class="std-info">
+                <div class="std-info">
+                  <h1>industries</h1>
+                  <form action="" class="search-student">
+                    <div class="search-block">
+                      <span class="search-icon"
+                        ><i class="fa-solid fa-magnifying-glass"></i></span
+                      ><input
+                        type="search"
+                        name=""
+                        id=""
+                        class="search-input"
+                        placeholder="search . . ."
+                      />
+                      <button class="search-btn">search</button>
+                    </div>
+                  </form>
+                  <br />
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th">No.</th>
+                        <th class="th">name</th>
+                        <th class="th">mail</th>
+                        <th class="th">business mail</th>
+
+                        <th class="th">phone no.</th>
+                        <th class="th">job title</th>
+                        <th class="th">company</th>
+                        <th class="th">tell us more</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="td">01.</td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                    </tr>
+                    <tr>
+                      <td class="td">02.</td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="div-block" id="tabs6">
+              <div class="std-info">
+                <div class="std-info">
+                  <h1>energy</h1>
+                  <form action="" class="search-student">
+                    <div class="search-block">
+                      <span class="search-icon"
+                        ><i class="fa-solid fa-magnifying-glass"></i></span
+                      ><input
+                        type="search"
+                        name=""
+                        id=""
+                        class="search-input"
+                        placeholder="search . . ."
+                      />
+                      <button class="search-btn">search</button>
+                    </div>
+                  </form>
+                  <br />
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th">No.</th>
+                        <th class="th">name</th>
+                        <th class="th">mail</th>
+                        <th class="th">business mail</th>
+
+                        <th class="th">phone no.</th>
+                        <th class="th">job title</th>
+                        <th class="th">company</th>
+                        <th class="th">tell us more</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="td">01.</td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                    </tr>
+                    <tr>
+                      <td class="td">02.</td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="div-block" id="tabs7">
+              <div class="std-info">
+                <div class="std-info">
+                  <h1>products</h1>
+                  <form action="" class="search-student">
+                    <div class="search-block">
+                      <span class="search-icon"
+                        ><i class="fa-solid fa-magnifying-glass"></i></span
+                      ><input
+                        type="search"
+                        name=""
+                        id=""
+                        class="search-input"
+                        placeholder="search . . ."
+                      />
+                      <button class="search-btn">search</button>
+                    </div>
+                  </form>
+                  <br />
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th">No.</th>
+                        <th class="th">name</th>
+                        <th class="th">mail</th>
+                        <th class="th">business mail</th>
+
+                        <th class="th">phone no.</th>
+                        <th class="th">job title</th>
+                        <th class="th">company</th>
+                        <th class="th">tell us more</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="td">01.</td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                    </tr>
+                    <tr>
+                      <td class="td">02.</td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="div-block" id="tabs8">
+              <div class="std-info">
+                <div class="std-info">
+                  <h1>Contact us</h1>
+                  <form action="" class="search-student">
+                    <div class="search-block">
+                      <span class="search-icon"
+                        ><i class="fa-solid fa-magnifying-glass"></i></span
+                      ><input
+                        type="search"
+                        name=""
+                        id=""
+                        class="search-input"
+                        placeholder="search . . ."
+                      />
+                      <button class="search-btn">search</button>
+                    </div>
+                  </form>
+                  <br />
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th">No.</th>
+                        <th class="th">name</th>
+                        <th class="th">mail</th>
+                        <th class="th">business mail</th>
+
+                        <th class="th">phone no.</th>
+                        <th class="th">job title</th>
+                        <th class="th">company</th>
+                        <th class="th">tell us more</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="td">01.</td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                    </tr>
+                    <tr>
+                      <td class="td">02.</td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                      <td class="td"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="div-block" id="tabs9">
+              <div class="std-info">
+                <div class="std-info">
+                  <h1>media</h1>
+
+                  <br />
+      <nav class="post-job-nav">
+                    <a
+                      href="#"
+                      class="post-job-links"
+                      onclick="showSubTabs('sub-tab-4')"
+                      >posting job</a
+                    >
+                    <a
+                      href="#"
+                      class="post-job-links"
+                      onclick="showSubTabs('sub-tab-5')"
+                      >updating job</a
+                    >
+                    <a
+                      href="#"
+                      class="post-job-links"
+                      onclick="showSubTabs('sub-tab-6')"
+                      >deleting job</a
+                    >
+                  </nav>
+                  <div class="div-block sub-tab-content sub-active" id="sub-tab-4">
+
+                  <form id="crudForm" class="media-form">
+                    <label class="media-label" for="headerTitle"
+                      >Header Title:</label
+                    >
+                    <input
+                      class="media-input"
+                      type="text"
+                      id="headerTitle"
+                      name="headerTitle"
+                      required
+                    />
+
+                    <label class="media-label" for="image1">Image 1:</label>
+                    <input
+                      class="media-input"
+                      type="file"
+                      id="image1"
+                      name="image1"
+                      accept="image/*"
+                      required
+                    />
+
+                    <label class="media-label" for="image2">Image 2:</label>
+                    <input
+                      class="media-input"
+                      type="file"
+                      id="image2"
+                      name="image2"
+                      accept="image/*"
+                      required
+                    />
+
+                    <label class="media-label" for="content">Content:</label>
+                    <textarea
+                      id="content"
+                      name="content"
+                      rows="4"
+                      class="media-textArea"
+                      required
+                    ></textarea>
+
+                    <button
+                      type="button"
+                      onclick="createOrUpdate()"
+                      class="media-button"
+                    >
+                      Save
+                    </button>
+                    
+                  </form>
+                  </div>
+                  <div class="div-block sub-tab-content" id="sub-tab-5">
+
+                  <form id="crudForm" class="media-form">
+                    <h1>update</h1>
+                    <label class="media-label" for="headerTitle"
+                      >Header Title:</label
+                    >
+                    <input
+                      class="media-input"
+                      type="text"
+                      id="headerTitle"
+                      name="headerTitle"
+                      required
+                    />
+
+                    <label class="media-label" for="image1">Image 1:</label>
+                    <input
+                      class="media-input"
+                      type="file"
+                      id="image1"
+                      name="image1"
+                      accept="image/*"
+                      required
+                    />
+
+                    <label class="media-label" for="image2">Image 2:</label>
+                    <input
+                      class="media-input"
+                      type="file"
+                      id="image2"
+                      name="image2"
+                      accept="image/*"
+                      required
+                    />
+
+                    <label class="media-label" for="content">Content:</label>
+                    <textarea
+                      id="content"
+                      name="content"
+                      rows="4"
+                      class="media-textArea"
+                      required
+                    ></textarea>
+
+                   
+                    <button type="button" class="media-button">edit</button>
+                  </form>
+                  </div>
+                  <div class="div-block sub-tab-content sub-active" id="sub-tab-6">
+
+                  <h1>post media</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </main>
+      </div>
+      
+      <!-- {% include 'footer.html' %} -->
+
+    <script>
+     
+      // side nav sub options show
+      const careerTab = () => {
+        const careers = document.getElementById("careers");
+        if (careers.classList == "sub-ul") {
+          careers.classList.add("career-active");
+        } else {
+          careers.classList.remove("career-active");
+        }
+      };
+
+      const showTabs = (tabsId) => {
+        console.log(tabsId);
+        const tabs = document.querySelectorAll(".div-block");
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        document.getElementById(tabsId).classList.add("active");
+      };
+
+      const showSubTabs = (subTabId) => {
+        console.log(subTabId);
+        const subtab = document.querySelectorAll(".sub-tab-content");
+        subtab.forEach((subTabs) => {
+          subTabs.classList.remove("sub-active");
+        });
+        document.getElementById(subTabId).classList.add("sub-active");
+      };
+    </script>
+  </body>
+</html>
