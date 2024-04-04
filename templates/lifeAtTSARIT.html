@@ -1,0 +1,420 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life at TSAR IT Pvt Ltd</title>
+    <!-- Link to CSS file for styling -->
+    <style>
+      /* Styles for header */
+
+      /* Styles for main content */
+      main {
+        padding: 20px;
+      }
+
+      /* Styles for sections */
+      section {
+        margin-bottom: 50px;
+      }
+
+      /* Styles for images in slideshow */
+      .slideshow-container {
+        position: relative;
+        max-width: 100%;
+      }
+
+      .mySlides {
+        display: none;
+      }
+
+      .mySlides img {
+        width: 100%;
+        height: auto;
+      }
+
+      /* Styles for slideshow navigation buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+      }
+
+      .prev {
+        left: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      /* Styles for dots/circles */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active,
+      .dot:hover {
+        background-color: #717171;
+      }
+      .img-slider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel {
+        width: 90%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .carousel-images {
+        display: flex;
+        transition: transform 0.5s ease;
+        height: 450px;
+        object-fit: cover;
+        background-size: cover;
+        background-position: top;
+      }
+
+      .carousel-image {
+        width: 100%;
+        flex: 0 0 auto;
+      }
+
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        background-color: #ffffff;
+        padding: 5px 13px;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 50%;
+        text-align: center;
+      }
+
+      .prev-btn {
+        left: 0;
+      }
+
+      .next-btn {
+        right: 0;
+      }
+
+      /* Styles for footer */
+      .tsar-footer {
+        background-color: #12132d;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      .banner {
+        height: 500px;
+        overflow: hidden;
+      }
+      .banner-img {
+        object-fit: cover;
+        background-position: center;
+      }
+      .heading-tsar {
+        padding: 20px 30px 5px;
+        border-bottom: 3px solid #12132d;
+        display: inline-block;
+        color: #12132d;
+      }
+      .mainPage {
+        padding: 20px 25px;
+        color: #000;
+      }
+      .mainPage > a {
+        color: #000;
+      }
+      h2 {
+        font-weight: 500;
+        padding: 7px 10px;
+        margin: 10px 0;
+        border-left: 3px solid #121349;
+      }
+      .ul-tsar {
+        padding: 10px 50px;
+      }
+      .li-tsar {
+        padding: 5px 5px;
+        list-style: disc;
+        width: 90%;
+      }
+      section > p {
+        padding: 5px 30px;
+      }
+      .cenetr-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 0 20px 0;
+      }
+      .cenetr-text > h1 {
+        font-weight: 600;
+        font-size: 38px;
+        text-transform: capitalize;
+        color: #535353;
+      }
+      .color {
+        font-weight: 500;
+        color: tomato;
+      }
+      .blue {
+        font-weight: 500;
+        color: #0709aa;
+      }
+      .header-1 {
+        padding: 20px 0;
+        font-weight: 500;
+        font-size: 35px;
+        color: #444;
+      }
+    </style>
+  </head>
+  <body>
+    {% include './header.html' %}
+    <div class="mainPage">
+      <a href="/" class="home">Home</a> > Life at TSAR IT
+    </div>
+    <!-- Header with banner -->
+    <div class="banner">
+      <img
+        src="https://i.ibb.co/4jKGP53/life-img5.jpg"
+        class="banner-img"
+        alt="TSAR IT Banner"
+      />
+    </div>
+    <center>
+      <h1 class="header-1">
+        Welcome to <span class="blue">TSAR-</span><span class="color">IT</span>
+      </h1>
+    </center>
+    <!-- https://i.ibb.co/4jKGP53/life-img5.jpg -->
+    <!-- https://i.ibb.co/Yd4LLk3/life-img4.webp
+    https://i.ibb.co/WtnbZY2/life-img3.png
+    https://i.ibb.co/pWVshqQ/life-img2.jpg
+    https://i.ibb.co/phCtkqw/life-img1.jpg -->
+
+    <!-- Main content section -->
+    <main>
+      <section>
+        <h2>About Us</h2>
+        <p>
+          TSAR IT Pvt Ltd is a leading software company dedicated to providing
+          cutting-edge solutions to clients worldwide. We specialize in web
+          development, mobile applications, artificial intelligence, and more.
+        </p>
+      </section>
+
+      <section>
+        <h2>Life at TSAR IT Pvt Ltd</h2>
+        <p>
+          Life at TSAR IT is vibrant and fulfilling. Here are some reasons why
+          you'll love working with us:
+        </p>
+        <ul class="ul-tsar">
+          <li class="li-tsar">
+            <strong>Exciting Projects:</strong> Dive into challenging projects
+            that push the boundaries of technology. From building scalable web
+            applications to implementing machine learning algorithms, every day
+            brings new opportunities to innovate.
+          </li>
+          <li class="li-tsar">
+            <strong>Collaborative Environment:</strong> Join a diverse team of
+            experts who thrive on collaboration. Share ideas, solve problems
+            together, and learn from one another to deliver exceptional results.
+          </li>
+          <li class="li-tsar">
+            <strong>Continuous Learning:</strong> We believe in investing in our
+            employees' growth. Access resources, attend workshops, and pursue
+            certifications to stay ahead in the rapidly evolving tech industry.
+          </li>
+          <li class="li-tsar">
+            <strong>Work-Life Balance:</strong> Your well-being matters to us.
+            Enjoy flexible working hours and remote work options, ensuring you
+            maintain a healthy balance between your professional and personal
+            life.
+          </li>
+          <li class="li-tsar">
+            <strong>Fun Activities:</strong> Work hard, play hard. Participate
+            in team-building activities, hackathons, and social events that
+            foster a sense of camaraderie and belonging.
+          </li>
+          <li class="li-tsar">
+            <strong>Modern Facilities:</strong> Our offices are equipped with
+            state-of-the-art amenities to enhance your productivity and comfort.
+            From ergonomic workstations to recreational areas, we've got you
+            covered.
+          </li>
+          <li class="li-tsar">
+            <strong>Career Growth:</strong> We believe in nurturing talent and
+            providing ample opportunities for career advancement. Whether you're
+            a recent graduate or a seasoned professional, there's room for
+            growth at TSAR IT.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Image slideshow section -->
+      <!-- <section>
+        <h2>Life at TSAR IT in Pictures</h2>
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <img
+              src="https://i.ibb.co/Yd4LLk3/life-img4.webp "
+              alt="Office Image 1"
+            />
+          </div>
+
+          <div class="mySlides fade">
+            <img
+              src="https://i.ibb.co/WtnbZY2/life-img3.png "
+              alt="Office Image 2"
+            />
+          </div>
+
+          <div class="mySlides fade">
+            <img
+              src="https://i.ibb.co/pWVshqQ/life-img2.jpg  "
+              alt="Team Building Activity"
+            />
+          </div>
+
+          <div class="mySlides fade">
+            <img
+              src="https://i.ibb.co/phCtkqw/life-img1.jpg"
+              alt="Team Building Activity"
+            />
+          </div>
+
+  
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br />
+
+
+        <div style="text-align: center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+
+          </div>
+  </section> -->
+
+      <div class="img-slider">
+        <div class="carousel">
+          <div class="carousel-images">
+            <img
+              class="carousel-image"
+              src="https://i.ibb.co/Yd4LLk3/life-img4.webp"
+              alt="Image 1"
+            />
+            <img
+              class="carousel-image"
+              src="https://i.ibb.co/WtnbZY2/life-img3.png"
+              alt="Image 2"
+            />
+            <img
+              class="carousel-image"
+              src="https://i.ibb.co/pWVshqQ/life-img2.jpg"
+              alt="Image 3"
+            />
+            <!-- Add more images as needed -->
+          </div>
+          <button class="carousel-btn prev-btn" onclick="prevSlide()">
+            &#10094;
+          </button>
+          <button class="carousel-btn next-btn" onclick="nextSlide()">
+            &#10095;
+          </button>
+        </div>
+      </div>
+      <div class="cenetr-text">
+        <h1>
+          Join At <span class="blue">TSAR-</span
+          ><span class="color">IT</span> And growth your career !
+        </h1>
+      </div>
+    </main>
+
+    <script>
+      const carousel = document.querySelector(".carousel");
+      const carouselImages = document.querySelector(".carousel-images");
+      const carouselBtns = document.querySelectorAll(".carousel-btn");
+      let currentIndex = 0;
+      const intervalTime = 3000; // Change this value to adjust auto-scrolling speed
+
+      function nextSlide() {
+        currentIndex++;
+        if (currentIndex > carouselImages.children.length - 1) {
+          currentIndex = 0;
+        }
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = carouselImages.children.length - 1;
+        }
+        updateCarousel();
+      }
+
+      function updateCarousel() {
+        const imageWidth = carousel.clientWidth;
+        carouselImages.style.transform = `translateX(-${
+          currentIndex * imageWidth
+        }px)`;
+      }
+
+      function autoScroll() {
+        setInterval(() => {
+          nextSlide();
+        }, intervalTime);
+      }
+
+      window.onload = function () {
+        autoScroll();
+      };
+    </script>
+
+    <!-- Footer section -->
+    <footer class="tsar-footer">
+      <p>Contact us: info@tsaritservices.com</p>
+    </footer>
+
+    <!-- Add your JavaScript links/scripts here if needed -->
+    <script src="{% static 'script.js' %}"></script>
+  </body>
+</html>

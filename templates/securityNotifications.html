@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -175,9 +176,7 @@
     </style>
   </head>
   <body>
-    <header>
-      {% include './header.html' %}
-    </header>
+    <header>{% include './header.html' %}</header>
     <div class="main">
       <a href="">Home</a> > Security Vulnerability notifications
     </div>
@@ -323,8 +322,8 @@
         </div>
       </div>
     </section>
-    <script src="./JavaScript/scroll.js"></script>
-  {% include 'footer.html' %}
+    <script src='{% static "./JavaScript/scroll.js" %}'></script>
+    {% include 'footer.html' %}
   </body>
 </html>
 <style>

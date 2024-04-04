@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,23 +68,17 @@
         color: #222222;
         text-align: justify;
       }
-      header {
-        text-align: center;
-        padding: 20px;
-        background-color: #f2f2f2;
-      }
+
       section {
         margin: 20px 0;
         padding: 0 60px;
       }
-      footer {
-        margin-top: 50px;
-        text-align: center;
-        background-color: #f2f2f2;
-        padding: 10px;
-      }
-      li {
+   
+      .li {
         margin: 10px 80px;
+      }
+      a {
+        color: #000;
       }
       .main {
         padding: 15px 50px;
@@ -92,13 +87,7 @@
         background-color: #ffffff;
         z-index: 99;
       }
-      a {
-        text-decoration: none;
-        color: #565656;
-      }
-      a:hover {
-        color: #000;
-      }
+
       .banner {
         background: url("./media/terms\ of\ use.png") center/cover no-repeat;
         padding: 200px 0;
@@ -133,10 +122,8 @@
     </style>
   </head>
   <body>
-    <header>
-      {% include './header.html' %}
-    </header>
-    <div class="main animation"><a href="">Home</a> > Terms of Use</div>
+    <header>{% include './header.html' %}</header>
+    <div class="main animation"><a href="/">Home</a> > Terms of Use</div>
     <section style="margin: 0; padding: 0">
       <div class="banner animation">
         <!-- <h1>TSAR - IT</h1>
@@ -238,20 +225,20 @@
 
       <div class="reveal">
         <ol>
-          <li class="reveal">Modify or copy the materials;</li>
-          <li class="reveal">
+          <li class="li reveal">Modify or copy the materials;</li>
+          <li class="li reveal">
             Use the materials for any commercial purpose or for any public
             display (commercial or non-commercial);
           </li>
-          <li class="reveal">
+          <li class="li reveal">
             Attempt to decompile or reverse engineer any software contained on
             TSAR-IT's website;
           </li>
-          <li class="reveal">
+          <li class="li reveal">
             Remove any copyright or other proprietary notations from the
             materials; or
           </li>
-          <li class="reveal">
+          <li class="li reveal">
             Transfer the materials to another person or "mirror" the materials
             on any other server.
           </li>
@@ -267,11 +254,10 @@
           possession whether in electronic or printed format.
         </p>
       </div>
-      <br /><br /><br /><br /><br /><br /><br />
     </section>
 
     <!-- Add more sections as needed -->
-    <script src="./JavaScript/scroll.js"></script>
-  {% include 'footer.html' %}
+    <script src='{% static "./JavaScript/scroll.js" %}'></script>
+    {% include 'footer.html' %}
   </body>
 </html>

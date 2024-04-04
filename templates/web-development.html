@@ -21,6 +21,7 @@
     /* line-height: 1.1; */
 	font-family: "Raleway", 'Poppins', sans-serif;
 	font-weight: 500;
+    text-transform: capitalize;
 }
 html{scroll-behavior: smooth;}
 :before,:after{
@@ -56,10 +57,10 @@ html{scroll-behavior: smooth;}
 }
 .img-container {
   display: flex;
-      background: url('./Web\ Development.png') center/cover no-repeat;
+      background: url('./media/Web\ Development.png') center/cover no-repeat;
 }
 .back{
-    background: url('./web-dev-servives-banner.jpg') center/cover no-repeat;
+    background: url('./media/web-dev-servives-banner.jpg') center/cover no-repeat;
 }
 .left-text {
     display: grid;
@@ -240,10 +241,10 @@ nav{
     background:#fff;
     color: #000000;
     box-shadow: 0 4px 8px 3px #454545;
-    transition: all .1s linear;
+    transition: all .02s linear;
 }
 .boxes:hover{
-    box-shadow: 0px 0px 3px 5px rgb(150, 0, 0);
+    scale: 1.09;
 }
 .logo {
     width: 100%;
@@ -353,8 +354,8 @@ select, option{
       {% include './header.html' %}
     </header>
  
-    <main style="padding: 10px 10px;">
-      <p><a href="/">Home</a> > <a href="/">Services </a>> Web-Development</p>
+    <main style="padding: 10px 10px;" id="top">
+      <p><a href="/">Home</a> > <a href="/#services">Services </a>> Web-Development</p>
     </main>
     <section style="padding: 15px 10px;">
       <div class="img-container">
@@ -373,7 +374,7 @@ select, option{
     </section>
     <nav class="animation">
       <div class="company-name animation">
-        <h1>Web-Development</h1>
+        <a href="#top" style="color: #000;"><h1>Web-Development</h1></a>
       </div>
       <div class="nav-link-col">
         <a href="#overview" class="nav-links">Overview</a>
@@ -387,18 +388,18 @@ select, option{
     <section id="overview">
                   <h1 style="font-size: 28px; font-weight: 600;">The right Development to reinvent everyday</h1>
 
-        <div class="container-overview">
+        <div class="container-overview reveal">
             <div class="img-contain animation">
-                <img src="./media/ap-dev.png" alt="" class="img-2">
-                <h1 class="text-rel">App Development</h1>
+                <img src="./media/web-dev-2.jpeg" alt="" class="img-2">
+                <h1 class="text-rel">Web Development</h1>
             </div>
-            <div class="text-container animation">
+            <div class="text-container reveal">
             <h1 style="font-size: 28px; width: 100%; margin: 10px 20px;">It’s why we built the Web-Development that works for people</h1>
             <span style="margin: 20px 30px;" class="animation">
-              <ul style="margin: 20px 20px;" class="animation">
-                <li>understanding the basics of web development can help in communicating their requirements effectively with developers</li>
-                <li>Making informed decisions about their website or web application projects. Here's an overview of web development from a customer's perspective:</li>
-                <li>Customers should start by clearly defining the goals and objectives of their website or web application.</li>
+              <ul style="margin: 20px 20px;" class="reveal">
+                <li class="reveal">Making informed decisions about their website or web application projects. Here's an overview of web development from a customer's perspective:</li>
+                <li class="reveal">Customers should start by clearly defining the goals and objectives of their website or web application.</li>
+                <li class="reveal">understanding the basics of web development can help in communicating their requirements effectively with developers</li>
               </ul>
             </span>
             </div>
@@ -408,32 +409,24 @@ select, option{
     <section class="reveal back" id="solutions">
         <h1 class="reveal" style="font-size: 43px; margin: 20px 0; padding: 20px 30px; color: #fff;">Markets change, and we know it           </h1>
         <div class="box-container reveal">
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
                 <h1 class="title-service">Understanding Customer Requirements</h1>
                 <p class="context">Begin by thoroughly understanding your customer's needs, preferences, target audience, and business objectives. Conduct meetings or interviews to gather requirements and ensure alignment.</p>
-                <ul class="ul">
-                  <li>Document Classifier</li>
-                  <li>Contextual Search</li>
-                  <li>Intelligent Request Routing</li>
-                  <li>Customer Intent Prediction</li>
-                </ul>
+                
                 
             </div>
-            <div class="boxes class="reveal">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
-                <h1 class="title-service">Custom Website Development</h1>
-                <p class="context">Depending on the complexity and uniqueness of the customer's requirements, offer custom website development services. Tailor the design, features, and functionality to match their brand identity and goals.</p>
-                <ul class="ul">
-                  <li>Generative AI Models</li>
-                  <li>Conversational AI, Visual IVR, Chatbots</li>
-                </ul>
+                <h1 class="title-service reveal">Custom Website Development</h1>
+                <p class="context reveal ">Depending on the complexity and uniqueness of the customer's requirements, offer custom website development services. Tailor the design, features, and functionality to match their brand identity and goals.</p>
+                
             </div>
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
@@ -441,16 +434,16 @@ select, option{
                 <p class="context">
                   Offer more than customer service. Our AI decision agents and co-pilots create case-specific need identification to enable intelligent interaction in real time. Optimize your operations for cost, speed and customer experience.
                 </p>
-                <ul class="ul"><li>AI Decision Agents</li></ul>
+                
             </div>
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
-                <h1 class="title-service">Content Management Systems</h1>
-                <p class="context">If the customer intends to sell products online, suggest e-commerce platforms like Shopify, WooCommerce (built on WordPress), Magento, or custom solutions tailored to their specific requirements.
+                <h1 class="title-service reveal">Content Management Systems</h1>
+                <p class="context reveal">If the customer intends to sell products online, suggest e-commerce platforms like Shopify, WooCommerce (built on WordPress), Magento, or custom solutions tailored to their specific requirements.
 </p>
-                <ul class="ul"><li>Process Mining</li></ul>
+                
             </div>
         </div>
     </section>

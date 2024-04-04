@@ -1,19 +1,7 @@
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
 
-const textArray = ["Web Development",
-"App Development",
-"Bpo Projects",
-"Background Verifications",
-"Satellite Projects",
-"Civil Construction",
-"Manpower Supply",
-"Payroll-Jobs",
-"Ngo Consultancy",
-"Photo & Video Editing",
-"Digital Marketing",
-"Survey",
-"Distribution"];
+const textArray = ["Web Development","App Development","Bpo Projects","Background Verifications","Satellite Projects","Civil Construction","Manpower Supply","Payroll-Jobs","Ngo Consultancy","Photo & Video Editing","Digital Marketing","Survey","Distribution"];
 
 const typingDelay = 200;
 const erasingDelay = 60;

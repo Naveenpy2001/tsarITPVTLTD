@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - TSAR Company</title>
+    <title>Contact Us || TSAR-IT</title>
     <script
       src="https://kit.fontawesome.com/06a08d1706.js"
       crossorigin="anonymous"
@@ -166,12 +166,10 @@
     </style>
   </head>
   <body>
-    <header>
-      {% include './header.html' %}
-    </header>
+    <header>{% include './header.html' %}</header>
     <section class="back">
       <main>
-        <a href="">Home </a> >
+        <a href="/">Home </a> >
         <p>Contact Us</p>
       </main>
       <div class="container-contact">
@@ -222,11 +220,12 @@
               <h2>Please Fill The Form</h2>
               <p>To Reach Out Us</p>
             </div>
-            <form action="#" method="post">
+            <form action="/conactForm" method="post">
+              {% csrf_token %}
               <div class="block">
                 <input
                   type="text"
-                  name="username"
+                  name="first_name"
                   id="username"
                   placeholder="First Name :"
                 />
@@ -234,7 +233,7 @@
               <div class="block">
                 <input
                   type="text"
-                  name="username"
+                  name="last_name"
                   id="username"
                   placeholder="Last Name :"
                 />
@@ -242,7 +241,7 @@
               <div class="block">
                 <input
                   type="text"
-                  name="username"
+                  name="email"
                   id="username"
                   placeholder="email address"
                 />
@@ -250,7 +249,7 @@
               <div class="block">
                 <input
                   type="text"
-                  name="username"
+                  name="phoneNo"
                   id="username"
                   placeholder="Phone No. "
                 />
@@ -258,7 +257,7 @@
               <div class="block">
                 <input
                   type="text"
-                  name="username"
+                  name="subject"
                   id="username"
                   placeholder="Regarding Subject "
                 />

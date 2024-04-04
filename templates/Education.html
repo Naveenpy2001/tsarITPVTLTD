@@ -124,34 +124,34 @@ Education is a broad and essential process that involves the acquisition of know
           <p class="links-col">
                
               </p>
-            <form action="#" class="reveal">
-              
+            <form action="/educationIndustry" method="post" class="reveal">
+              {% csrf_token %}
                     <div class="block-container">
                         <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="First name*" autocomplete="off">
+                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Last name*" autocomplete="off">
+                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="email" name="" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
+                        <input type="email" name="email" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
+                        <input type="text" name="phoneNo" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Job Title" autocomplete="off">
+                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <select name="" id="Education">
+                        <select name="select_service" id="Education">
                             <option value="Education">Education</option>
                         </select>
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Company" autocomplete="off">
+                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <textarea rows="4" cols="10" name="" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
+                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
                     </div>
                     </div>
                     <div class="cneter-button class="reveal"">
@@ -468,7 +468,7 @@ form{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 250px;
+    height: 300px;
 }
 .blcok {
     display: flex;

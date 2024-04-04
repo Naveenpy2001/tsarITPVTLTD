@@ -113,6 +113,7 @@ section{
 }
 a{
     text-decoration: none;
+    color: #000;
 }
 nav{
     display: flex;
@@ -126,7 +127,8 @@ nav{
     margin: 20px 0;
 }
 .company-name {
-    width: 40%;
+    width: 20%;
+    border-right: 1px solid #000;
 }
 .title-2 {
     font-weight: 500;
@@ -240,10 +242,11 @@ nav{
     background:#fff;
     color: #000000;
     box-shadow: 0 4px 8px 3px #454545;
-    transition: all .1s linear;
+    scale: 1;
+    transition: scale .2s ease-in-out;
 }
 .boxes:hover{
-    box-shadow: 0px 0px 3px 5px rgb(150, 0, 0);
+    scale: 1.09;
 }
 .logo {
     width: 100%;
@@ -286,7 +289,7 @@ form{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 250px;
+    height: 300px;
 }
 .blcok {
     display: flex;
@@ -348,7 +351,7 @@ select, option{
       {% include './header.html' %}
     </header>
     <main style="padding: 10px 10px;">
-      <p><a href="/">Home</a> > <a href="/">Services </a>> Survey</p>
+      <p><a href="/">Home</a> > <a href="/#services">Services </a>> Survey</p>
     </main>
     <section style="padding: 15px 10px;">
       <div class="img-container">
@@ -357,7 +360,7 @@ select, option{
           <h4 class="h4 animation">Survey-Projects</h4>
           <p class="p animation">A survey is a research method used to collect data from a group of individuals to gain insights into their opinions, attitudes, behaviors, or characteristics on a particular topic. Surveys can be conducted in various formats, including online questionnaires, telephone interviews, face-to-face interviews, paper-based questionnaires, and more.</p>
           <div>
-            <a href="#" class="contact-with-client animation">Contact with Client </a>
+            <a href="/contact" class="contact-with-client animation">Contact with Client </a>
           </div>
         </div>
         <div class="banner animation">
@@ -367,8 +370,10 @@ select, option{
     </section>
     <nav class="animation">
       <div class="company-name animation">
+        <a href="#">
         <h1>Survey</h1>
-      </div>
+        </a>
+    </div>
       <div class="nav-link-col">
         <a href="#overview" class="nav-links">Overview</a>
         <a href="#solutions" class="nav-links">Solutions</a>
@@ -408,13 +413,8 @@ select, option{
     
                 </div>
                 <h1 class="title-service">SurveyMonkey</h1>
-                <p class="context">SurveyMonkey is a widely used online survey platform that allows users to create and distribute surveys easily. It offers a range of question types, customization options, and analytics tools for data analysis.Effective systems engineering and design processes are critical for satellite projects. This involves defining mission requirements, conceptualizing satellite architectures, performing trade-off analyses, and developing detailed specifications to meet mission objectives while considering constraints such as cost, schedule, and technical feasibility.
-                <ul class="ul">
-                  <li>Pre-designed survey templates.</li>
-                  <li>Multiple question types (multiple choice, open-ended, rating scales, etc.).Contextual Search</li>
-                  <li>Real-time analytics and reporting.</li>
-                  <li>Integration with other tools such as Microsoft Teams and Slack.</li>
-                </ul>
+                <p class="context">SurveyMonkey is a widely used online survey platform that allows users to create and distribute surveys easily. It offers a range of question types, customization options, and analytics tools for data analysis.Effective systems engineering and design processes are critical for satellite projects. 
+               
                 
             </div>
             <div class="boxes class="reveal">
@@ -423,11 +423,7 @@ select, option{
                 </div>
                 <h1 class="title-service">Google Forms</h1>
                 <p class="context">Google Forms is a free and user-friendly survey solution provided by Google. It allows users to create surveys, quizzes, and forms easily and share them with others..</p>
-                <ul class="ul">
-                  <li>Simple and intuitive interface</li>
-                  <li>Integration with Google Sheets for easy data management.</li>
-                  <li>Customization options for themes and question types.</li>
-                </ul>
+                
             </div>
             <div class="boxes class="reveal"">
                 <div class="logo">
@@ -438,11 +434,7 @@ select, option{
                   Qualtrics is a comprehensive survey platform often used for more advanced survey research. It offers a wide range of features suitable for academic, business, and market research purposes.
 
 </p>
-                <ul class="ul"><li>Advanced survey logic and branching.</li>
-                <li>Comprehensive analytics and reporting tools.
-</li>
-<li>Multi-channel distribution options.</li>
-</ul>
+                
             </div>
             <div class="boxes class="reveal"">
                 <div class="logo">
@@ -451,10 +443,6 @@ select, option{
                 <h1 class="title-service">Typeform</h1>
                 <p class="context">Typeform is known for its visually appealing and interactive survey designs. It provides a conversational interface, making the survey-taking experience more engaging for respondents.
 </p>
-                <ul class="ul"><li>Conversational and interactive survey design.</li>
-                <li>Conditional logic for personalized user experiences.</li>
-                <li>Integration options with other tools.</li>
-                </ul>
             </div>
         </div>
     </section>
@@ -464,34 +452,34 @@ select, option{
           <p class="links-col">
               Help us find the answer to your questions by entering the details below:
               </p>
-            <form action="#" class="reveal">
-              
+            <form action="/SurveyService" method="post" class="reveal">
+              {% csrf_token %}
                     <div class="block-container">
                         <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="First name*" autocomplete="off">
+                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Last name*" autocomplete="off">
+                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="email" name="" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
+                        <input type="email" name="email" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
+                        <input type="text" name="phoneNo" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Job Title" autocomplete="off">
+                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <select name="" id="Survey">
+                        <select name="select" id="Survey">
                             <option value="Survey">Survey</option>
                         </select>
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Company" autocomplete="off">
+                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <textarea rows="4" cols="10" name="" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
+                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
                     </div>
                     </div>
                     <div class="cneter-button class="reveal"">

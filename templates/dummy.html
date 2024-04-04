@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pop-up Messages</title>
+    <style>
+      .message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        border: 1px solid;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        max-width: 300px;
+        text-align: center;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="success-message" class="message hidden">
+      <span class="close-btn" onclick="hideMessage('success-message')">x</span>
+      <p>Success! Your action was completed.</p>
+    </div>
+    <div id="error-message" class="message hidden">
+      <span class="close-btn" onclick="hideMessage('error-message')">x</span>
+      <p>Oops! Something went wrong.</p>
+    </div>
+    <!-- Your other content here -->
+    <script>
+      function showMessage(messageId) {
+        var message = document.getElementById(messageId);
+        message.classList.remove("hidden");
+      }
+
+      function hideMessage(messageId) {
+        var message = document.getElementById(messageId);
+        message.classList.add("hidden");
+      }
+
+      // Example of showing success message after an action (e.g., form submission)
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          // Perform form submission here
+
+          // Assuming form submission is successful
+          showMessage("success-message");
+
+          // Prevent the default form submission
+          event.preventDefault();
+        });
+    </script>
+  </body>
+</html>

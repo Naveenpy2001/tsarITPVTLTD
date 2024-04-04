@@ -10,7 +10,7 @@
       {% include './header.html' %}
     </header>
     <main style="padding: 10px 10px;">
-      <p><a href="/">Home</a> > <a href="/">Services </a>> Photo & Video Editing</p>
+      <p><a href="/"style="color: #000;">Home</a> > <a href="/#services" style="color: #000;">Services </a>> Photo & Video Editing</p>
     </main>
     <section style="padding: 15px 10px;">
       <div class="img-container">
@@ -29,7 +29,9 @@
     </section>
     <nav class="animation">
       <div class="company-name animation">
-        <h1>Photo & Video Editing</h1>
+        <a href="#" style="color: #000;">
+            <h1>Photo & Video Editing</h1>
+        </a>
       </div>
       <div class="nav-link-col">
         <a href="#overview" class="nav-links">Overview</a>
@@ -74,12 +76,7 @@
                 </div>
                 <h1 class="title-service">Purpose of Photo Editing</h1>
                 <p class="context">Photo editing aims to enhance and refine still images. This process addresses imperfections, improves visual appeal, and adjusts various elements like color, sharpness, and composition. Whether for personal use or professional projects, photo editing ensures that the final image effectively communicates the intended message or emotion.
-                <ul class="ul">
-                  <li>Document Classifier</li>
-                  <li>Contextual Search</li>
-                  <li>Intelligent Request Routing</li>
-                  <li>Customer Intent Prediction</li>
-                </ul>
+                
                 
             </div>
             <div class="boxes class="reveal">
@@ -88,10 +85,7 @@
                 </div>
                 <h1 class="title-service"> Tools for Photo Editing</h1>
                 <p class="context">Various software tools are available for photo editing, catering to different skill levels and needs. Adobe Photoshop, Lightroom, and GIMP are popular choices. These tools provide a suite of features allowing users to manipulate images, from basic adjustments to more advanced retouching and creative enhancements.</p>
-                <ul class="ul">
-                  <li>Generative AI Models</li>
-                  <li>Conversational AI, Visual IVR, Chatbots</li>
-                </ul>
+                
             </div>
             <div class="boxes class="reveal"">
                 <div class="logo">
@@ -102,7 +96,6 @@
                    Video editing goes beyond simple arrangement; it involves creating a cohesive narrative through moving images. Cutting and trimming footage, adding transitions, adjusting colors, and incorporating sound contribute to shaping the overall story. This process is crucial in filmmaking, advertising, and other visual storytelling mediums.
 
 </p>
-                <ul class="ul"><li>Importance of Creativity in Both</li></ul>
             </div>
             <div class="boxes class="reveal"">
                 <div class="logo">
@@ -111,7 +104,6 @@
                 <h1 class="title-service"> Importance of Creativity in Both</h1>
                 <p class="context">Technical proficiency alone is insufficient; both photo and video editing require a creative touch. Experimenting with different effects, exploring unique styles, and thinking outside the box contribute to producing visually striking content. The creative element distinguishes exceptional edits and helps convey messages effectively, making the content more engaging and memorable.
 </p>
-                <ul class="ul"><li>Process Mining</li></ul>
             </div>
         </div>
     </section>
@@ -121,34 +113,34 @@
           <p class="links-col">
               Help us find the answer to your questions by entering the details below:
               </p>
-            <form action="#" class="reveal">
-              
+            <form action="/PhotoVideoService" method="post" class="reveal">
+              {% csrf_token %}
                     <div class="block-container">
                         <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="First name*" autocomplete="off">
+                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Last name*" autocomplete="off">
+                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="email" name="" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
+                        <input type="email" name="email" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
+                        <input type="text" name="phoneNo" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Job Title" autocomplete="off">
+                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <select name="" id="Photo & Video Editing">
+                        <select name="select" id="Photo & Video Editing">
                             <option value="Photo & Video Editing">Photo & Video Editing</option>
                         </select>
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Company" autocomplete="off">
+                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <textarea rows="4" cols="10" name="" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
+                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
                     </div>
                     </div>
                     <div class="cneter-button class="reveal"">
@@ -301,8 +293,10 @@ nav{
     margin: 20px 0;
 }
 .company-name {
-    width: 40%;
+    width: 50%;
+    border-right: 1px solid #000;
 }
+
 .title-2 {
     font-weight: 500;
     font-size: 30px;
@@ -416,10 +410,11 @@ nav{
     background:#fff;
     color: #000000;
     box-shadow: 0 4px 8px 3px #454545;
-    transition: all .1s linear;
+    scale: 1;
+    transition: scale .2s ease-in-out;
 }
 .boxes:hover{
-    box-shadow: 0px 0px 3px 5px rgb(150, 0, 0);
+    scale: 1.09;
 }
 .logo {
     width: 100%;
@@ -462,7 +457,7 @@ form{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 250px;
+    height: 300px;
 }
 .blcok {
     display: flex;

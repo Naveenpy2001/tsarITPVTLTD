@@ -4,178 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TSAR IT ||  Satelite</title>
-  </head>
-  <body>
-    <header>
-      {% include './header.html' %}
-    </header>
-    <main style="padding: 10px 10px;">
-      <p><a href="/">Home</a> > <a href="/">Services </a>> Satelite</p>
-    </main>
-    <section style="padding: 15px 10px;">
-      <div class="img-container">
-        <div class="left-text">
-          <h1 class="title animation">TSAR IT</h1>
-          <h4 class="h4 animation">Satelite-Projects</h4>
-          <p class="p animation">A satellite is an object that orbits or revolves around another object in space. Satellites can be natural, such as moons orbiting planets, or artificial, human-made objects launched into space for various purposes.</p>
-          <div>
-            <a href="#" class="contact-with-client animation">Contact with Client </a>
-          </div>
-        </div>
-        <div class="banner animation">
-            <img src="./media/Web Development.png" alt="" class="back">
-        </div>
-      </div>
-    </section>
-    <nav class="animation">
-      <div class="company-name animation">
-        <h1>Satelite</h1>
-      </div>
-      <div class="nav-link-col">
-        <a href="#overview" class="nav-links">Overview</a>
-        <a href="#solutions" class="nav-links">Solutions</a>
-      </div>
-      <div class="contac-col">
-        <a href="#contact"><button class="contact-button">Contact with us</button></a>
-      </div>
-    </nav>
-    
-    <section id="overview">
-                  <h1 style="font-size: 28px; font-weight: 600;">The right Development to reinvent everyday</h1>
-
-        <div class="container-overview">
-            <div class="img-contain animation">
-                <img src="./media/satelite-img.png" alt="" class="img-2">
-                <h1 class="text-rel">Satelite</h1>
-            </div>
-            <div class="text-container animation">
-            <h1 style="font-size: 28px; width: 100%; margin: 10px 20px;">It’s why we built the Satelite that works for people</h1>
-            <span style="margin: 20px 30px;" class="animation">
-              <ul style="margin: 20px 20px;" class="animation">
-                <li>These projects involve the deployment of satellites to provide telecommunications, broadcasting, internet connectivity, and satellite phone services. Companies like SpaceX's Starlink, OneWeb, and SES operate satellite constellations to deliver global broadband internet coverage.</li>
-                <li>Earth observation satellite projects focus on deploying satellites equipped with sensors and instruments to monitor Earth's surface, atmosphere, oceans, and environment.
-</li>
-                <li>Weather satellite projects involve launching satellites equipped with instruments to observe and study atmospheric conditions, weather patterns, cloud cover, temperature, humidity, and other meteorological parameters.
-</li>
-              </ul>
-            </span>
-            </div>
-        </div>
-    </section>
-
-    <section class="reveal back" id="solutions">
-        <h1 class="reveal" style="font-size: 45px; font-weight: 600; margin: 20px 0; padding: 20px 30px; color: #000000">Markets change, and we know it           </h1>
-        <div class="box-container reveal">
-            <div class="boxes class="reveal"">
-                <div class="logo">
-    
-                </div>
-                <h1 class="title-service">Systems Engineering and Design</h1>
-                <p class="context">Effective systems engineering and design processes are critical for satellite projects. This involves defining mission requirements, conceptualizing satellite architectures, performing trade-off analyses, and developing detailed specifications to meet mission objectives while considering constraints such as cost, schedule, and technical feasibility.
-                <ul class="ul">
-                  <li>Document Classifier</li>
-                  <li>Contextual Search</li>
-                  <li>Intelligent Request Routing</li>
-                  <li>Customer Intent Prediction</li>
-                </ul>
-                
-            </div>
-            <div class="boxes class="reveal">
-                <div class="logo">
-    
-                </div>
-                <h1 class="title-service">Technology Development and Innovation</h1>
-                <p class="context">Advancements in technology drive progress in satellite projects. Solutions include developing innovative technologies for propulsion, power generation, communications, thermal control, materials, sensors, instruments, and onboard computing to improve satellite performance, reliability, and efficiency..</p>
-                <ul class="ul">
-                  <li>Generative AI Models</li>
-                  <li>Conversational AI, Visual IVR, Chatbots</li>
-                </ul>
-            </div>
-            <div class="boxes class="reveal"">
-                <div class="logo">
-    
-                </div>
-                <h1 class="title-service">Collaborative Partnerships</h1>
-                <p class="context">
-                  Collaborative partnerships between government agencies, space agencies, research institutions, academia, industry partners, and international collaborators are essential for satellite projects. These partnerships leverage expertise, resources, funding, and infrastructure to facilitate knowledge sharing, risk mitigation, and technology transfer.
-
-</p>
-                <ul class="ul"><li>Project Management and Risk Mitigation:</li></ul>
-            </div>
-            <div class="boxes class="reveal"">
-                <div class="logo">
-    
-                </div>
-                <h1 class="title-service">Sales and Lead Generation Outsourcing</h1>
-                <p class="context">Robust project management practices are crucial for satellite projects to ensure successful execution within budget and schedule constraints. Solutions include implementing project management methodologies, risk management processes, and contingency plans to identify, assess, and mitigate risks throughout the project lifecycle
-</p>
-                <ul class="ul"><li>Process Mining</li></ul>
-            </div>
-        </div>
-    </section>
-    <section class="reveal" id="contact">
-        <div class="form-contain">
-          <h1 class="h-3">Request For Services</h1>
-          <p class="links-col">
-              Help us find the answer to your questions by entering the details below:
-              </p>
-            <form action="/sateliteServices" method="post" class="reveal">
-              {% csrf_token %}
-                    <div class="block-container">
-                        <div class="blcok">
-                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <input type="email" name="email" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <input type="text" name="phoneNo" id="" class="user-input" placeholder="Phone*" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <select name="select_service" id="Satelite">
-                            <option value="Satelite">Satelite</option>
-                        </select>
-                    </div>
-                    <div class="blcok">
-                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="Tell Us More..." autocomplete="off"> </textarea>
-                    </div>
-                    </div>
-                    <div class="cneter-button" class="reveal">
-                        <button class="submit-btn">Submit</button>
-                    </div>
-            </form>
-        </div>
-    </section>
-<script>
-window.addEventListener("scroll", reveal);
-let reveals = document.querySelectorAll(".reveal");
-function reveal() {
-  for (var i = 0; i < reveals.length; i++) {
-    var windowHeight = window.innerHeight;
-    var revealTop = reveals[i].getBoundingClientRect().top;
-    var revealPoint = 50;
-    if (revealTop < windowHeight - revealPoint) {
-      reveals[i].classList.add("active");
-    } else {
-      reveals[i].classList.remove("active");
-    }
-  }
-}
-
-    </script>
-  {% include 'footer.html' %}
-  </body>
-</html>
-<style>
+    <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 :root{
@@ -414,10 +243,10 @@ nav{
     background:#fff;
     color: #000000;
     box-shadow: 0 4px 8px 3px #454545;
-    transition: all .1s linear;
+    transition: all .08s linear;
 }
 .boxes:hover{
-    box-shadow: 0px 0px 3px 5px rgb(150, 0, 0);
+    scale: 1.09;
 }
 .logo {
     width: 100%;
@@ -516,3 +345,168 @@ select, option{
 }
 
 </style>
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+    <main style="padding: 10px 10px;">
+      <p><a href="/">Home</a> > <a href="/#services">Services </a>> Satelite</p>
+    </main>
+    <section style="padding: 15px 10px;">
+      <div class="img-container">
+        <div class="left-text">
+          <h1 class="title animation">TSAR IT</h1>
+          <h4 class="h4 animation">Satelite-Projects</h4>
+          <p class="p animation">A satellite is an object that orbits or revolves around another object in space. Satellites can be natural, such as moons orbiting planets, or artificial, human-made objects launched into space for various purposes.</p>
+          <div>
+            <a href="/contact" class="contact-with-client animation">Contact with Client </a>
+          </div>
+        </div>
+        <div class="banner animation">
+            <img src="./media/Web Development.png" alt="" class="back">
+        </div>
+      </div>
+    </section>
+    <nav class="animation">
+      <div class="company-name animation">
+        <a href="#top" style="color: #000;">
+            <h1>Satelite</h1>
+        </a>
+      </div>
+      <div class="nav-link-col">
+        <a href="#overview" class="nav-links">Overview</a>
+        <a href="#solutions" class="nav-links">Solutions</a>
+      </div>
+      <div class="contac-col">
+        <a href="#contact"><button class="contact-button">Contact with us</button></a>
+      </div>
+    </nav>
+    
+    <section id="overview">
+                  <!-- <h1 style="font-size: 28px; font-weight: 600;">The right Development to reinvent everyday</h1> -->
+
+        <div class="container-overview">
+            <div class="img-contain animation">
+                <img src="./media/satelite-img.png" alt="" class="img-2">
+                <h1 class="text-rel">Satelite</h1>
+            </div>
+            <div class="text-container reveal">
+            <h1 style="font-size: 28px; width: 100%; margin: 10px 20px;">It’s why we built the Satelite that works for people</h1>
+            <span style="margin: 20px 30px;" class="animation">
+              <ul style="margin: 20px 20px;" class="animation">
+                <li>These projects involve the deployment of satellites to provide telecommunications, broadcasting, internet connectivity, and satellite phone services. Companies like SpaceX's Starlink, OneWeb, and SES operate satellite constellations to deliver global broadband internet coverage.</li>
+                <li>Earth observation satellite projects focus on deploying satellites equipped with sensors and instruments to monitor Earth's surface, atmosphere, oceans, and environment.
+</li>
+                <li>Weather satellite projects involve launching satellites equipped with instruments to observe and study atmospheric conditions, weather patterns, cloud cover, temperature, humidity, and other meteorological parameters.
+</li>
+              </ul>
+            </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal back" id="solutions">
+        <h1 class="reveal" style="font-size: 45px; font-weight: 600; margin: 20px 0; padding: 20px 30px; color: #ffffff">Markets change, and we know it           </h1>
+        <div class="box-container reveal">
+            <div class="boxes reveal">
+                <div class="logo">
+    
+                </div>
+                <h1 class="title-service">Systems Engineering and Design</h1>
+                <p class="context">Effective systems engineering and design processes are critical for satellite projects. This involves defining mission requirements, conceptualizing satellite architectures, performing trade-off analyses, and developing detailed specifications to meet mission objectives while considering constraints such as cost, schedule, and technical feasibility.
+               
+                
+            </div>
+            <div class="boxes reveal">
+                <div class="logo">
+    
+                </div>
+                <h1 class="title-service">Technology Development and Innovation</h1>
+                <p class="context">Advancements in technology drive progress in satellite projects. Solutions include developing innovative technologies for propulsion, power generation, communications, thermal control, materials, sensors, instruments, and onboard computing to improve satellite performance, reliability, and efficiency..</p>
+                
+            </div>
+            <div class="boxes reveal">
+                <div class="logo">
+    
+                </div>
+                <h1 class="title-service">Collaborative Partnerships</h1>
+                <p class="context">
+                  Collaborative partnerships between government agencies, space agencies, research institutions, academia, industry partners, and international collaborators are essential for satellite projects. These partnerships leverage expertise, resources, funding, and infrastructure to facilitate knowledge sharing, risk mitigation, and technology transfer.
+
+</p>
+                
+            </div>
+            <div class="boxes reveal">
+                <div class="logo">
+    
+                </div>
+                <h1 class="title-service">Sales and Lead Generation Outsourcing</h1>
+                <p class="context">Robust project management practices are crucial for satellite projects to ensure successful execution within budget and schedule constraints. Solutions include implementing project management methodologies, risk management processes, and contingency plans to identify, assess, and mitigate risks throughout the project lifecycle
+</p>
+                
+            </div>
+        </div>
+    </section>
+    <section class="reveal" id="contact">
+        <div class="form-contain">
+          <h1 class="h-3">Request For Services</h1>
+          <p class="links-col">
+              Help us find the answer to your questions by entering the details below:
+              </p>
+            <form action="/sateliteServices" method="post" class="reveal">
+              {% csrf_token %}
+                    <div class="block-container">
+                        <div class="blcok">
+                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="email" name="email" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="phoneNo" id="" class="user-input" placeholder="Phone*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <select name="select_service" id="Satelite">
+                            <option value="Satelite">Satelite</option>
+                        </select>
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="Tell Us More..." autocomplete="off"> </textarea>
+                    </div>
+                    </div>
+                    <div class="cneter-button" class="reveal">
+                        <button class="submit-btn">Submit</button>
+                    </div>
+            </form>
+        </div>
+    </section>
+<script>
+window.addEventListener("scroll", reveal);
+let reveals = document.querySelectorAll(".reveal");
+function reveal() {
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var revealTop = reveals[i].getBoundingClientRect().top;
+    var revealPoint = 50;
+    if (revealTop < windowHeight - revealPoint) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+    </script>
+  {% include 'footer.html' %}
+  </body>
+</html>

@@ -242,10 +242,10 @@ nav{
     background:#fff;
     color: #000000;
     box-shadow: 0 4px 8px 3px #454545;
-    transition: all .1s linear;
+    transition: all .2s linear;
 }
 .boxes:hover{
-    box-shadow: 0px 0px 3px 5px rgb(150, 0, 0);
+    scale: 1.09;
 }
 .logo {
     width: 100%;
@@ -349,8 +349,8 @@ select, option{
     <header>
       {% include './header.html' %}
     </header>
-    <main style="padding: 10px 10px;">
-      <p><a href="/">Home</a> > <a href="/">Services </a>> App-Development</p>
+    <main style="padding: 10px 10px;" id="top">
+      <p><a href="/">Home</a> > <a href="/#services">Services </a>> App-Development</p>
     </main>
     <section style="padding: 15px 10px;">
       <div class="img-container">
@@ -369,7 +369,7 @@ select, option{
     </section>
     <nav class="animation">
       <div class="company-name animation">
-        <h1>App-Development</h1>
+        <a href="#top" style="color: #000;"><h1>App-Development</h1></a>
       </div>
       <div class="nav-link-col">
         <a href="#overview" class="nav-links">Overview</a>
@@ -391,11 +391,7 @@ select, option{
             <div class="text-container animation">
             <h1 style="font-size: 28px; width: 100%; margin: 10px 20px;">It’s why we built the App-Development that works for people</h1>
             <span style="margin: 20px 30px;" class="animation">
-              <ul style="margin: 20px 20px;" class="animation">
-                <li>App development involves the creation of software applications tailored to run on various platforms, primarily mobile devices such as smartphones and tablets.  </li>
-                <li>The process typically begins with identifying a problem or opportunity for which an app could provide a solution. This involves brainstorming ideas, conducting market research, analyzing competitors, and defining the target audience.</li>
-                <li>In the design phase, the app's user interface (UI) and user experience (UX) are developed. This includes creating wireframes, mockups, and prototypes to visualize the app's layout, navigation flow, and interaction elements.</li>
-              </ul>
+              
             </span>
             </div>
         </div>
@@ -404,32 +400,24 @@ select, option{
     <section class="reveal back" id="solutions">
         <h1 class="reveal" style="font-size: 45px; font-weight: 600; margin: 20px 0; padding: 20px 30px; color: #000000">Markets change, and we know it           </h1>
         <div class="box-container reveal">
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
                 <h1 class="title-service">Native App Development</h1>
                 <p class="context">Native app development involves building applications specifically for a single platform using the respective native programming languages and development tools. For example, iOS apps are typically written in Swift or Objective-C using Xcode, while Android apps are developed in Java or Kotlin using Android Studio.</p>
-                <ul class="ul">
-                  <li>Document Classifier</li>
-                  <li>Contextual Search</li>
-                  <li>Intelligent Request Routing</li>
-                  <li>Customer Intent Prediction</li>
-                </ul>
+                
                 
             </div>
-            <div class="boxes class="reveal">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
                 <h1 class="title-service">Cross-Platform Development</h1>
                 <p class="context">Cross-platform development enables building apps that can run on multiple platforms (e.g., iOS, Android, web) using a single codebase. This approach can save time and resources compared to developing separate native apps. Common cross-platform frameworks and tools include React Native, Flutter, Xamarin, and Ionic.</p>
-                <ul class="ul">
-                  <li>Generative AI Models</li>
-                  <li>Conversational AI, Visual IVR, Chatbots</li>
-                </ul>
+                
             </div>
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
@@ -437,16 +425,16 @@ select, option{
 </h1>
                 <p class="context">
                   Progressive web apps are web applications that leverage modern web technologies to provide app-like experiences directly within web browsers. PWAs offer advantages such as cross-platform compatibility, offline functionality, and the ability to be installed on the user's device without going through an app store</p>
-                <ul class="ul"><li>AI Decision Agents</li></ul>
+                
             </div>
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
                 <h1 class="title-service">Backend as a Service (BaaS)</h1>
                 <p class="context">Backend as a Service platforms offer cloud-based backend infrastructure and services that developers can leverage to build and deploy mobile and web applications quickly. BaaS providers handle backend functionalities such as user authentication, data storage, push notifications, and server-side logic, allowing developers to focus on building the frontend components of their apps.
 </p>
-                <ul class="ul"><li>Process Mining</li></ul>
+                
             </div>
         </div>
     </section>

@@ -236,7 +236,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background: url('./automotive-3.webp') top/cover no-repeat;
+    background: url('./media/automotive-3.webp') top/cover no-repeat;
     padding: 70px 0;
   }
   .box {
@@ -296,7 +296,7 @@ form{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 250px; 
+    height: 300px; 
 }
 .blcok {
     display: flex;
@@ -389,7 +389,7 @@ select, option{
 
       <div class="container-overview">
         <div class="img-contain animation">
-          <img src="./automotive-back.png" alt="industry-logo" class="img-2" />
+          <img src="./media/automotive-back.png" alt="industry-logo" class="img-2" />
           <h1 class="text-rel">Automotive</h1>
         </div>
         <div class="text-container animation">
@@ -469,34 +469,34 @@ The automotive industry encompasses the design, manufacturing, marketing, and sa
           <p class="links-col">
                
               </p>
-            <form action="#" class="reveal blur-back">
-              
+            <form action="/automotivendustry" method="post" class="reveal blur-back">
+              {% csrf_token %}
                     <div class="block-container">
                         <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="First name*" autocomplete="off">
+                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Last name*" autocomplete="off">
+                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="email" name="" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
+                        <input type="email" name="email" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
+                        <input type="text" name="phoneNo" id="" class="user-input" placeholder="Phone*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Job Title" autocomplete="off">
+                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <select name="" id="automotive">
+                        <select name="select_service" id="automotive">
                             <option value="automotive">Automotive</option>
                         </select>
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Company" autocomplete="off">
+                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <textarea rows="4" cols="10" name="" id="" class="user-input" placeholder="Message" autocomplete="off"> </textarea>
+                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="Message" autocomplete="off"> </textarea>
                     </div>
                     </div>
                     <div class="cneter-button class="reveal"">

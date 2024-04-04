@@ -11,6 +11,13 @@ class HomeContact(models.Model):
     userCompany = models.CharField(max_length=160)
     message = models.TextField()
 
+class ContactUs(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13)
+    usersubject = models.CharField(max_length=150)
+    message = models.TextField()
 
 class SignInUser(models.Model):
     user_name = models.CharField(max_length=100)
@@ -35,3 +42,51 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.form_name} - {self.name}"
+    
+class Industries(models.Model):
+    form_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=100)
+    jobTitle = models.CharField(max_length=100)
+    select = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.form_name} - {self.name}"
+    
+class Energy(models.Model):
+    form_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=100)
+    jobTitle = models.CharField(max_length=100)
+    select = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.form_name} - {self.name}"
+    
+
+    
+class Products(models.Model):
+    form_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=100)
+    jobTitle = models.CharField(max_length=100)
+    select = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.form_name} - {self.name}"
+    

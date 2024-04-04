@@ -56,7 +56,7 @@ html{scroll-behavior: smooth;}
 }
 .img-container {
   display: flex;
-      background: linear-gradient(to right,#00000053,#00000021,#00000017), url('./distibutors-banner-bg.jpeg') center/cover no-repeat;
+      background: linear-gradient(to right,#00000053,#00000021,#00000017), url('./media/distibutors-banner-bg.jpeg') center/cover no-repeat;
 }
 .back{
     background: url('./media/distribution-bg.jpg') center/cover no-repeat;
@@ -113,6 +113,7 @@ section{
 }
 a{
     text-decoration: none;
+    color: #000;
 }
 nav{
     display: flex;
@@ -126,7 +127,8 @@ nav{
     margin: 20px 0;
 }
 .company-name {
-    width: 40%;
+    width: 25%;
+    border-right: 1px solid #000;
 }
 .title-2 {
     font-weight: 500;
@@ -240,10 +242,11 @@ nav{
     background:#fff;
     color: #000000;
     box-shadow: 0 4px 8px 3px #454545;
-    transition: all .1s linear;
+    scale: 1;
+    transition: scale .2s ease-in-out;
 }
 .boxes:hover{
-    box-shadow: 0px 0px 3px 5px rgb(150, 0, 0);
+    scale: 1.09;
 }
 .logo {
     width: 100%;
@@ -286,7 +289,7 @@ form{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 250px;
+    height: 300px;
 }
 .blcok {
     display: flex;
@@ -348,7 +351,7 @@ select, option{
       {% include './header.html' %}
     </header>
     <main style="padding: 10px 10px;">
-      <p><a href="/">Home</a> > <a href="/">Services </a>> Distribution</p>
+      <p><a href="/">Home</a> > <a href="/#services">Services </a>> Distribution</p>
     </main>
     <section style="padding: 15px 10px;">
       <div class="img-container">
@@ -357,7 +360,7 @@ select, option{
           <h4 class="h4 animation">Distribution</h4>
           <p class="p animation">To explore new trade opportunities for companies looking for distributors or distributors in search of reliable companies, Herein, a list has been generated of prominent distributors and companies dealing in comprehensive business domains such as Automobile, Machinery, Brass Hardware & Components, Chemicals, Consumer Electronics, and others. we will help you get quick access to new opportunities.</p>
           <div>
-            <a href="#" class="contact-with-client animation">Contact with Client </a>
+            <a href="/contact" class="contact-with-client animation">Contact with Client </a>
           </div>
         </div>
         <div class="banner animation">
@@ -367,7 +370,9 @@ select, option{
     </section>
     <nav class="animation">
       <div class="company-name animation">
-        <h1>Distribution</h1>
+        <a href="#">
+            <h1>Distribution</h1>
+        </a>
       </div>
       <div class="nav-link-col">
         <a href="#overview" class="nav-links">Overview</a>
@@ -406,12 +411,7 @@ select, option{
                 </div>
                 <h1 class="title-service">Market Reach</h1>
                 <p class="context">Distribution allows businesses to reach a wider audience and tap into new markets. It enables companies to expand their geographic presence, reaching customers in different regions or even globally.
-                <ul class="ul">
-                  <li>Pre-designed Distribution templates.</li>
-                  <li>Multiple question types (multiple choice, open-ended, rating scales, etc.).Contextual Search</li>
-                  <li>Real-time analytics and reporting.</li>
-                  <li>Integration with other tools such as Microsoft Teams and Slack.</li>
-                </ul>
+               
                 
             </div>
             <div class="boxes class="reveal">
@@ -420,11 +420,7 @@ select, option{
                 </div>
                 <h1 class="title-service">Customer Convenience</h1>
                 <p class="context">Distributing products strategically helps in making them more accessible to customers. This convenience can lead to increased customer satisfaction and loyalty.</p>
-                <ul class="ul">
-                  <li>Simple and intuitive interface</li>
-                  <li>Integration with Google Sheets for easy data management.</li>
-                  <li>Customization options for themes and question types.</li>
-                </ul>
+                
             </div>
             <div class="boxes class="reveal"">
                 <div class="logo">
@@ -436,11 +432,7 @@ select, option{
 
 Faster Tim
 </p>
-                <ul class="ul"><li>Advanced Distribution logic and branching.</li>
-                <li>Comprehensive analytics and reporting tools.
-</li>
-<li>Multi-channel distribution options.</li>
-</ul>
+                
             </div>
             <div class="boxes class="reveal"">
                 <div class="logo">
@@ -449,10 +441,7 @@ Faster Tim
                 <h1 class="title-service">Risk Mitigation</h1>
                 <p class="context">Distributing products through various channels can help mitigate risks associated with reliance on a single distribution method. Diversification of distribution channels can provide a safety net in case one channel faces challenges.
 </p>
-                <ul class="ul"><li>Conversational and interactive Distribution design.</li>
-                <li>Conditional logic for personalized user experiences.</li>
-                <li>Integration options with other tools.</li>
-                </ul>
+               
             </div>
         </div>
     </section>
@@ -462,34 +451,34 @@ Faster Tim
           <p class="links-col">
               Help us find the answer to your questions by entering the details below:
               </p>
-            <form action="#" class="reveal">
-              
+            <form action="/distributionService" method="post" class="reveal">
+              {% csrf_token %}
                     <div class="block-container">
                         <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="First name*" autocomplete="off">
+                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Last name*" autocomplete="off">
+                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="email" name="" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
+                        <input type="email" name="email" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
+                        <input type="text" name="phoneNo" id="" class="user-input" placeholder="Phone*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Job Title" autocomplete="off">
+                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <select name="" id="Distribution">
+                        <select name="select" id="Distribution">
                             <option value="Distribution">Distribution</option>
                         </select>
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Company" autocomplete="off">
+                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <textarea rows="4" cols="10" name="" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
+                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="Tell Us More" autocomplete="off"> </textarea>
                     </div>
                     </div>
                     <div class="cneter-button class="reveal"">

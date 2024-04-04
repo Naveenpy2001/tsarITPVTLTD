@@ -10,7 +10,7 @@
       {% include './header.html' %}
     </header>
     <main style="padding: 10px 10px;">
-      <p><a href="/">Home</a> > <a href="/">Services </a>> Man Power Supply</p>
+      <p><a href="/" style="color: #000;">Home</a> > <a href="/#services" style="color: #000;">Services </a>> Man Power Supply</p>
     </main>
     <section style="padding: 15px 10px;">
       <div class="img-container">
@@ -30,7 +30,12 @@
     </section>
     <nav class="animation">
       <div class="company-name animation">
-        <h1>Man Power Supply</h1>
+
+        <a href="#" style="color: #000;">
+            <h1>Man Power Supply</h1>
+        </a>
+
+
       </div>
       <div class="nav-link-col">
         <a href="#overview" class="nav-links">Overview</a>
@@ -67,7 +72,7 @@
     <section class="reveal back" id="solutions">
         <h1 class="reveal" style="font-size: 45px; font-weight: 600; margin: 20px 0; padding: 20px 30px; color: #000000">Markets change, and we know it           </h1>
         <div class="box-container reveal">
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
@@ -75,26 +80,18 @@
                 <p class="context">Implement efficient recruitment and selection processes to identify, attract, and onboard qualified candidates quickly. This includes leveraging technology such as applicant tracking systems (ATS), online job portals, and candidate assessment tools to streamline the hiring process and improve candidate sourcing and screening.
 
 </p>
-                <ul class="ul">
-                  <li>Document Classifier</li>
-                  <li>Contextual Search</li>
-                  <li>Intelligent Request Routing</li>
-                  <li>Customer Intent Prediction</li>
-                </ul>
+               
                 
             </div>
-            <div class="boxes class="reveal">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
                 <h1 class="title-service">Talent Pool Management</h1>
                 <p class="context">Build and maintain a robust talent pool of qualified candidates with diverse skills and expertise. This involves proactively sourcing and engaging candidates through networking, referrals, social media, and talent databases to ensure a steady supply of suitable candidates to meet client demands.</p>
-                <ul class="ul">
-                  <li>Generative AI Models</li>
-                  <li>Conversational AI, Visual IVR, Chatbots</li>
-                </ul>
+                
             </div>
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
@@ -103,16 +100,14 @@
                 <p class="context">
                  Offer skill development and training programs to enhance the capabilities and employability of workers. This includes providing training in technical skills, soft skills, industry-specific knowledge, and compliance training to ensure that workers are adequately prepared to meet client requirements.
 </p>
-                <ul class="ul"><li>AI Decision Agents</li></ul>
             </div>
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
                 <h1 class="title-service">Flexible Staffing Models</h1>
                 <p class="context">Provide flexible staffing solutions tailored to the needs of client organizations. This may include offering temporary, part-time, seasonal, project-based, or on-demand staffing options to accommodate fluctuating demand, business cycles, or project requirements while optimizing workforce utilization.
 </p>
-                <ul class="ul"><li>Process Mining</li></ul>
             </div>
         </div>
     </section>
@@ -122,34 +117,34 @@
           <p class="links-col">
               Help us find the answer to your questions by entering the details below:
               </p>
-            <form action="#" class="reveal">
+            <form action="/ManPowerService" method="post" class="reveal">
               
                     <div class="block-container">
                         <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="First name*" autocomplete="off">
+                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Last name*" autocomplete="off">
+                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="email" name="" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
+                        <input type="email" name="email" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
+                        <input type="text" name="phoneNo" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Job Title" autocomplete="off">
+                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <select name="" id="Man Power Supply">
+                        <select name="select" id="Man Power Supply">
                             <option value="Man Power Supply">Man Power Supply</option>
                         </select>
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Company" autocomplete="off">
+                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <textarea rows="4" cols="10" name="" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
+                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
                     </div>
                     </div>
                     <div class="cneter-button class="reveal"">
@@ -406,7 +401,6 @@ nav{
 }
 .ul{
     padding: 20px 20px; list-style: '>  ';
-    padding: 20px 20px; list-style: '>  ';
 }
 .boxes {
     padding: 20px;
@@ -417,10 +411,10 @@ nav{
     background:#fff;
     color: #000000;
     box-shadow: 0 4px 8px 3px #454545;
-    transition: all .1s linear;
+    transition: all .1s ease-in-out;
 }
 .boxes:hover{
-    box-shadow: 0px 0px 3px 5px rgb(150, 0, 0);
+    scale: 1.1;
 }
 .logo {
     width: 100%;

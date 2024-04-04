@@ -34,21 +34,12 @@ header h1 {
   margin: 0;
 }
 
-nav {
+.csr-nav {
   display: flex;
   align-items: center;
   z-index: 10;
 }
-ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
 
-li {
-  margin-right: 20px;
-}
 
 .mySlides {
   display: none;
@@ -192,11 +183,7 @@ img {
 a {
   text-decoration: none;
 }
-nav {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-}
+
 html {
   scroll-behavior: smooth;
 }
@@ -670,7 +657,7 @@ html {
     </section>
 
     <section>
-      <nav style="padding: 0 40px">
+      <nav class="csr-nav" style="padding: 0 40px">
         <div class="flex-btn">
           <a href="#bynumbers" class="a"
             ><button class="about">Our Approach</button></a

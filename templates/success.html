@@ -4,17 +4,76 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .popupWarn {
+        width: 100%;
+        background-color: #05077f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* z-index: 90000000000000; */
+        padding: 40px 20px;
+      }
+      .showSuccess {
+        display: flex;
+      }
+      .container-warn {
+        background-color: #ffffff;
+        border: 1px solid #898989;
+        padding: 40px;
+        width: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 3px;
+      }
+      .warnHeader {
+        margin: 10px 0;
+        font-size: 38px;
+        display: flex;
+        flex-direction: column;
+      }
+      .successWarn-img {
+        width: 15%;
+        border-radius: 50%;
+        background-color: #fff;
+      }
+      .warnSubmit {
+        padding: 5px 50px;
+        border: 1px solid #000;
+        border-radius: 3px;
+        background-color: #fff;
+        transition: all 0.2s linear;
+        margin-top: 5px;
+        cursor: pointer;
+      }
+      .warnSubmit:hover {
+        background-color: green;
+        color: #fff;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <header>{% include './header.html' %}</header>
-    <center>
-      <h1>sent a request successfully</h1>
-      <h1>hi " <b>{{ username }}</b> "</h1>
-      <a href="/">
-        <button>explore more</button>
-      </a>
-      <h2>{{ message }}</h2>
-    </center>
+    <section class="popupWarn {{ showSuccess }}" id="warning">
+      <div class="container-warn">
+        <img src="./media/success-2.png" alt="" class="successWarn-img" />
+        <center class="rel-cen">
+          <h2 class="warnHeader">
+            <span style="font-size: 24px"
+              >Hi! <b><q style="font-weight: 600">{{ name }}</q></b></span
+            >
+            <span>{{ message }}</span>
+            <span style="font-size: 16px">{{ info }}</span>
+          </h2>
+          <a href="/">
+            <button class="warnSubmit">Explore More</button>
+          </a>
+        </center>
+      </div>
+    </section>
     {% include 'footer.html' %}
   </body>
 </html>

@@ -97,9 +97,7 @@
     width: 80%;
     text-shadow: 0 1px 4px #e1e1e1;
   }
-  li {
-    margin: 10px 0;
-  }
+ 
   #overview {
     background-color: #ffffff;
   }
@@ -270,7 +268,7 @@
   width: 50%;
   font-size: 18px;
 }
-ul > li{
+.hms-ul > .hms-li{
   margin: 5px 60px;
   list-style: '⇒   ';
 }
@@ -323,7 +321,7 @@ form{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 250px;
+    height: 280px;
 }
 .blcok {
     display: flex;
@@ -462,7 +460,7 @@ select, option{
 
      <nav class="animation">
       <div class="company-name animation">
-        <a href="#home" style="color: #000;"><h1>HSM  </h1></a>
+        <a href="#home" style="color: #000;"><h1>HMS  </h1></a>
       </div>
       <div class="nav-link-col animation">
         <a href="#overview" class="nav-links">Overview</a>
@@ -495,12 +493,12 @@ We are for your needs of  software solutions
           <p>
 A Hospital Management System (HMS) is a comprehensive software solution designed to streamline and automate the administrative, clinical, and financial functions within a healthcare institution. The primary goal of an HMS is to enhance the efficiency, accuracy, and overall quality of healthcare services.Implementing a Hospital Management System can lead to improved patient care, increased operational efficiency, better financial management, and enhanced overall decision-making within healthcare institutions. It also contributes to regulatory compliance and the adoption of best practices in the healthcare industry.</p>
 <div style="display: flex; justify-content: center; ">
-  <ul style="text-align: left; margin-left: 80px;">
-  <li style="list-style: circle;">Capture and manage patient demographics, contact details, and relevant information</li>
-  <li style="list-style: circle;">
+  <ul class="hms-ul" style="text-align: left; margin-left: 80px;">
+  <li class="hms-li" style="list-style: circle;">Capture and manage patient demographics, contact details, and relevant information</li>
+  <li class="hms-li" style="list-style: circle;">
     Facilitate the scheduling of appointments for patients and manage the calendar for healthcare providers
   </li>
-  <li style="list-style: circle;">
+  <li class="hms-li" style="list-style: circle;">
     Manage billing processes, including invoicing, payment tracking, and financial reporting.
   </li>
 </ul>
@@ -538,20 +536,20 @@ A Hospital Management System (HMS) is a comprehensive software solution designed
             </h1>
             <p class="p-hsm">
               Patient Management Software is designed to streamline and automate various aspects of healthcare administration, enhancing the efficiency of patient care and overall practice management. Here are some common features and functionalities found in patient management software.
-              <ul>
-                <li>
+              <ul class="hms-ul">
+                <li class="hms-li">
                 Appointment Scheduling
               </li>
-              <li>
+               <li class='hms-li' >
                 Electronic Health Records (EHR):
               </li>
-              <li>
+               <li class='hms-li' >
                 Billing and Invoicing
               </li>
-              <li>
+               <li class='hms-li' >
                 Patient Registration
               </li>
-              <li>
+               <li class='hms-li' >
                 Prescription Management
               </li>
               </ul>
@@ -570,20 +568,20 @@ A Hospital Management System (HMS) is a comprehensive software solution designed
             </h1>
             <p class="p-hsm">
               Staff management software can significantly streamline various aspects of workforce management, including scheduling, communication, performance tracking, and administrative tasks. Here are some features and considerations to look for when selecting staff management software:
-             <ul>
-               <li>
+             <ul class="hms-ul">
+                <li class='hms-li' >
                 Scheduling and Shift Planning
               </li>
-              <li>
+               <li class='hms-li' >
                 Time and Attendance Tracking
               </li>
-              <li>
+               <li class='hms-li' >
                 Communication Tools
               </li>
-              <li>
+               <li class='hms-li' >
                 Employee Self-Service
               </li>
-              <li>
+               <li class='hms-li' >
                 Performance Management
               </li>
              </ul>
@@ -617,12 +615,12 @@ A Hospital Management System (HMS) is a comprehensive software solution designed
             </h1>
             <p class="p-hsm">
              Pharmacy management software plays a crucial role in streamlining the operations of a pharmacy, managing inventory, improving patient care, and ensuring compliance with regulatory requirements. Here are key features and considerations for pharmacy management software:
-             <ul>
-              <li>Inventory Management:</li>
-              <li>Prescription Management</li>
-              <li>Point of Sale (POS)</li>
-              <li>Patient Communication</li>
-             <li>Integration with Healthcare Systems</li>
+             <ul class="hms-ul">
+               <li class='hms-li' >Inventory Management:</li>
+               <li class='hms-li' >Prescription Management</li>
+               <li class='hms-li' >Point of Sale (POS)</li>
+               <li class='hms-li' >Patient Communication</li>
+              <li class='hms-li' >Integration with Healthcare Systems</li>
              </ul>
             </p>
           </div>
@@ -650,36 +648,36 @@ A Hospital Management System (HMS) is a comprehensive software solution designed
 
     <section class="sec-back" id="contact" style="padding: 0;">
         <div class="form-contain">
-            <form class="" onsubmit="submitForm()">
+            <form class="" action="/hospitalMS" method="post" onsubmit="submitForm()">
               <span class="close" onclick="closeForm()">✕</span>
           <h1 class="h-3">Request for Service</h1>
-              
+              {% csrf_token %}
                     <div class="block-container">
                         <div class="blcok">
-                        <input type="text" name="userFirstName" id="userFirstName" class="user-input" placeholder="First name*" autocomplete="off" >
+                        <input type="text" name="first_name" id="userFirstName" class="user-input" placeholder="First name*" autocomplete="off" >
                     </div>
                     <div class="blcok">
-                        <input type="text" name="userLastName" id="" class="user-input" placeholder="Last name*" autocomplete="off" >
+                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off" >
                     </div>
                     <div class="blcok">
-                        <input type="email" name="useremail" id="useremail" class="user-input" placeholder="Businesss email*" autocomplete="off" >
+                        <input type="email" name="email" id="useremail" class="user-input" placeholder="Businesss email*" autocomplete="off" >
                     </div>
                     <div class="blcok">
-                        <input type="number" name="" id="" class="user-input" placeholder="Phone No.*" autocomplete="off" >
+                        <input type="number" name="phoneNo" id="" class="user-input" placeholder="Phone No.*" autocomplete="off" >
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Job Title" autocomplete="off" >
+                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off" >
                     </div>
                     <div class="blcok">
-                        <select name="hsm" id="hsm">
+                        <select name="select_service" id="hsm">
                             <option value="Hospital Management System">Hospital Management System</option>
                         </select>
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Company" autocomplete="off">
+                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <textarea rows="4" cols="10" name="" id="" class="user-input" placeholder="message" autocomplete="off"> </textarea>
+                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="message" autocomplete="off"> </textarea>
                     </div>
                     </div>
                     <div class="cneter-button class="reveal"">

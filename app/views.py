@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from .models import HomeContact
 # signIn data
 from .models import SignInUser
-from django.contrib.auth import authenticate, login,logout,login
+from django.contrib.auth.models import auth
 
 # Create your views here.
 
@@ -13,24 +13,16 @@ def index(request):
 #  in home page contact us
 def indexContact(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        useremail = request.POST.get('useremail')
-        busines_email = request.POST.get('businessmail')
-        userphno = request.POST.get('userphno')
-        userjob = request.POST.get('userjob')
-        userCompany = request.POST.get('userCompany')
-        message = request.POST.get('message')
+        username = request.POST['username']
+        useremail = request.POST['useremail']
+        busines_email = request.POST['businessmail']
+        userphno = request.POST['userphno']
+        userjob = request.POST['userjob']
+        userCompany = request.POST['userCompany']
+        message = request.POST['message']
         
         if username:
-            user_contact = HomeContact(
-                username=username, 
-                useremail=useremail, 
-                busines_email=busines_email, 
-                userphno=userphno, 
-                userjob=userjob, 
-                userCompany=userCompany, 
-                message=message
-            )
+            user_contact = HomeContact(username=username, useremail=useremail, busines_email=busines_email, userphno=userphno, userjob=userjob, userCompany=userCompany, message=message)
             user_contact.save()
             return redirect('success')
       
@@ -41,6 +33,34 @@ def indexContact(request):
     else:
         error_msg = "Please fill all details."
         return render(request, 'success.html', {'message': error_msg})
+    
+def contact(request):
+    return render(request,'contact.html')
+
+from .models import ContactUs
+
+def conactForm(request):
+    if request.method == 'POST':
+
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        usersubject = request.POST['subject']
+        message = request.POST['message']
+        conactusform = ContactUs.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            usersubject=usersubject,
+            phone=phone,
+            message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'conact.html')
+    
 
 def success_view(request):
     return render(request, 'success.html')
@@ -62,14 +82,41 @@ def accessbility(request):
 def accountsDashboard(request):
     return render(request,'accounts-dashboard.html')
 
-def adminLogin(request):
-    return render(request,'adminLogin.html')
 
 def Aerospace(request):
     return render(request,'Aerospace&Defence.html')
 
-def chatbot(request):
-    return render(request,'AI-chatbot.html')
+from .models import Industries
+
+def aeroIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'Aerospace-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        userSatelite = Industries.objects.create(
+            form_name=form_name,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            jobTitle=jobTitle,
+            select=select,
+            company=company,
+            message=message,
+        )
+        userSatelite.save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 
 def angular(request):
     return render(request,'angular.html')
@@ -78,6 +125,36 @@ def angular(request):
 
 def automotive(request):
     return render(request,'automotive.html')
+
+def automotivendustry(request):
+    if request.method == 'POST':
+
+        form_name = 'autoMotive-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        autoMotiveInd = Industries.objects.create(
+            form_name=form_name,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            jobTitle=jobTitle,
+            select=select,
+            company=company,
+            message=message,
+        )
+        autoMotiveInd.save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 
 def aws(request):
     return render(request,'aws.html')
@@ -88,6 +165,37 @@ def azure(request):
 def Banking(request):
     return render(request,'Banking.html')
 
+def bankIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'banking-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        bankInd = Industries.objects.create(
+            form_name=form_name,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            jobTitle=jobTitle,
+            select=select,
+            company=company,
+            message=message,
+        )
+        bankInd.save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
+
+
 def bigdata(request):
     return render(request,'bigdata.html')
 
@@ -96,16 +204,134 @@ def bigdata(request):
 def capitalMarket(request):
     return render(request,'capital-market.html')
 
+def capitalIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'capitalMarket-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        capitalInd = Industries.objects.create(
+            form_name=form_name,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            jobTitle=jobTitle,
+            select=select,
+            company=company,
+            message=message,
+        )
+        capitalInd.save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 
 
 def Communications(request):
     return render(request,'Communications.html')
 
+def communicationsIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'Communications-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        capitalInd = Industries.objects.create(
+            form_name=form_name,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            jobTitle=jobTitle,
+            select=select,
+            company=company,
+            message=message,
+        )
+        capitalInd.save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
+
 def ConsumerElectronics(request):
     return render(request,'Consumer-Electronics.html')
 
+def consumerIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'ConsumerElectronics-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        consumerInd = Industries.objects.create(
+            form_name=form_name,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            jobTitle=jobTitle,
+            select=select,
+            company=company,
+            message=message,
+        )
+        consumerInd.save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
+
 def consumerPackagedGoods(request):
     return render(request,'consumer-packaged-goods.html')
+
+def cPackagedIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'consumerPackagedGoods-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        packagedGoods = Industries.objects.create(
+            form_name=form_name,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            jobTitle=jobTitle,
+            select=select,
+            company=company,
+            message=message,
+        )
+        packagedGoods .save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
 
 def cloud(request):
     return render(request,'cloud.html')
@@ -116,8 +342,6 @@ def Communications(request):
 def ConsumerElectronics(request):
     return render(request,'Consumer-Electronics.html')
 
-def contact(request):
-    return render(request,'contact.html')
 
 def coockiesPolicy(request):
     return render(request,'coockies-policy.html')
@@ -139,32 +363,139 @@ def dotnet(request):
 def Education(request):
     return render(request,'Education.html')
 
-def EMS(request):
-    return render(request,'EMS.html')
+
+def educationIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'Education-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        educIndus = Industries.objects.create(
+            form_name=form_name,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            jobTitle=jobTitle,
+            select=select,
+            company=company,
+            message=message,
+        )
+        educIndus .save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
+
 
 def EngineeringOperations(request):
     return render(request,'Engineering-Operations.html')
 
-def financeManagement(request):
-    return render(request,'finance-management.html')
+def eng_operationIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'EngineeringOperations-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        healthInd = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        )
+        healthInd .save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
+
+
 
 def HealthCare(request):
     return render(request,'Health-care.html')
 
-def hrManagement(request):
-    return render(request,'hr-management.html')
+def healthCareIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'healthCare-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        healthInd = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        )
+        healthInd .save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 
 def hrDashboard(request):
     return render(request,'hrDashboard.html')
 
-def HMS(request):
-    return render(request,'HMS.html')
+
 
 def IndustrialProcess(request):
     return render(request,'Industrial-Process.html')
 
+def industrialProcInd(request):
+    if request.method == 'POST':
+
+        form_name = 'IndustrialProcess-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        indProcInd = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        )
+        indProcInd .save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 def insurance(request):
     return render(request,'insurance.html')
+
+def insuranceIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'insurance-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        insuranceInd = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        )
+        insuranceInd .save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 
 def internshipPage(request):
     return render(request,'internship-page.html')
@@ -184,7 +515,25 @@ def jobPage(request):
 def LifePharma(request):
     return render(request,'Life-Pharma.html')
 
+def pharmaIndustry(request):
+    if request.method == 'POST':
 
+        form_name = 'LifePharma-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        pharmaInd = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        )
+        pharmaInd .save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
 
 def marketDashboard(request):
     return render(request,'marketDashboard.html')
@@ -195,19 +544,95 @@ def media(request):
 def MediaServices(request):
     return render(request,'Media&Services.html')
 
+def mediaIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'MediaServices-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        mediaInd = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        )
+        mediaInd .save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 def mediaDashboard(request):
     return render(request,'mediaDashboard.html')
 
 def NaturalResources(request):
     return render(request,'Natural-resources.html')
 
+def naturalResIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'NaturalResources-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        natural = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 def NetworkProviders(request):
     return render(request,'Network-Edge-Providers.html')
 
+def networkIndustry(request):
+    if request.method == 'POST':
 
-def oilgas(request):
+        form_name = 'NetworkEdgeProviders-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        network = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
+
+def oilGas(request):
     return render(request,'oil&gas.html')
 
+def oilGasIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'oilGas-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        oil = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
 
 
 
@@ -217,11 +642,49 @@ def php(request):
 def SoftwareProducts(request):
     return render(request,'PlatformsSoftwareProducts.html')
 
+def softwareProductsIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'SoftwareProducts-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        software = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 def privacypolicy(request):
     return render(request,'privacypolicy.html')
 
 def ProfessionalServices(request):
     return render(request,'Professional-Services.html')
+
+def serviceIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'ProfessionalServices-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        service = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
 
 def profileDashboard(request):
     return render(request,'profile-dashboard.html')
@@ -229,20 +692,82 @@ def profileDashboard(request):
 def PublicSector(request):
     return render(request,'Public-Sector.html')
 
+def publicSectorIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'PublicSector-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        sector = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 def pythonPage(request):
     return render(request,'python-page.html')
 
 def reactJs(request):
     return render(request,'reactJs.html')
 
-def recruitmanagement(request):
-    return render(request,'recruitmanagement.html')
+
 
 def registrationForm(request):
-    return render(request,'registration-form.html')
+    languages = [
+    "select",
+    "Python",
+    "Java",
+    "C++",
+    "JavaScript",
+    "Ruby",
+    "PHP",
+    "Swift",
+    "Kotlin",
+    "Go",
+    "Rust",
+    "TypeScript",
+    "Dart",
+    "R",
+    "MATLAB",
+    "Scala",
+    "Perl",
+    "Lua",
+    "HTML",
+    "CSS",
+    "SQL",
+    "Bash"
+]
+    return render(request,'registration-form.html',{"languages":languages})
 
 def Retail(request):
     return render(request,'Retail.html')
+
+def retailIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'Retail-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        retialInd = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 
 def salesforce(request):
     return render(request,'salesforce.html')
@@ -256,8 +781,26 @@ def securityNotifications(request):
 def Semiconductors(request):
     return render(request,'Semiconductors.html')
 
-def solar(request):
-    return render(request,'solar.html')
+def semiConductorsIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'Semiconductors-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        semiCndtrs = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
+
 
 def studentDashboard(request):
     return render(request,'student-dashboard.html')
@@ -273,7 +816,7 @@ def signInStudent(request):
         password = request.POST['password']
         re_password = request.POST.get('re_password')
         if re_password == password:
-            student = SignInUser(user_name=user_name,user_email=user_email,password=password,re_password=re_password)
+            student = SignInUser.objects.create(user_name=user_name,user_email=user_email,password=password,re_password=re_password)
             student.save()
             return render(request,'student-login.html',{'message':'user created'})
         else:
@@ -284,11 +827,11 @@ def signInStudent(request):
 def loginStudent(request):
 
     if request.method == 'POST':
-        userName = request.POST['userName']
-        login_password = request.POST['login_password']
-        user = authenticate(request, userName=userName, login_password=login_password)
+        user_name = request.POST['user_name']
+        password = request.POST['password']
+        user = auth.authenticate(user_name=user_name, password=password)
         if user is not None:
-            return render(request, 'student-dashboard.html', {'userName': userName, 'user_student': user})
+            return render(request, 'student-dashboard.html', {'userName': user_name, 'user_student': user})
         else:
             return render(request, 'student-login.html', {'message': 'Invalid username or password'})
     else:
@@ -304,39 +847,66 @@ def logOut_student(request):
 def TermsUse(request):
     return render(request,'Terms-of-use.html')
 
-def thermal(request):
-    return render(request,'thermal.html')
-
 def trainerDashboard(request):
     return render(request,'trainerDashboard.html')
 
 def TransportationServices(request):
     return render(request,'TransportationServices.html')
 
+def transportIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'TransportationServices-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        transport = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
+
 # fetching data in JSON formate
 
-def TSARITdashboard(request):
+# from django.http import JsonResponse
+# from django.core.serializers import serialize
 
-    homePage = HomeContact.objects.all()
 
-    web = ContactMessage.objects.filter(form_name = 'web-service').order_by('id')
-    app = ContactMessage.objects.filter(form_name = 'app-service').order_by('id')
-    bpo = ContactMessage.objects.filter(form_name = 'BPO-service').order_by('id')
-    sateliteServ = ContactMessage.objects.filter(form_name = 'satelite-service').order_by('id')
-    civil = ContactMessage.objects.filter(form_name = 'civil-service').order_by('id')
 
-    all_Services = list(web) + list(app) + list(bpo) + list(sateliteServ) + list(civil)
-    return render(request,'TSARIT-dashboard.html',{'allServices':all_Services,"homePage":homePage})
+    # Return the serialized data as JSON response
+    # return JsonResponse(all_Services, safe=False)
 
 def Utilities(request):
     return render(request,'Utilities.html')
 
+def utilitiesIndustry(request):
+    if request.method == 'POST':
+
+        form_name = 'Utilities-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        utility = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'Aerospace&Defence.html')
 
     
-def wind(request):
-    return render(request,'wind.html')
-
-
+def LifteAtTSARIT(request):
+    return render(request,'lifeAtTSARIT.html')
 # services----------------------------------------------------------------------
 
 from .models import ContactMessage
@@ -376,7 +946,7 @@ def serviceWebDev(request):
 def appDevelopment(request):
     return render(request,'app-development.html')
 
-# service data
+# app service data
 
 def AppDevService(request):
     if request.method == 'POST':
@@ -552,7 +1122,7 @@ def payRollServ(request):
         select = request.POST['select']
         company = request.POST['company']
         message = request.POST['message']
-        manPower = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
+        payROllservices = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
                                     last_name=last_name,
                                     email=email,
                                     phone=phone,
@@ -560,7 +1130,7 @@ def payRollServ(request):
                                     select=select,
                                     company=company,
                                     message=message)
-        manPower.save()
+        payROllservices.save()
         return render(request, 'success.html',{'username':first_name})
     else:
         return render(request,'web-development.html')
@@ -584,7 +1154,7 @@ def NGOservice(request):
         select = request.POST['select']
         company = request.POST['company']
         message = request.POST['message']
-        manPower = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
+        ngoObj = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
                                     last_name=last_name,
                                     email=email,
                                     phone=phone,
@@ -592,7 +1162,7 @@ def NGOservice(request):
                                     select=select,
                                     company=company,
                                     message=message)
-        manPower.save()
+        ngoObj.save()
         return render(request, 'success.html',{'username':first_name})
     else:
         return render(request,'web-development.html')
@@ -615,7 +1185,7 @@ def PhotoVideoService(request):
         select = request.POST['select']
         company = request.POST['company']
         message = request.POST['message']
-        manPower = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
+        photoAndVideo = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
                                     last_name=last_name,
                                     email=email,
                                     phone=phone,
@@ -623,7 +1193,7 @@ def PhotoVideoService(request):
                                     select=select,
                                     company=company,
                                     message=message)
-        manPower.save()
+        photoAndVideo.save()
         return render(request, 'success.html',{'username':first_name})
     else:
         return render(request,'web-development.html')
@@ -646,7 +1216,7 @@ def DigitalMarketingServ(request):
         select = request.POST['select']
         company = request.POST['company']
         message = request.POST['message']
-        manPower = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
+        dmMarketing = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
                                     last_name=last_name,
                                     email=email,
                                     phone=phone,
@@ -654,7 +1224,7 @@ def DigitalMarketingServ(request):
                                     select=select,
                                     company=company,
                                     message=message)
-        manPower.save()
+        dmMarketing.save()
         return render(request, 'success.html',{'username':first_name})
     else:
         return render(request,'web-development.html')
@@ -677,7 +1247,7 @@ def SurveyService(request):
         select = request.POST['select']
         company = request.POST['company']
         message = request.POST['message']
-        manPower = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
+        surveyServ = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
                                     last_name=last_name,
                                     email=email,
                                     phone=phone,
@@ -685,7 +1255,7 @@ def SurveyService(request):
                                     select=select,
                                     company=company,
                                     message=message)
-        manPower.save()
+        surveyServ.save()
         return render(request, 'success.html',{'username':first_name})
     else:
         return render(request,'web-development.html')
@@ -709,7 +1279,7 @@ def distributionService(request):
         select = request.POST['select']
         company = request.POST['company']
         message = request.POST['message']
-        manPower = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
+        distribute = ContactMessage.objects.create(form_name=form_name,first_name=first_name,
                                     last_name=last_name,
                                     email=email,
                                     phone=phone,
@@ -717,7 +1287,215 @@ def distributionService(request):
                                     select=select,
                                     company=company,
                                     message=message)
-        manPower.save()
+        distribute.save()
         return render(request, 'success.html',{'username':first_name})
     else:
         return render(request,'web-development.html')
+    
+
+    # energy services
+from .models import Energy
+
+
+def solar(request):
+    return render(request,'solar.html')
+
+def solaarEn(request):
+    if request.method == 'POST':
+
+        form_name = 'solar-energy'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        solaar = Energy.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'solar.html')
+
+def wind(request):
+    return render(request,'wind.html')
+
+def windEnergy(request):
+    if request.method == 'POST':
+
+        form_name = 'Utilities-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        windEn = Energy.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'wind.html')
+
+def thermal(request):
+    return render(request,'thermal.html')
+
+def thermalEnergy(request):
+    if request.method == 'POST':
+
+        form_name = 'Utilities-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        thermalEn = Energy.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'thermal.html')
+
+
+
+# products
+from .models import Products
+
+def HMS(request):
+    return render(request,'HMS.html')
+
+def hospitalMS(request):
+    if request.method == 'POST':
+
+        form_name = 'Hospital Management System'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        hms = Products.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'thermal.html')
+
+def chatbot(request):
+    return render(request,'AI-chatbot.html')
+
+def AIchatBot(request):
+    if request.method == 'POST':
+
+        form_name = 'AI-Chatbot'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        ai = Products.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'thermal.html')
+
+def EMS(request):
+    return render(request,'EMS.html')
+
+def educationMS(request):
+    if request.method == 'POST':
+
+        form_name = 'Education Management System'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        thermalEn = Products.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'thermal.html')
+
+def financeManagement(request):
+    return render(request,'finance-management.html')
+
+def FMS(request):
+    if request.method == 'POST':
+
+        form_name = 'finance Management System'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        fms = Products.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'thermal.html')
+
+def recruitmanagement(request):
+    return render(request,'recruitmanagement.html')
+
+def RMS(request):
+    if request.method == 'POST':
+
+        form_name = 'Utilities-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        thermalEn = Products.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'thermal.html')
+
+def hrManagement(request):
+    return render(request,'hr-management.html')
+
+def HRM(request):
+    if request.method == 'POST':
+
+        form_name = 'Utilities-industry'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
+        human = Products.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
+        ).save()
+    
+        return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
+    
+    return render(request, 'thermal.html')

@@ -243,10 +243,10 @@ nav{
     background:#fff;
     color: #000000;
     box-shadow: 0 4px 8px 3px #454545;
-    transition: all .1s linear;
+    transition: all .08s linear;
 }
 .boxes:hover{
-    box-shadow: 0px 0px 3px 5px rgb(150, 0, 0);
+    scale: 1.09;
 }
 .logo {
     width: 100%;
@@ -351,7 +351,7 @@ select, option{
       {% include './header.html' %}
     </header>
     <main style="padding: 10px 10px;">
-      <p><a href="/">Home</a> > <a href="/">Services </a>> Civil Constructions</p>
+      <p><a href="/">Home</a> > <a href="/#services">Services </a>> Civil Constructions</p>
     </main>
     <section style="padding: 15px 10px;">
       <div class="img-container">
@@ -360,7 +360,7 @@ select, option{
           <h4 class="h4 animation">Civil Constructions</h4>
           <p class="p animation">Civil construction refers to the branch of engineering and construction that deals with the design, construction, and maintenance of infrastructure projects that serve public and private sectors. </p>
           <div>
-            <a href="#" class="contact-with-client animation">Contact with Client </a>
+            <a href="/contact" class="contact-with-client animation">Contact with Client </a>
           </div>
         </div>
         <div class="banner animation">
@@ -370,8 +370,10 @@ select, option{
     </section>
     <nav class="animation">
       <div class="company-name animation">
+        <a href="#top" style="color: #000;">
         <h1>Civil Constructions</h1>
-      </div>
+        </a>
+    </div>
       <div class="nav-link-col">
         <a href="#overview" class="nav-links">Overview</a>
         <a href="#solutions" class="nav-links">Solutions</a>
@@ -382,14 +384,14 @@ select, option{
     </nav>
     
     <section id="overview">
-                  <h1 style="font-size: 28px; font-weight: 600;">The right Development to reinvent everyday</h1>
+                  <!-- <h1 style="font-size: 28px; font-weight: 600;">The right Development to reinvent everyday</h1> -->
 
         <div class="container-overview">
-            <div class="img-contain animation">
+            <div class="img-contain reveal">
                 <img src="./media/civil-side-img.png" alt="" class="img-2">
                 <h1 class="text-rel">Civil Constructions</h1>
             </div>
-            <div class="text-container animation">
+            <div class="text-container reveal">
             <h1 style="font-size: 28px; width: 100%; margin: 10px 20px;">It’s why we built the Civil Constructions that works for people</h1>
             <span style="margin: 20px 30px;" class="animation">
               <ul style="margin: 20px 20px;" class="animation">
@@ -407,33 +409,25 @@ Water infrastructure including dams, reservoirs, irrigation systems, water suppl
     <section class="reveal back" id="solutions">
         <h1 class="reveal" style="font-size: 45px; font-weight: 600; margin: 20px 0; padding: 20px 30px; color: #000000">Markets change, and we know it           </h1>
         <div class="box-container reveal">
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
                 <h1 class="title-service">Advanced Design and Engineering Software:</h1>
                 <p class="context">Utilize advanced software tools such as Building Information Modeling (BIM), Computer-Aided Design (CAD), and Geographic Information Systems (GIS) to streamline the design process, improve collaboration among stakeholders, and optimize project outcomes.
 </p>
-                <ul class="ul">
-                  <li>Document Classifier</li>
-                  <li>Contextual Search</li>
-                  <li>Intelligent Request Routing</li>
-                  <li>Customer Intent Prediction</li>
-                </ul>
+               
                 
             </div>
-            <div class="boxes class="reveal">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
                 <h1 class="title-service">Prefabrication and Modular Construction</h1>
                 <p class="context">Embrace prefabrication and modular construction techniques to increase efficiency, reduce construction time, minimize material waste, and enhance quality control in the fabrication of building components and infrastructure elements.</p>
-                <ul class="ul">
-                  <li>Generative AI Models</li>
-                  <li>Conversational AI, Visual IVR, Chatbots</li>
-                </ul>
+                
             </div>
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
@@ -443,16 +437,14 @@ Water infrastructure including dams, reservoirs, irrigation systems, water suppl
                  Adopt smart construction equipment, automation, and robotics to increase productivity, enhance safety, and reduce labor-intensive tasks in construction operations such as excavation, concrete pouring, and building assembly.
 
 </p>
-                <ul class="ul"><li>AI Decision Agents</li></ul>
             </div>
-            <div class="boxes class="reveal"">
+            <div class="boxes reveal">
                 <div class="logo">
     
                 </div>
                 <h1 class="title-service">Innovative Materials and Technologies</h1>
                 <p class="context">Explore innovative construction materials and technologies, including sustainable materials, high-performance concrete, fiber-reinforced polymers, and self-healing materials, to improve durability, resilience, and environmental sustainability of infrastructure projects.
 </p>
-                <ul class="ul"><li>Process Mining</li></ul>
             </div>
         </div>
     </section>
@@ -489,7 +481,7 @@ Water infrastructure including dams, reservoirs, irrigation systems, water suppl
                         <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
+                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="Tell Us More" autocomplete="off"> </textarea>
                     </div>
                     </div>
                     <div class="cneter-button class="reveal"">

@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+# importing views from app
 from app import views
 
 from django.conf import settings
@@ -27,9 +29,9 @@ urlpatterns = [
     path('header',views.header),
 
     path('about',views.about),
+    path('conactForm',views.conactForm),
     path('accessbility',views.accessbility),
     path('accountsDashboard',views.accountsDashboard),
-    path('adminLogin',views.adminLogin),
     path('Aerospace',views.Aerospace),
     path('chatbot',views.chatbot),
     path('angular',views.angular),
@@ -80,7 +82,7 @@ urlpatterns = [
     path('NaturalResources',views.NaturalResources),
     path('NetworkProviders',views.NetworkProviders),
     path('NGO',views.NGO),
-    path('oilgas',views.oilgas),
+    path('oilGas',views.oilGas),
     path('PayrollJobs',views.PayrollJobs),
     path('photo_edting',views.photo_edting),
     path('php',views.php),
@@ -107,25 +109,105 @@ urlpatterns = [
     path('thermal',views.thermal),
     path('trainerDashboard',views.trainerDashboard),
     path('TransportationServices',views.TransportationServices),
-    path('TSARITdashboard',views.TSARITdashboard),
     path('Utilities',views.Utilities),
     path('webDevelopment',views.webDevelopment),
     path('wind',views.wind),
-    path('notFound',views.Banking),
+    path('LifteAtTSARIT',views.LifteAtTSARIT),
 
     # main URLs 
-
+    # home page
     path('indexContact',views.indexContact,name='indexContact'),
     path('success/', views.success_view, name='success'),
     path('signInStudent', views.signInStudent, name='signInStudent'),
     path('loginStudent', views.loginStudent, name='loginStudent'),
     path('logOut_student', views.logOut_student, name='logOut_student'),
+    # service URLs
     path('serviceWebDev', views.serviceWebDev, name='serviceWebDev'),
     path('AppDevService', views.AppDevService, name='AppDevService'),
     path('ServiceBPO', views.ServiceBPO, name='ServiceBPO'),
     path('sateliteServices', views.sateliteServices, name='sateliteServices'),
     path('civilService', views.civilService, name='civilService'),
+    path('ManPowerService', views.ManPowerService, name='ManPowerService'),
+    path('payRollServ', views.payRollServ, name='payRollServ'),
+    path('NGOservice', views.NGOservice, name='NGOservice'),
+    path('PhotoVideoService', views.PhotoVideoService, name='PhotoVideoService'),
+    path('DigitalMarketingServ', views.DigitalMarketingServ, name='DigitalMarketingServ'),
+    path('SurveyService', views.SurveyService, name='SurveyService'),
+    path('distributionService', views.distributionService, name='distributionService'),
 
+    # industry page form URLs
+    path('aeroIndustry', views.aeroIndustry, name='aeroIndustry'),
+
+    path('automotivendustry', views.automotivendustry, name='automotivendustry'),
+    
+    path('bankIndustry', views.bankIndustry, name='bankIndustry'),
+    
+    path('capitalIndustry', views.capitalIndustry, name='capitalIndustry'),
+    
+    path('communicationsIndustry', views.communicationsIndustry, name='communicationsIndustry'),
+    
+    path('consumerIndustry', views.consumerIndustry, name='consumerIndustry'),
+
+    path('cPackagedIndustry', views.cPackagedIndustry, name='cPackagedIndustry'),
+
+    path('educationIndustry', views.educationIndustry, name='educationIndustry'),
+
+    path('eng_operationIndustry', views.eng_operationIndustry, name='eng_operationIndustry'),
+
+    path('healthCareIndustry', views.healthCareIndustry, name='healthCareIndustry'),
+
+    path('industrialProcInd', views.industrialProcInd, name='industrialProcInd'),
+
+    path('insuranceIndustry', views.insuranceIndustry, name='insuranceIndustry'),
+
+    path('pharmaIndustry', views.pharmaIndustry, name='pharmaIndustry'),
+
+    path('mediaIndustry', views.mediaIndustry, name='mediaIndustry'),
+
+    path('naturalResIndustry', views.naturalResIndustry, name='naturalResIndustry'),
+
+    path('networkIndustry', views.networkIndustry, name='networkIndustry'),
+
+    path('oilGasIndustry', views.oilGasIndustry, name='oilGasIndustry'),
+
+    path('softwareProductsIndustry', views.softwareProductsIndustry, name='softwareProductsIndustry'),
+
+    path('serviceIndustry', views.serviceIndustry, name='serviceIndustry'),
+
+    path('publicSectorIndustry', views.publicSectorIndustry, name='publicSectorIndustry'),
+
+    path('retailIndustry', views.retailIndustry, name='retailIndustry'),
+
+    path('semiConductorsIndustry', views.semiConductorsIndustry, name='semiConductorsIndustry'),
+
+    path('transportIndustry', views.transportIndustry, name='transportIndustry'),
+
+    path('utilitiesIndustry', views.utilitiesIndustry, name='utilitiesIndustry'),
+
+    # energy URL's
+
+    path('solaarEn', views.solaarEn, name='solaarEn'),
+
+    path('windEnergy', views.windEnergy, name='windEnergy'),
+
+    path('thermalEnergy', views.thermalEnergy, name='thermalEnergy'),
+
+    
+    # produtcs URL's
+
+    path('hospitalMS', views.hospitalMS, name='hospitalMS'),
+
+    path('AIchatBot', views.AIchatBot, name='AIchatBot'),
+
+    path('educationMS', views.educationMS, name='educationMS'),
+
+    path('FMS', views.FMS, name='FMS'),
+
+    path('RMS', views.RMS, name='RMS'),
+
+    path('HRM', views.HRM, name='HRM'),
+
+    
 
 ]
 

@@ -31,7 +31,7 @@
         <button onclick="showLogin()" class="loginBtn">Login</button>
       </div>
     </section>
-
+    
     <h1>{{ message }}</h1>
 
     <div class="features">
@@ -58,7 +58,7 @@
       <b class="close" onclick="closeFixedForm()">✕</b>
       <div class="container" id="container">
         <div class="form-container sign-up-container">
-          <form action="{% url 'signInStudent' %}" method="post">
+          <form action="/signInStudent" method="post">
             {% csrf_token %}
             <h1>Create Account</h1>
             <div class="social-container">
@@ -92,8 +92,8 @@
               <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>or use your account</span>
-            <input type="name" name="userName" placeholder="name" />
-            <input type="password" name="login_password" placeholder="Password" />
+            <input type="name" name="user_name" placeholder="name" />
+            <input type="password" name="password" placeholder="Password" />
             <a href="#">Forgot your password?</a>
             <button>Login</button>
           </form>

@@ -10,7 +10,7 @@
       {% include './header.html' %}
     </header>
     <main style="padding: 10px 10px;">
-      <p><a href="/">Home</a> > <a href="/">Services </a>> Payroll Jobs</p>
+      <p><a href="/">Home</a> > <a href="/#services">Services </a>> Payroll Jobs</p>
     </main>
     <section style="padding: 15px 10px;">
       <div class="img-container">
@@ -30,8 +30,10 @@
     </section>
     <nav class="animation">
       <div class="company-name animation">
+        <a href="#top" style="color: #000;">
         <h1>Payroll Jobs</h1>
-      </div>
+        </a>
+    </div>
       <div class="nav-link-col">
         <a href="#overview" class="nav-links">Overview</a>
         <a href="#solutions" class="nav-links">Solutions</a>
@@ -79,13 +81,7 @@
                 <p class="context">Implementing payroll software can significantly streamline payroll processes by automating calculations, deductions, and payments. Look for software solutions that offer features such as automated tax calculations, direct deposit capabilities, customizable pay schedules, and integration with time tracking and HR systems
 
 </p>
-                <ul class="ul">
-                  <li>Document Classifier</li>
-                  <li>Contextual Search</li>
-                  <li>Intelligent Request Routing</li>
-                  <li>Customer Intent Prediction</li>
-                </ul>
-                
+                          
             </div>
             <div class="boxes class="reveal">
                 <div class="logo">
@@ -94,10 +90,7 @@
                 <h1 class="title-service">Direct Deposit
 </h1>
                 <p class="context">Offer direct deposit as a payment option for employees to eliminate the need for paper checks and manual distribution. Direct deposit not only saves time and resources but also provides employees with faster access to their wages.</p>
-                <ul class="ul">
-                  <li>Generative AI Models</li>
-                  <li>Conversational AI, Visual IVR, Chatbots</li>
-                </ul>
+                
             </div>
             <div class="boxes class="reveal"">
                 <div class="logo">
@@ -108,7 +101,6 @@
                 <p class="context">
                  Provide employees with self-service portals where they can access their pay stubs, view their pay history, update personal information, and manage tax withholdings. Employee self-service portals reduce administrative burden and empower employees to manage their payroll-related tasks independently.
 </p>
-                <ul class="ul"><li>AI Decision Agents</li></ul>
             </div>
             <div class="boxes class="reveal"">
                 <div class="logo">
@@ -117,7 +109,6 @@
                 <h1 class="title-service">Integration with Time and Attendance Systems</h1>
                 <p class="context">Integrate payroll software with time and attendance systems to automate time tracking, calculate hours worked, and accurately determine employee wages. This integration eliminates manual data entry, reduces errors, and ensures compliance with labor laws and regulations.
 </p>
-                <ul class="ul"><li>Process Mining</li></ul>
             </div>
         </div>
     </section>
@@ -127,34 +118,34 @@
           <p class="links-col">
               Help us find the answer to your questions by entering the details below:
               </p>
-            <form action="#" class="reveal">
-              
+            <form action="/payRollServ" method="post" class="reveal">
+              {% csrf_token %}
                     <div class="block-container">
                         <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="First name*" autocomplete="off">
+                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Last name*" autocomplete="off">
+                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="email" name="" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
+                        <input type="email" name="email" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
+                        <input type="text" name="phoneNo" id="" class="user-input" placeholder="Phone*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Job Title" autocomplete="off">
+                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <select name="" id="Payroll Jobs">
+                        <select name="select" id="Payroll Jobs">
                             <option value="Payroll Jobs">Payroll Jobs</option>
                         </select>
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Company" autocomplete="off">
+                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <textarea rows="4" cols="10" name="" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
+                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="Tell Us More" autocomplete="off"> </textarea>
                     </div>
                     </div>
                     <div class="cneter-button class="reveal"">
@@ -423,10 +414,10 @@ nav{
     background:#fff;
     color: #000000;
     box-shadow: 0 4px 8px 3px #454545;
-    transition: all .1s linear;
+    transition: all .09s linear;
 }
 .boxes:hover{
-    box-shadow: 0px 0px 3px 5px rgb(150, 0, 0);
+    scale: 1.09;
 }
 .logo {
     width: 100%;
@@ -469,7 +460,7 @@ form{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 250px;
+    height: 300px;
 }
 .blcok {
     display: flex;

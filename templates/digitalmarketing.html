@@ -10,7 +10,7 @@
       {% include './header.html' %}
     </header>
     <main style="padding: 10px 10px;">
-      <p><a href="/">Home</a> > <a href="/">Services </a>> Digital Marketing</p>
+      <p><a href="/" style="color: #000;">Home</a> > <a href="/#services" style="color: #000;">Services </a>> Digital Marketing</p>
     </main>
     <section style="padding: 15px 10px;">
       <div class="img-container">
@@ -30,7 +30,9 @@
     </section>
     <nav class="animation">
       <div class="company-name animation">
-        <h1>Digital Marketing</h1>
+        <a href="#top" style="color: #000;">
+            <h1>Digital Marketing</h1>
+        </a>
       </div>
       <div class="nav-link-col">
         <a href="#overview" class="nav-links">Overview</a>
@@ -69,7 +71,7 @@
     </section>
 
     <section class="reveal back" id="solutions">
-        <h1 class="reveal" style="font-size: 45px; font-weight: 600; margin: 20px 0; padding: 20px 30px; color: #000000">Markets change, and we know it           </h1>
+        <h1 class="reveal" style="font-size: 45px; font-weight: 600; margin: 20px 0; padding: 20px 30px; color: #ffffff">Markets change, and we know it           </h1>
         <div class="box-container reveal">
             <div class="boxes class="reveal"">
                 <div class="logo">
@@ -78,12 +80,7 @@
                 <h1 class="title-service">Search Engine Optimization (SEO)</h1>
                 <p class="context">Implementing SEO strategies to optimize website content, meta tags, and technical elements to improve visibility and ranking in search engine results pages (SERPs). SEO helps attract organic (non-paid) traffic and increase website credibility and authority.
 </p>
-                <ul class="ul">
-                  <li>Document Classifier</li>
-                  <li>Contextual Search</li>
-                  <li>Intelligent Request Routing</li>
-                  <li>Customer Intent Prediction</li>
-                </ul>
+               
                 
             </div>
             <div class="boxes class="reveal">
@@ -93,10 +90,7 @@
                 <h1 class="title-service">Content Marketing
 </h1>
                 <p class="context">Developing and distributing valuable, relevant, and engaging content to attract and retain target audiences. Content marketing includes creating blog posts, articles, videos, infographics, ebooks, podcasts, and other types of content to address audience needs, interests, and pain points.</p>
-                <ul class="ul">
-                  <li>Generative AI Models</li>
-                  <li>Conversational AI, Visual IVR, Chatbots</li>
-                </ul>
+               
             </div>
             <div class="boxes class="reveal"">
                 <div class="logo">
@@ -108,7 +102,7 @@
                 <p class="context">
                  Leveraging social media platforms such as Facebook, Instagram, Twitter, LinkedIn, and Pinterest to connect with target audiences, build brand awareness, and engage followers. SMM involves organic posting, paid advertising, influencer partnerships, and social media analytics.
 </p>
-                <ul class="ul"><li>AI Decision Agents</li></ul>
+            
             </div>
             <div class="boxes class="reveal"">
                 <div class="logo">
@@ -117,7 +111,7 @@
                 <h1 class="title-service">Email Marketing</h1>
                 <p class="context">Sending targeted messages and promotional offers to a subscriber list of prospects or customers via email. Email marketing campaigns can be used to nurture leads, build customer relationships, and drive sales or conversions through personalized and segmented email communications.
 </p>
-                <ul class="ul"><li>Process Mining</li></ul>
+                
             </div>
         </div>
     </section>
@@ -127,23 +121,23 @@
           <p class="links-col">
               Help us find the answer to your questions by entering the details below:
               </p>
-            <form action="#" class="reveal">
-              
+            <form action="/DigitalMarketingServ" method="post" class="reveal">
+              {% csrf_token %}
                     <div class="block-container">
                         <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="First name*" autocomplete="off">
+                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Last name*" autocomplete="off">
+                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="email" name="" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
+                        <input type="email" name="email" id="" class="user-input" placeholder="email*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Phonr*" autocomplete="off">
+                        <input type="text" name="phoneNo" id="" class="user-input" placeholder="Phone*" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Job Title" autocomplete="off">
+                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
                     </div>
                     <div class="blcok">
                         <select name="" id="Digital Marketing">
@@ -151,10 +145,10 @@
                         </select>
                     </div>
                     <div class="blcok">
-                        <input type="text" name="" id="" class="user-input" placeholder="Company" autocomplete="off">
+                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
                     </div>
                     <div class="blcok">
-                        <textarea rows="4" cols="10" name="" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
+                        <textarea rows="4" cols="10" name=".message id="" class="user-input" placeholder="Tell Us More" autocomplete="off"> </textarea>
                     </div>
                     </div>
                     <div class="cneter-button class="reveal"">
@@ -423,10 +417,10 @@ nav{
     background:#fff;
     color: #000000;
     box-shadow: 0 4px 8px 3px #454545;
-    transition: all .1s linear;
+    transition: all .09s linear;
 }
 .boxes:hover{
-    box-shadow: 0px 0px 3px 5px rgb(150, 0, 0);
+  scale: 1.09;
 }
 .logo {
     width: 100%;
@@ -469,7 +463,7 @@ form{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 250px;
+    height: 300px;
 }
 .blcok {
     display: flex;

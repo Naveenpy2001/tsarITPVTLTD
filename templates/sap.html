@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,7 +20,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0"
     />
-    <script src="./JavaScript/chatBot.js" defer></script>
+    <script src='{% "./JavaScript/chatBot.js" %}' defer></script>
     <title>TSAR-IT | SAP Course</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
@@ -750,7 +751,7 @@
   </head>
   <body>
     <header>
-      {% include './header.html' %}
+      
     </header>
     <nav class="main-nav animation">
       <div class="logo animation">
@@ -1479,7 +1480,7 @@
       </div>
     </div>
     <!-- end chat bot -->
-    <script src="./JavaScript/scroll.js"></script>
+    <script src='{% static "./JavaScript/scroll.js" %}'></script>
     <script>
       function showForm() {
         document.getElementById("pop-form").style.display = "block";
