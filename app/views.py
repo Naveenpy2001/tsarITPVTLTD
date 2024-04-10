@@ -1,10 +1,11 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import HomeContact
 # signIn data
 from .models import SignInUser
 from django.contrib.auth.models import auth
 
+from .models import MediaPost
 # Create your views here.
 
 def index(request):
@@ -506,11 +507,260 @@ def ItPromotions(request):
 def Java(request):
     return render(request,'Java.html')
 
-def jobApply(request):
-    return render(request,'job-apply.html')
+
+# jobs page
+from .models import Job
 
 def jobPage(request):
-    return render(request,'job-page.html')
+    jobs = Job.objects.all()
+
+    return render(request,'job-page.html',{'jobs':jobs})
+
+from .models import UserRegistration
+def jobApply(request, job_id):
+    country_phone_codes = {
+        "select": "country",
+        "Afghanistan": "+93",
+        "Albania": "+355",
+        "Algeria": "+213",
+        "Andorra": "+376",
+        "Angola": "+244",
+        "Antigua and Barbuda": "+1",
+        "Argentina": "+54",
+        "Armenia": "+374",
+        "Australia": "+61",
+        "Austria": "+43",
+        "Azerbaijan": "+994",
+        "Bahamas": "+1",
+        "Bahrain": "+973",
+        "Bangladesh": "+880",
+        "Barbados": "+1",
+        "Belarus": "+375",
+        "Belgium": "+32",
+        "Belize": "+501",
+        "Benin": "+229",
+        "Bhutan": "+975",
+        "Bolivia": "+591",
+        "Bosnia and Herzegovina": "+387",
+        "Botswana": "+267",
+        "Brazil": "+55",
+        "Brunei": "+673",
+        "Bulgaria": "+359",
+        "Burkina Faso": "+226",
+        "Burundi": "+257",
+        "Cabo Verde": "+238",
+        "Cambodia": "+855",
+        "Cameroon": "+237",
+        "Canada": "+1",
+        "Central African Republic": "+236",
+        "Chad": "+235",
+        "Chile": "+56",
+        "China": "+86",
+        "Colombia": "+57",
+        "Comoros": "+269",
+        "Congo": "+242",
+        "Costa Rica": "+506",
+        "Croatia": "+385",
+        "Cuba": "+53",
+        "Cyprus": "+357",
+        "Czech Republic": "+420",
+        "Denmark": "+45",
+        "Djibouti": "+253",
+        "Dominica": "+1",
+        "Dominican Republic": "+1",
+        "East Timor (Timor-Leste)": "+670",
+        "Ecuador": "+593",
+        "Egypt": "+20",
+        "El Salvador": "+503",
+        "Equatorial Guinea": "+240",
+        "Eritrea": "+291",
+        "Estonia": "+372",
+        "Eswatini": "+268",
+        "Ethiopia": "+251",
+        "Fiji": "+679",
+        "Finland": "+358",
+        "France": "+33",
+        "Gabon": "+241",
+        "Gambia": "+220",
+        "Georgia": "+995",
+        "Germany": "+49",
+        "Ghana": "+233",
+        "Greece": "+30",
+        "Grenada": "+1",
+        "Guatemala": "+502",
+        "Guinea": "+224",
+        "Guinea-Bissau": "+245",
+        "Guyana": "+592",
+        "Haiti": "+509",
+        "Honduras": "+504",
+        "Hungary": "+36",
+        "Iceland": "+354",
+        "India": "+91",
+        "Indonesia": "+62",
+        "Iran": "+98",
+        "Iraq": "+964",
+        "Ireland": "+353",
+        "Israel": "+972",
+        "Italy": "+39",
+        "Jamaica": "+1",
+        "Japan": "+81",
+        "Jordan": "+962",
+        "Kazakhstan": "+7",
+        "Kenya": "+254",
+        "Kiribati": "+686",
+        "Korea, North": "+850",
+        "Korea, South": "+82",
+        "Kosovo": "+383",
+        "Kuwait": "+965",
+        "Kyrgyzstan": "+996",
+        "Laos": "+856",
+        "Latvia": "+371",
+        "Lebanon": "+961",
+        "Lesotho": "+266",
+        "Liberia": "+231",
+        "Libya": "+218",
+        "Liechtenstein": "+423",
+        "Lithuania": "+370",
+        "Luxembourg": "+352",
+        "Madagascar": "+261",
+        "Malawi": "+265",
+        "Malaysia": "+60",
+        "Maldives": "+960",
+        "Mali": "+223",
+        "Malta": "+356",
+        "Marshall Islands": "+692",
+        "Mauritania": "+222",
+        "Mauritius": "+230",
+        "Mexico": "+52",
+        "Micronesia": "+691",
+        "Moldova": "+373",
+        "Monaco": "+377",
+        "Mongolia": "+976",
+        "Montenegro": "+382",
+        "Morocco": "+212",
+        "Mozambique": "+258",
+        "Myanmar (Burma)": "+95",
+        "Namibia": "+264",
+        "Nauru": "+674",
+        "Nepal": "+977",
+        "Netherlands": "+31",
+        "New Zealand": "+64",
+        "Nicaragua": "+505",
+        "Niger": "+227",
+        "Nigeria": "+234",
+        "North Macedonia": "+389",
+        "Norway": "+47",
+        "Oman": "+968",
+        "Pakistan": "+92",
+        "Palau": "+680",
+        "Palestine": "+970",
+        "Panama": "+507",
+        "Papua New Guinea": "+675",
+        "Paraguay": "+595",
+        "Peru": "+51",
+        "Philippines": "+63",
+        "Poland": "+48",
+        "Portugal": "+351",
+        "Qatar": "+974",
+        "Romania": "+40",
+        "Russia": "+7",
+        "Rwanda": "+250",
+        "Saint Kitts and Nevis": "+1",
+        "Saint Lucia": "+1",
+        "Saint Vincent and the Grenadines": "+1",
+        "Samoa": "+685",
+        "San Marino": "+378",
+        "Sao Tome and Principe": "+239",
+        "Saudi Arabia": "+966",
+        "Senegal": "+221",
+        "Serbia": "+381",
+        "Seychelles": "+248",
+        "Sierra Leone": "+232",
+        "Singapore": "+65",
+        "Slovakia": "+421",
+        "Slovenia": "+386",
+        "Solomon Islands": "+677",
+        "Somalia": "+252",
+        "South Africa": "+27",
+        "South Sudan": "+211",
+        "Spain": "+34",
+        "Sri Lanka": "+94",
+        "Sudan": "+249",
+        "Suriname": "+597",
+        "Sweden": "+46",
+        "Switzerland": "+41",
+        "Syria": "+963",
+        "Taiwan": "+886",
+        "Tajikistan": "+992",
+        "Tanzania": "+255",
+        "Thailand": "+66",
+        "Togo": "+228",
+        "Tonga": "+676",
+        "Trinidad and Tobago": "+1",
+        "Tunisia": "+216",
+        "Turkey": "+90",
+        "Turkmenistan": "+993",
+        "Tuvalu": "+688",
+        "Uganda": "+256",
+        "Ukraine": "+380",
+        "United Arab Emirates": "+971",
+        "United Kingdom": "+44",
+        "United States": "+1",
+        "Uruguay": "+598",
+        "Uzbekistan": "+998",
+        "Vanuatu": "+678",
+        "Vatican City": "+379",
+        "Venezuela": "+58",
+        "Vietnam": "+84",
+        "Yemen": "+967",
+        "Zambia": "+260",
+        "Zimbabwe": "+263"
+    }
+    # fetching the data from applied job link
+
+    job = get_object_or_404(Job, pk=job_id)
+    # applyting the job
+
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        country_code = request.POST['country_code']
+        phone_number = request.POST['phone_number']
+        gender = request.POST['gender']
+        resume = request.POST.get('resume')
+        aadhar_card_number = request.POST['aadhar_card_number']
+        is_fresher = request.POST.get('is_fresher') == 'yes'  # Convert 'yes' to True, 'no' to False
+        applied_with_tsar_it = request.POST.get('applied_with_tsar_it') == 'yes'  # Convert 'yes' to True, 'no' to False
+        previous_employee_id = request.POST['previous_employee_id']
+        receive_job_notifications = request.POST.get('receive_job_notifications', False) == 'on'
+        hear_about_opportunities = request.POST.get('hear_about_opportunities', False) == 'on'
+        terms_of_use_agreed = request.POST.get('terms_of_use_agreed', False) == 'on'
+        
+        apply_job = UserRegistration.objects.create(
+            email=email,
+            password=password,
+            first_name=first_name,
+            last_name=last_name,
+            country_code=country_code,
+            phone_number=phone_number,
+            gender=gender,
+            resume=resume,
+            aadhar_card_number=aadhar_card_number,
+            is_fresher=is_fresher,
+            applied_with_tsar_it=applied_with_tsar_it,
+            previous_employee_id=previous_employee_id,
+            receive_job_notifications=receive_job_notifications,
+            hear_about_opportunities=hear_about_opportunities,
+            terms_of_use_agreed=terms_of_use_agreed,
+        ).save()
+        return render(request, 'job-apply.html',{"message":'Application Sent !'})
+    return render(request,'job-apply.html',{'job':job,'country_phone_codes':country_phone_codes})
+
+def display_resume(request, applicant_id):
+    applicant = UserRegistration.objects.get(pk=applicant_id)
+    return render(request, 'resume_display.html', {'applicant': applicant})
 
 def LifePharma(request):
     return render(request,'Life-Pharma.html')
@@ -538,8 +788,9 @@ def pharmaIndustry(request):
 def marketDashboard(request):
     return render(request,'marketDashboard.html')
 
-def media(request):
-    return render(request,'media.html')
+def Media(request):
+    posts = MediaPost.objects.all()
+    return render(request,'media.html',{'posts':posts})
 
 def MediaServices(request):
     return render(request,'Media&Services.html')
@@ -873,14 +1124,6 @@ def transportIndustry(request):
     return render(request, 'Aerospace&Defence.html')
 
 # fetching data in JSON formate
-
-# from django.http import JsonResponse
-# from django.core.serializers import serialize
-
-
-
-    # Return the serialized data as JSON response
-    # return JsonResponse(all_Services, safe=False)
 
 def Utilities(request):
     return render(request,'Utilities.html')
@@ -1293,7 +1536,7 @@ def distributionService(request):
         return render(request,'web-development.html')
     
 
-    # energy services
+    # energy services=======================================================
 from .models import Energy
 
 
@@ -1325,7 +1568,7 @@ def wind(request):
 def windEnergy(request):
     if request.method == 'POST':
 
-        form_name = 'Utilities-industry'
+        form_name = 'wind-energy'
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
@@ -1347,7 +1590,7 @@ def thermal(request):
 def thermalEnergy(request):
     if request.method == 'POST':
 
-        form_name = 'Utilities-industry'
+        form_name = 'Thermal-energy'
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
@@ -1462,7 +1705,7 @@ def recruitmanagement(request):
 def RMS(request):
     if request.method == 'POST':
 
-        form_name = 'Utilities-industry'
+        form_name = 'recruit-management'
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
@@ -1484,7 +1727,7 @@ def hrManagement(request):
 def HRM(request):
     if request.method == 'POST':
 
-        form_name = 'Utilities-industry'
+        form_name = 'Human-Resource'
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']

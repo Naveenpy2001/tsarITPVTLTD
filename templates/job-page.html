@@ -80,7 +80,7 @@
       .div {
         width: 50%;
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
       }
       .job-input {
         padding: 5px 20px;
@@ -188,18 +188,28 @@
               </div>
             </form>
           </div>
+          
+          <!-- jobs links fetching from backend API -->
+
+          {%  for job in jobs %}
+
           <div class="job-links">
             <div class="div designation">
-              <a href="/jobApply" class="job-name"
-                >Jr.Frontend Developer</a
+              <a href="{% url 'jobApply' job.id %}" class="job-name"
+                >{{ job.title }}</a
               >
             </div>
-            <div class="div location-of-job">Banglore,India</div>
-            <div class="div job-date">july / 09 / 2024</div>
+            <div class="div location-of-job"> {{ job.location }} </div>
+            <div class="div job-date" > {{ job.created_at }} </div>
           </div>
+
+          {% endfor %}
+
+
         </div>
       </div>
     </section>
+
   {% include 'footer.html' %}
   </body>
 </html>

@@ -71,12 +71,12 @@ urlpatterns = [
     path('internshipPage',views.internshipPage),
     path('ItPromotions',views.ItPromotions),
     path('Java',views.Java),
-    path('jobApply',views.jobApply),
+    path('jobApply/<int:job_id>/',views.jobApply,name='jobApply'),
     path('jobPage',views.jobPage),
     path('LifePharma',views.LifePharma),
     path('manPowerSupply',views.manPowerSupply),
     path('marketDashboard',views.marketDashboard),
-    path('media',views.media),
+    path('Media',views.Media,name="Media"),
     path('MediaServices',views.MediaServices),
     path('mediaDashboard',views.mediaDashboard),
     path('NaturalResources',views.NaturalResources),
@@ -207,7 +207,7 @@ urlpatterns = [
 
     path('HRM', views.HRM, name='HRM'),
 
-    
+    # path('resume/<int:applicant_id>/', views.display_resume, name='display_resume'),
 
 ]
 
