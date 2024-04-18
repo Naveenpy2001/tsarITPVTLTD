@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+
+from django.contrib.auth import logout
 from .models import HomeContact
 # signIn data
 from .models import SignInUser
@@ -119,8 +121,6 @@ def aeroIndustry(request):
     return render(request, 'Aerospace&Defence.html')
 
 
-def angular(request):
-    return render(request,'angular.html')
 
 
 
@@ -347,8 +347,7 @@ def ConsumerElectronics(request):
 def coockiesPolicy(request):
     return render(request,'coockies-policy.html')
 
-def CorporateLogin(request):
-    return render(request,'Corporate-login.html')
+
 
 def csr(request):
     return render(request,'csr.html')
@@ -498,8 +497,6 @@ def insuranceIndustry(request):
     return render(request, 'Aerospace&Defence.html')
 
 
-def internshipPage(request):
-    return render(request,'internship-page.html')
 
 def ItPromotions(request):
     return render(request,'It-promotions.html')
@@ -513,10 +510,16 @@ from .models import Job
 
 def jobPage(request):
     jobs = Job.objects.all()
-
     return render(request,'job-page.html',{'jobs':jobs})
 
-from .models import UserRegistration
+
+
+
+
+from django.contrib.auth.models import User
+from .models import JobApply
+
+
 def jobApply(request, job_id):
     country_phone_codes = {
         "select": "country",
@@ -716,51 +719,47 @@ def jobApply(request, job_id):
         "Zambia": "+260",
         "Zimbabwe": "+263"
     }
-    # fetching the data from applied job link
-
     job = get_object_or_404(Job, pk=job_id)
-    # applyting the job
-
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        country_code = request.POST['country_code']
-        phone_number = request.POST['phone_number']
-        gender = request.POST['gender']
-        resume = request.POST.get('resume')
-        aadhar_card_number = request.POST['aadhar_card_number']
-        is_fresher = request.POST.get('is_fresher') == 'yes'  # Convert 'yes' to True, 'no' to False
-        applied_with_tsar_it = request.POST.get('applied_with_tsar_it') == 'yes'  # Convert 'yes' to True, 'no' to False
-        previous_employee_id = request.POST['previous_employee_id']
-        receive_job_notifications = request.POST.get('receive_job_notifications', False) == 'on'
-        hear_about_opportunities = request.POST.get('hear_about_opportunities', False) == 'on'
-        terms_of_use_agreed = request.POST.get('terms_of_use_agreed', False) == 'on'
-        
-        apply_job = UserRegistration.objects.create(
-            email=email,
-            password=password,
-            first_name=first_name,
-            last_name=last_name,
-            country_code=country_code,
-            phone_number=phone_number,
-            gender=gender,
-            resume=resume,
-            aadhar_card_number=aadhar_card_number,
-            is_fresher=is_fresher,
-            applied_with_tsar_it=applied_with_tsar_it,
-            previous_employee_id=previous_employee_id,
-            receive_job_notifications=receive_job_notifications,
-            hear_about_opportunities=hear_about_opportunities,
-            terms_of_use_agreed=terms_of_use_agreed,
-        ).save()
-        return render(request, 'job-apply.html',{"message":'Application Sent !'})
+        form_name = job.title
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        country_code = request.POST.get('country_code')
+        phone_number = request.POST.get('phone_number')
+        gender = request.POST.get('gender')
+        aadhar_card_number = request.POST.get('aadhar_card_number')
+        is_fresher = request.POST.get('is_fresher')
+        applied_with_tsar_it = request.POST.get('applied_with_tsar_it')
+        previous_employee_id = request.POST.get('previous_employee_id')
+        resume = request.FILES.get('resume')
+        terms_of_use_agreed = request.POST.get('terms_of_use_agreed')
+        apply = JobApply.objects.create(form_name=form_name,email=email,password=password,first_name=first_name,last_name=last_name,country_code=country_code,phone_number=phone_number,gender=gender,aadhar_card_number=aadhar_card_number,is_fresher=is_fresher,applied_with_tsar_it=applied_with_tsar_it,previous_employee_id=previous_employee_id,resume=resume,terms_of_use_agreed=terms_of_use_agreed,)
+        apply.save()
+        jobs = get_object_or_404(Job, pk=job_id)
+        return render(request,'user_account.html',{'jobs':jobs,'first_name':first_name,'email':email})
     return render(request,'job-apply.html',{'job':job,'country_phone_codes':country_phone_codes})
 
-def display_resume(request, applicant_id):
-    applicant = UserRegistration.objects.get(pk=applicant_id)
-    return render(request, 'resume_display.html', {'applicant': applicant})
+from django.contrib.auth.hashers import make_password, check_password
+
+def login(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        try:
+            student = JobApply.objects.get(email=email) 
+            if student.password == check_password.password:
+                # You might want to add additional logic here such as setting session variables
+                return render(request,'user_account.html') 
+            else:
+                # Handle incorrect password
+                pass
+        except JobApply.DoesNotExist:
+            # Handle non-existent user
+            pass
+    return render(request, 'job-apply.html')
+
 
 def LifePharma(request):
     return render(request,'Life-Pharma.html')
@@ -780,6 +779,7 @@ def pharmaIndustry(request):
         pharmaInd = Industries.objects.create(form_name=form_name,first_name=first_name,last_name=last_name,email=email,phone=phone,jobTitle=jobTitle,select=select,company=company,message=message,
         )
         pharmaInd .save()
+        
     
         return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     
@@ -969,34 +969,6 @@ def reactJs(request):
     return render(request,'reactJs.html')
 
 
-
-def registrationForm(request):
-    languages = [
-    "select",
-    "Python",
-    "Java",
-    "C++",
-    "JavaScript",
-    "Ruby",
-    "PHP",
-    "Swift",
-    "Kotlin",
-    "Go",
-    "Rust",
-    "TypeScript",
-    "Dart",
-    "R",
-    "MATLAB",
-    "Scala",
-    "Perl",
-    "Lua",
-    "HTML",
-    "CSS",
-    "SQL",
-    "Bash"
-]
-    return render(request,'registration-form.html',{"languages":languages})
-
 def Retail(request):
     return render(request,'Retail.html')
 
@@ -1050,47 +1022,6 @@ def semiConductorsIndustry(request):
         return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     
     return render(request, 'Aerospace&Defence.html')
-
-
-
-def studentDashboard(request):
-    return render(request,'student-dashboard.html')
-
-def studentLogin(request):
-    return render(request,'student-login.html')
-
-# student sign in
-def signInStudent(request):
-    if request.method == 'POST':
-        user_name = request.POST['user_name']
-        user_email = request.POST['user_email']
-        password = request.POST['password']
-        re_password = request.POST.get('re_password')
-        if re_password == password:
-            student = SignInUser.objects.create(user_name=user_name,user_email=user_email,password=password,re_password=re_password)
-            student.save()
-            return render(request,'student-login.html',{'message':'user created'})
-        else:
-            return render(request,'student-login.html',{'message':"Password not matching"})
-    
-
-# login student
-def loginStudent(request):
-
-    if request.method == 'POST':
-        user_name = request.POST['user_name']
-        password = request.POST['password']
-        user = auth.authenticate(user_name=user_name, password=password)
-        if user is not None:
-            return render(request, 'student-dashboard.html', {'userName': user_name, 'user_student': user})
-        else:
-            return render(request, 'student-login.html', {'message': 'Invalid username or password'})
-    else:
-        return render(request, 'student-dashboard.html')
-
-# logout function
-def logOut_student(request):
-    return render(request, 'student-login.html')
 
 
 

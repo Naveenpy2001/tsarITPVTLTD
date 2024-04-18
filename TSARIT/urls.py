@@ -34,7 +34,7 @@ urlpatterns = [
     path('accountsDashboard',views.accountsDashboard),
     path('Aerospace',views.Aerospace),
     path('chatbot',views.chatbot),
-    path('angular',views.angular),
+
     path('appDevelopment',views.appDevelopment),
     path('automotive',views.automotive),
     path('aws',views.aws),
@@ -52,7 +52,7 @@ urlpatterns = [
     path('ConsumerElectronics',views.ConsumerElectronics),
     path('contact',views.contact),
     path('coockiesPolicy',views.coockiesPolicy),
-    path('CorporateLogin',views.CorporateLogin),
+
     path('csr',views.csr),
     path('dataScience',views.dataScience),
     path('digitalmarketing',views.digitalmarketing),
@@ -68,7 +68,7 @@ urlpatterns = [
     path('HMS',views.HMS),
     path('IndustrialProcess',views.IndustrialProcess),
     path('insurance',views.insurance),
-    path('internshipPage',views.internshipPage),
+
     path('ItPromotions',views.ItPromotions),
     path('Java',views.Java),
     path('jobApply/<int:job_id>/',views.jobApply,name='jobApply'),
@@ -94,7 +94,7 @@ urlpatterns = [
     path('pythonPage',views.pythonPage),
     path('reactJs',views.reactJs),
     path('recruitmanagement',views.recruitmanagement),
-    path('registrationForm',views.registrationForm),
+
     path('Retail',views.Retail),
     path('salesforce',views.salesforce),
     path('sap',views.sap),
@@ -102,8 +102,7 @@ urlpatterns = [
     path('securityNotifications',views.securityNotifications),
     path('Semiconductors',views.Semiconductors),
     path('solar',views.solar),
-    path('studentDashboard',views.studentDashboard),
-    path('studentLogin',views.studentLogin),
+
     path('Survey',views.Survey),
     path('TermsUse',views.TermsUse),
     path('thermal',views.thermal),
@@ -118,9 +117,7 @@ urlpatterns = [
     # home page
     path('indexContact',views.indexContact,name='indexContact'),
     path('success/', views.success_view, name='success'),
-    path('signInStudent', views.signInStudent, name='signInStudent'),
-    path('loginStudent', views.loginStudent, name='loginStudent'),
-    path('logOut_student', views.logOut_student, name='logOut_student'),
+
     # service URLs
     path('serviceWebDev', views.serviceWebDev, name='serviceWebDev'),
     path('AppDevService', views.AppDevService, name='AppDevService'),
@@ -207,9 +204,11 @@ urlpatterns = [
 
     path('HRM', views.HRM, name='HRM'),
 
+    path('login', views.login, name='login'),
+
     # path('resume/<int:applicant_id>/', views.display_resume, name='display_resume'),
 
-]
+] 
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

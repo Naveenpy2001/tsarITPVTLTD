@@ -1,7 +1,7 @@
 from django import forms
-from .models import UserRegistration
+from .models import JobApplication
 
-class ApplicantForm(forms.ModelForm):
+class JobApplicationForm(forms.ModelForm):
     class Meta:
-        model = UserRegistration
-        fields = ['resume']
+        model = JobApplication
+        fields = ['name', 'email', 'resume', 'is_fresher']

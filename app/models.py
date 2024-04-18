@@ -114,22 +114,19 @@ class Job(models.Model):
         return self.title
         
 
-# job applying
 
-class UserRegistration(models.Model):
+class JobApply(models.Model):
+    form_name = models.CharField(max_length=200)
     email = models.EmailField()
-    password = models.CharField(max_length=100)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    country_code = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=15)
-    gender = models.CharField(max_length=100)
-    aadhar_card_number = models.CharField(max_length=20)
-    is_fresher = models.CharField(max_length=100)
-    applied_with_tsar_it = models.CharField(max_length=100)
-    previous_employee_id = models.CharField(max_length=50)
-    receive_job_notifications = models.BooleanField(default=False)
-    hear_about_opportunities = models.BooleanField(default=False)
-    terms_of_use_agreed = models.BooleanField()
+    password = models.CharField(max_length=200)
+    first_name = models.CharField(max_length=200, null=True)
+    last_name = models.CharField(max_length=200,null=True)
+    country_code = models.CharField(max_length=200, null=True)
+    phone_number = models.CharField(max_length=200, null=True)
+    gender = models.CharField(max_length=200, null=True)
+    aadhar_card_number = models.CharField(max_length=200, null=True)
+    is_fresher = models.CharField(max_length=200, null=True)
+    applied_with_tsar_it = models.CharField(max_length=200, null=True)
+    previous_employee_id = models.CharField(max_length=200, null=True)
     resume = models.FileField(upload_to='resumes/')
-    timestamp = models.DateTimeField(auto_now_add=True)
+    terms_of_use_agreed = models.CharField(max_length=200, null=True)
