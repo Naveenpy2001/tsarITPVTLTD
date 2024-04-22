@@ -23,6 +23,8 @@ def indexContact(request):
         userjob = request.POST['userjob']
         userCompany = request.POST['userCompany']
         message = request.POST['message']
+
+     
         
         if username:
             user_contact = HomeContact(username=username, useremail=useremail, busines_email=busines_email, userphno=userphno, userjob=userjob, userCompany=userCompany, message=message)
@@ -157,11 +159,8 @@ def automotivendustry(request):
     return render(request, 'Aerospace&Defence.html')
 
 
-def aws(request):
-    return render(request,'aws.html')
 
-def azure(request):
-    return render(request,'azure.html')
+
 
 def Banking(request):
     return render(request,'Banking.html')
@@ -197,11 +196,6 @@ def bankIndustry(request):
 
 
 
-def bigdata(request):
-    return render(request,'bigdata.html')
-
-
-
 def capitalMarket(request):
     return render(request,'capital-market.html')
 
@@ -233,7 +227,6 @@ def capitalIndustry(request):
         return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     
     return render(request, 'Aerospace&Defence.html')
-
 
 
 def Communications(request):
@@ -334,8 +327,7 @@ def cPackagedIndustry(request):
     
     return render(request, 'Aerospace&Defence.html')
 
-def cloud(request):
-    return render(request,'cloud.html')
+
 
 def Communications(request):
     return render(request,'Communications.html')
@@ -352,13 +344,7 @@ def coockiesPolicy(request):
 def csr(request):
     return render(request,'csr.html')
 
-def dataScience(request):
-    return render(request,'data-science.html')
 
-
-
-def dotnet(request):
-    return render(request,'dot-net.html')
 
 def Education(request):
     return render(request,'Education.html')
@@ -501,8 +487,6 @@ def insuranceIndustry(request):
 def ItPromotions(request):
     return render(request,'It-promotions.html')
 
-def Java(request):
-    return render(request,'Java.html')
 
 
 # jobs page
@@ -511,9 +495,6 @@ from .models import Job
 def jobPage(request):
     jobs = Job.objects.all()
     return render(request,'job-page.html',{'jobs':jobs})
-
-
-
 
 
 from django.contrib.auth.models import User
@@ -887,8 +868,7 @@ def oilGasIndustry(request):
 
 
 
-def php(request):
-    return render(request,'php.html')
+
 
 def SoftwareProducts(request):
     return render(request,'PlatformsSoftwareProducts.html')
@@ -962,11 +942,8 @@ def publicSectorIndustry(request):
     
     return render(request, 'Aerospace&Defence.html')
 
-def pythonPage(request):
-    return render(request,'python-page.html')
 
-def reactJs(request):
-    return render(request,'reactJs.html')
+
 
 
 def Retail(request):
@@ -992,11 +969,7 @@ def retailIndustry(request):
     return render(request, 'Aerospace&Defence.html')
 
 
-def salesforce(request):
-    return render(request,'salesforce.html')
 
-def sap(request):
-    return render(request,'sap.html')
 
 def securityNotifications(request):
     return render(request,'securityNotifications.html')
