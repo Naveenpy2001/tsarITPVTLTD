@@ -5,183 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TSAR IT</title>
     <script src="https://kit.fontawesome.com/06a08d1706.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <header>
-      {% include './header.html' %}
-    </header>
-    <main style="padding: 10px 10px" id="home">
-      <p>
-        <a href="/">Home</a> >
-        <a href="/">Industries </a>> Communications
-      </p>
-    </main>
-    <section style="padding: 15px 10px" id="home-2">
-      <div class="img-container">
-        <div class="left-text">
-          <h1 class="title animation"><a href="#" class="title">Communications</a></h1>
-      </div>
-    </section>
-     <nav class="animation">
-      <div class="company-name animation">
-        <a href="#home" style="color: #000;"><h1>Communications</h1></a>
-      </div>
-      <div class="nav-link-col">
-        <a href="#overview" class="nav-links">Overview</a>
-        <a href="#services" class="nav-links">Services</a>
-      </div>
-      <div class="contac-col">
-        <a href="#contact"><button class="contact-button">Contact with us</button></a>
-      </div>
-    </nav>
-    <section id="overview" style="padding: 30px;">
-      <h1 style="font-size: 28px; font-weight: 600">
-       
-      </h1>
-
-      <div class="container-overview">
-        <div class="img-contain animation">
-          <img src="./media/comunication.png" alt="industry-logo" class="img-2" />
-          <h1 class="text-rel">Communications</h1>
-        </div>
-        <div class="text-container animation">
-          <h1 style="font-size: 28px; width: 100%; margin: 10px 20px">
-           Overview
-          </h1>
-          <span style="margin: 20px 30px" class="animation">
-            <p style="margin: 20px 20px" class="animation">
-              
-Communication is a multifaceted process essential for human interaction and societal functioning. In its broadest sense, communication involves the exchange of information, ideas, and emotions between individuals or groups. This dynamic process encompasses verbal and non-verbal elements, including language, body language, and various modes of expression
-            </p>
-            <p style="margin: 20px 20px" class="animation">
-              The field of communication is diverse, encompassing various disciplines such as mass media, interpersonal communication, and organizational communication. Mass media, including television, radio, and the internet, play a pivotal role in disseminating information on a global scale.
-            </p>
-            <p style="margin: 20px 20px" class="animation">
-              The rapid evolution of technology has profoundly transformed the landscape of communication. The advent of social media, instant messaging, and video conferencing has revolutionized how people connect and share information.
-            </p>
-          </span>
-        </div>
-      </div>
-    </section>
-    <section id="services">
-      <h2 class="title-2">Communications Services</h2>
-      <div class="box-contain">
-        <div class="box">
-          <h2 class="title-h2">
-            Telecommunication Services
-          </h2>
-          <p class="context">
-            
-          </p>
-        </div>
-        <div class="box">
-          <h2 class="title-h2">
-            Media and Broadcasting Services
-          </h2>
-          <p class="context">
-            
-          </p>
-        </div>
-        <div class="box">
-          <h2 class="title-h2">
-            Internet and Information Services
-          </h2>
-          <p class="context">
-            
-          </p>
-        </div>
-        <div class="box">
-          <h2 class="title-h2">
-            Advertising and Marketing Services
-          </h2>
-          <p class="context">
-            
-          </p>
-        </div>
-        <div class="box">
-          <h2 class="title-h2">
-            Emergency and Public Safety Communication
-          </h2>
-          <p class="context">
-            
-          </p>
-        </div>
-        <div class="box">
-          <h2 class="title-h2">
-           Cloud Communication Services
-          </h2>
-          <p class="context">
-            
-          </p>
-        </div>
-      </div>
-    </section>
-<section class="reveal sec-back" id="contact">
-        <div class="form-contain">
-          <h1 class="h-3">Request for Service</h1>
-          <p class="links-col">
-               
-              </p>
-            <form action="/communicationsIndustry" method="post" class="reveal">
-              {% csrf_token %}
-                    <div class="block-container">
-                        <div class="blcok">
-                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <input type="email" name="email" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <input type="text" name="phoneNo" id="phoneNo" class="user-input" placeholder="Phone*" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <select name="select_service" id="Communications">
-                            <option value="Communications">Communications</option>
-                        </select>
-                    </div>
-                    <div class="blcok">
-                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
-                    </div>
-                    <div class="blcok">
-                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
-                    </div>
-                    </div>
-                    <div class="cneter-button class="reveal"">
-                        <button class="submit-btn">Submit</button>
-                    </div>
-            </form>
-        </div>
-    </section>
-    {% include 'footer.html' %}
-    <script>
-      window.addEventListener("scroll", reveal);
-      let reveals = document.querySelectorAll(".reveal");
-      function reveal() {
-        for (var i = 0; i < reveals.length; i++) {
-          var windowHeight = window.innerHeight;
-          var revealTop = reveals[i].getBoundingClientRect().top;
-          var revealPoint = 50;
-          if (revealTop < windowHeight - revealPoint) {
-            reveals[i].classList.add("active");
-          } else {
-            reveals[i].classList.remove("active");
-          }
-        }
-      }
-    </script>
-  </body>
-</html>
-<style>
+    <style>
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
   :root {
-    --primaryBackground: #212529;
+    --primaryBackground: #12132d;
   }
   ::selection {
     background-color: #050540;
@@ -269,9 +97,7 @@ Communication is a multifaceted process essential for human interaction and soci
     width: 80%;
     text-shadow: 0 1px 4px #e1e1e1;
   }
-  li {
-    margin: 10px 0;
-  }
+
   #overview {
     background-color: #ffffff;
   }
@@ -523,3 +349,176 @@ select, option{
 }
 
 </style>
+
+  </head>
+  <body>
+    <header>
+      {% include './header.html' %}
+    </header>
+    <main style="padding: 10px 10px" id="home">
+      <p>
+        <a href="/">Home</a> >
+        <a href="/">Industries </a>> Communications
+      </p>
+    </main>
+    <section style="padding: 15px 10px" id="home-2">
+      <div class="img-container">
+        <div class="left-text">
+          <h1 class="title animation"><a href="#" class="title">Communications</a></h1>
+      </div>
+    </section>
+     <nav class="animation">
+      <div class="company-name animation">
+        <a href="#home" style="color: #000;"><h1>Communications</h1></a>
+      </div>
+      <div class="nav-link-col">
+        <a href="#overview" class="nav-links">Overview</a>
+        <a href="#services" class="nav-links">Services</a>
+      </div>
+      <div class="contac-col">
+        <a href="#contact"><button class="contact-button">Contact with us</button></a>
+      </div>
+    </nav>
+    <section id="overview" style="padding: 30px;">
+      <h1 style="font-size: 28px; font-weight: 600">
+       
+      </h1>
+
+      <div class="container-overview">
+        <div class="img-contain animation">
+          <img src="./media/comunication.png" alt="industry-logo" class="img-2" />
+          <h1 class="text-rel">Communications</h1>
+        </div>
+        <div class="text-container animation">
+          <h1 style="font-size: 28px; width: 100%; margin: 10px 20px">
+           Overview
+          </h1>
+          <span style="margin: 20px 30px" class="animation">
+            <p style="margin: 20px 20px" class="animation">
+              
+Communication is a multifaceted process essential for human interaction and societal functioning. In its broadest sense, communication involves the exchange of information, ideas, and emotions between individuals or groups. This dynamic process encompasses verbal and non-verbal elements, including language, body language, and various modes of expression
+            </p>
+            <p style="margin: 20px 20px" class="animation">
+              The field of communication is diverse, encompassing various disciplines such as mass media, interpersonal communication, and organizational communication. Mass media, including television, radio, and the internet, play a pivotal role in disseminating information on a global scale.
+            </p>
+            <p style="margin: 20px 20px" class="animation">
+              The rapid evolution of technology has profoundly transformed the landscape of communication. The advent of social media, instant messaging, and video conferencing has revolutionized how people connect and share information.
+            </p>
+          </span>
+        </div>
+      </div>
+    </section>
+    <section id="services">
+      <h2 class="title-2">Communications Services</h2>
+      <div class="box-contain">
+        <div class="box">
+          <h2 class="title-h2">
+            Telecommunication Services
+          </h2>
+          <p class="context">
+            
+          </p>
+        </div>
+        <div class="box">
+          <h2 class="title-h2">
+            Media and Broadcasting Services
+          </h2>
+          <p class="context">
+            
+          </p>
+        </div>
+        <div class="box">
+          <h2 class="title-h2">
+            Internet and Information Services
+          </h2>
+          <p class="context">
+            
+          </p>
+        </div>
+        <div class="box">
+          <h2 class="title-h2">
+            Advertising and Marketing Services
+          </h2>
+          <p class="context">
+            
+          </p>
+        </div>
+        <div class="box">
+          <h2 class="title-h2">
+            Emergency and Public Safety Communication
+          </h2>
+          <p class="context">
+            
+          </p>
+        </div>
+        <div class="box">
+          <h2 class="title-h2">
+           Cloud Communication Services
+          </h2>
+          <p class="context">
+            
+          </p>
+        </div>
+      </div>
+    </section>
+<section class="reveal sec-back" id="contact">
+        <div class="form-contain">
+          <h1 class="h-3">Request for Service</h1>
+          <p class="links-col">
+               
+              </p>
+            <form action="/communicationsIndustry" method="post" class="reveal">
+              {% csrf_token %}
+                    <div class="block-container">
+                        <div class="blcok">
+                        <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="last_name" id="" class="user-input" placeholder="Last name*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="email" name="email" id="" class="user-input" placeholder="Businesss email*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="phoneNo" id="phoneNo" class="user-input" placeholder="Phone*" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="job_title" id="" class="user-input" placeholder="Job Title" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <select name="select_service" id="Communications">
+                            <option value="Communications">Communications</option>
+                        </select>
+                    </div>
+                    <div class="blcok">
+                        <input type="text" name="company" id="" class="user-input" placeholder="Company" autocomplete="off">
+                    </div>
+                    <div class="blcok">
+                        <textarea rows="4" cols="10" name="message" id="" class="user-input" placeholder="" autocomplete="off"> </textarea>
+                    </div>
+                    </div>
+                    <div class="cneter-button class="reveal"">
+                        <button class="submit-btn">Submit</button>
+                    </div>
+            </form>
+        </div>
+    </section>
+    {% include 'footer.html' %}
+    <script>
+      window.addEventListener("scroll", reveal);
+      let reveals = document.querySelectorAll(".reveal");
+      function reveal() {
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var revealTop = reveals[i].getBoundingClientRect().top;
+          var revealPoint = 50;
+          if (revealTop < windowHeight - revealPoint) {
+            reveals[i].classList.add("active");
+          } else {
+            reveals[i].classList.remove("active");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

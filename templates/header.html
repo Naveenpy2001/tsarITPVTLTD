@@ -67,7 +67,9 @@ a {
   text-decoration: none;
   position: relative;
 }
-
+p > a {
+  color: #000;
+}
 .bar::after {
   content: "";
   position: absolute;
@@ -488,6 +490,19 @@ a {
     opacity: 1;
   }
 }
+@media screen and (min-width:220px) and (max-width:1080px) {
+  .header-main .item-left {
+    flex: 0;
+    width: 100%;
+    margin: 0 15px;
+}
+    .header-main .item-right {
+      display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 80%;
+    }
+}
     </style>
   </head>
   <body>
@@ -612,7 +627,7 @@ a {
                           </a>
                         </li>
                         <li>
-                          <a href="/oilgas" class="bar">Oil & Gass </a>
+                          <a href="/oilGas" class="bar">Oil & Gass </a>
                         </li>
                         <li>
                           <a href="/SoftwareProducts" class="bar"

@@ -9,10 +9,8 @@ from django.contrib.auth.models import auth
 
 from .models import MediaPost
 # Create your views here.
-
 def index(request):
     return render(request,'index.html')
-
 #  in home page contact us
 def indexContact(request):
     if request.method == 'POST':
@@ -23,22 +21,17 @@ def indexContact(request):
         userjob = request.POST['userjob']
         userCompany = request.POST['userCompany']
         message = request.POST['message']
-
-     
-        
         if username:
             user_contact = HomeContact(username=username, useremail=useremail, busines_email=busines_email, userphno=userphno, userjob=userjob, userCompany=userCompany, message=message)
             user_contact.save()
             return redirect('success')
-      
         else:
             error_msg = "Please provide a name."
             return HttpResponse(error_msg)
-
     else:
-        error_msg = "Please fill all details."
-        return render(request, 'success.html', {'message': error_msg})
+        return render(request, 'success.html', {'message': "form submitted...!!."})
     
+# contactUs page
 def contact(request):
     return render(request,'contact.html')
 
