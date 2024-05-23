@@ -1148,7 +1148,32 @@ def ServiceBPO(request):
         return redirect('success')
     return render(request, 'BPO-services.html')
 # Background Verifications
+def backgoundVerification(request):
+    if request.method == 'POST':
+        form_name = 'BPO-service'
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phoneNo']
+        jobTitle = request.POST['job_title']
+        select = request.POST['select_service']
+        company = request.POST['company']
+        message = request.POST['message']
 
+        bpoServ = ContactMessage(
+            form_name=form_name,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            jobTitle=jobTitle,
+            select=select,
+            company=company,
+            message=message,
+        )
+        bpoServ.save()
+        return redirect('success')
+    return render(request, 'backgoundVerification.html')
 # Satellite Projects-------------------------------------------------------------------------
 
 def satelite(request):

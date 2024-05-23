@@ -52,6 +52,7 @@ urlpatterns = [
 
     path('csr',views.csr),
     path('digitalmarketing',views.digitalmarketing),
+    path('backgoundVerification',views.backgoundVerification),
     path('distribution',views.distribution),
     path('Education',views.Education),
     path('EMS',views.EMS),
