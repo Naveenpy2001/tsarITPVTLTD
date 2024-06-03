@@ -20,15 +20,8 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-section {
-  padding: 10px 0;
-}
 
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
-}
+
 
 header h1 {
   margin: 0;
@@ -38,6 +31,8 @@ header h1 {
   display: flex;
   align-items: center;
   z-index: 10;
+  position: sticky;
+  top: 0;
 }
 
 
@@ -190,15 +185,14 @@ html {
 .appr {
   display: flex;
 }
-.aproach-text {
-  width: 100%;
-  padding: 40px;
-}
+
 .aproach-text > h1 {
   margin: 20px 0;
+  font-weight: 600;
+  font-size: 30px;
 }
 .approach-img {
-  width: 100%;
+  width: 90%;
   padding: 40px;
 }
 .a {
@@ -582,13 +576,160 @@ html {
 #gallery {
   padding: 50px;
 }
+.approcah-img{
+  width: 100%;
 
+}
+.aproach-text {
+  width: 100%;
+  padding: 150px 40px;
+  background: linear-gradient(to right,#000 50%,#00000000);
+  color: #fff;
+}
+.aproach-text > p{
+  width: 80%;
+  color: #d0d0d0;
+  font-size: 14px;
+}
+.aproach-text > h1 {
+  padding-bottom:  15px;
+  font-size: 26px;
+}
+.appr{
+  background: url('https://static.vecteezy.com/system/resources/previews/014/703/704/original/csr-social-responsibility-web-banner-icon-set-web-header-banner-w-honesty-integrity-collaboration-etc-vector.jpg') bottom/cover no-repeat;
+}
+
+.container-flex{
+  display: flex;
+  gap: 5px;
+  margin: 10px 80px;
+}
+.box-small{
+  width: 100%;
+}
+.small-img img{
+  height: 250px;
+  width: 100%;
+object-fit: fill;
+
+}
+.big-img, .small-img {
+  margin: 10px;
+  border: 1px solid #b3b3b3;
+  padding: 10px 25px ;
+  border-radius: 3px;
+}
+.big-img img{
+  height: 350px;
+  width: 100%;
+
+
+}
+figcaption{
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px 0;
+  padding: 2px 10px;
+  border-left: 2px solid red;
+}
+
+.box-contain{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.box{
+  border: 1px solid #b3b3b3;
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
+}
+.h1{
+  font-size: 26px;
+  font-weight: 500;
+  margin: 0 30px;
+  padding: 4px 10px;
+  border-left: 2.5px solid red;
+}
+.section-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row-reverse;
+            padding: 50px;
+        }
+        .text-container {
+            flex: 1;
+            padding: 0 20px;
+            padding-left: 260px;
+        }
+        .text-container > h2 {
+          font-weight: 600;
+          font-size: 28px;
+          border-left: 2px solid red;
+          padding: 4px 10px;
+        }
+        .text-container > p {
+          margin: 0 0 0 15px;
+          color: #454545;
+        }
+        .image-container {
+            flex: 1;
+        }
+        .image-container > img {
+            max-width: 100%;
+            height: auto;
+            padding: 40px;
+        }
+        .section-container{
+          position: relative;
+        }
+        .container-pop{
+           max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #a6b5ff; /* White background */
+            background: linear-gradient(to right, #12132d 1%, #2a2fba);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow effect */
+            border-radius: 8px;
+            position: absolute;
+            top: 50%;
+            color: #fff;
+           transform: translate(-150%,-60%);
+            
+        }
+
+        .csr-points {
+            list-style-type: none;
+            padding: 0;
+            padding: 10px 4px;
+        }
+        .csr-points li {
+          padding: 8px 0;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+            font-weight: 500;
+
+        }
+        .csr-points li::before {
+            content: "\2022"; /* Bullet point character */
+            color: #3d9bff; /* Blue color */
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     </style>
     <script
       src="https://kit.fontawesome.com/06a08d1706.js"
       crossorigin="anonymous"
     ></script>
-    <title>About Us - TSAR Company</title>
+    <title>CSR  | TSAR-IT</title>
   </head>
   <body>
     <header>
@@ -596,86 +737,44 @@ html {
     </header>
     <section id="main">
       <div class="random">
-        <p style="padding: 10px 100px; font-size: 12x">
+        <p style="padding: 0 10px; font-size: 12x">
           <a href="/" class="link-home">Home</a>
-          <i class="fa-solid fa-angle-right"></i> About Us
+          <i class="fa-solid fa-angle-right"></i> CSR
         </p>
-        <div class="slideshow-container">
-          <div
-            class="mySlides fade"
-            style="
-              background: url(.//rakesh-1.png) top/cover no-repeat;
-            "
-          >
-            <div class="numbertext">1 / 3</div>
-            <div class="mainDiv">
-              <div class="col-left">
-                <h1>
-                  <q
-                    >Acquiring the right talent is the most important key to
-                    growth Hiring was and still is - the most important thing we
-                    do.
-                  </q>
-                  <span class="ceo-name">CEO - Wesly Rakesh</span>
-                </h1>
-              </div>
-            </div>
-            <div class="text">Caption Text</div>
-          </div>
-          <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
-            <img
-              src="../media/bannerMain.jpeg"
-              style="width: 100%; height: 500px"
-            />
-            <div class="text">Caption Two</div>
-          </div>
-          <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <img
-              src="../media/bannerMain.jpeg"
-              style="width: 100%; height: 500px"
-            />
-            <div class="text">Caption Three</div>
-          </div>
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
       </div>
     </section>
     <section class="appr">
       <div class="aproach-text">
-        <h1>Heading</h1>
+        <h1>TSAR-IT Software Company's Commitment to Corporate Social Responsibility (CSR)</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
-          repellat?
+          At TSAR IT, we believe in not just technological innovation but also in making a positive impact on society. Our commitment to Corporate Social Responsibility (CSR) is deeply ingrained in our company culture and operations
         </p>
       </div>
       <div class="approach-img">
-        <img src="" alt="Our Approach" />
+       
       </div>
     </section>
 
     <section>
       <nav class="csr-nav" style="padding: 0 40px">
         <div class="flex-btn">
-          <a href="#bynumbers" class="a"
+          <a href="#main" class="a"
             ><button class="about">Our Approach</button></a
           >
-          <a href="#" class="a"><button class="about">What we Do</button></a>
+          <a href="#weThink" class="a"><button class="about">What we Think</button></a>
           <!-- <a href="#main" class="a"
             ><button class="about">Our people</button></a> -->
 
-          <a href="#commitement" class="a"
-            ><button class="about">Impact Stories</button></a
+          <a href="#activity" class="a"
+            ><button class="about">Activity</button></a
           >
-          <a href="#exprtise" class="a"
-            ><button class="about">Gallery</button></a
+          <a href="#impact" class="a"
+            ><button class="about">Impact</button></a
           >
         </div>
       </nav>
-      <section id="bynumbers">
-        <div class="container-block">
+      <section id="weThink" >
+        <!-- <div class="container-block">
           <div class="text-count">
             <h2 class="text-b">What We Do</h2>
             <div class="span-row">
@@ -701,22 +800,50 @@ html {
               >
               <span class="span"
                 ><h1 class="span-h">5.13Mn</h1>
-                Lives impacted by HCL Foundation</span
+                Lives impacted by  Foundation</span
               >
             </div>
           </div>
           <div class="global-video">
-            <h1>image</h1>
+            <h1>
+              <img src="https://i1.wp.com/articleusa.com/wp-content/uploads/2021/02/software_development-blog-banner.png?resize=1536%2C922&ssl=1" alt="" width="100%">
+            </h1>
           </div>
-        </div>
+        </div> -->
+        <h1 class="h1">What We Think</h1>
+          <div class="container-flex">
+            
+            <div class="box-small">
+              <div class="small-img">
+                <figcaption>HEALTHCARE</figcaption>
+                <img src="https://vmghealth.com/wp-content/uploads/2020/02/AdobeStock_137665327-1.jpeg" alt="Big Image 3">
+              </div>
+              <div class="big-img">
+                <figcaption>PROMOTING SPORTS</figcaption>
+                <img src="https://www.rhuncovered.co.uk/wp-content/uploads/2017/07/shutterstock_418212442-scaled.jpg" alt="Big Image 4">
+              </div>
+            </div>
+            <!-- kjhvhjs -->
+            <div class="box-small">
+              <div class="big-img">
+                <figcaption>ENVIRONMENT</figcaption>
+                <img src="https://wallpapercave.com/wp/wp4538318.jpg" alt="Big Image 2">
+              </div>
+              <div class="small-img">
+                <figcaption>EDUCATION</figcaption>
+                <img src="https://i1.wp.com/exams-owl.com/storage/2020/06/MOVERS-2.jpg?w=1100&ssl=1" alt="Big Image 1">
+              </div>
+              
+            </div>
+          </div>
       </section>
 
-      <section style="background-color: #f7f7fc">
-        <div class="block-padding">
+      <!-- <section style="background-color: #f7f7fc">
+        <div class="block-padding" id="activity">
           <h1 class="title">Our Activity</h1>
           <div class="cards-col">
             <div class="case-cards">
-              <img src="../media/digital-m.jpeg" alt="" class="case-img" />
+              <img src="https://www.chieflearningofficer.com/wp-content/uploads/2020/03/AdobeStock_317914687.jpg" alt="" class="case-img" />
               <h1 class="case-head">Reimagining IT service</h1>
               <p class="case-text">
                 We redefined business process for a leading furniture retailer
@@ -738,54 +865,35 @@ html {
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section>
-        <div class="container-impact-stories">
-          <div class="slider-impact">
-            <div class="people-image-banner">
-              <div class="text-about-impact">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, molestiae!</p>
-                <div class="impact-bottom">
-                  <h1>name</h1>
-                  <p class="impact-desc">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum, animi?
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="people-image-banner">
-              <div class="text-about-impact">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, molestiae!</p>
-                <div class="impact-bottom">
-                  <h1>name</h1>
-                  <p class="impact-desc">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum, animi?
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <section id="impact">
+        <section class="section-container">
+        <div class="text-container" >
+            <h2>How We Impact</h2>
+            <p>Our actions have a profound impact on society and the environment. From reducing carbon emissions to supporting local communities, we strive to make a positive difference in everything we do.</p>
         </div>
+        <div class="image-container">
+            <img src="https://media.istockphoto.com/vectors/vector-concept-of-human-impact-on-environment-vector-id164048931?k=6&m=164048931&s=612x612&w=0&h=YIsFWk-Dj130rX6IQm_rZ4fLHfnezPxRgVLdQn6EV7Q=" alt="Image">
+        </div>
+        <div class="container-pop">
+          <ul class="csr-points">
+            <li>CSR Projects</>
+            <li>Employee Giving and Volunteering</li>
+            <li>Leadership Representation</li>
+            <li>Impact Sourcing and Special Projects</li>
+        </ul>
+        </div>
+    </section>
       </section>
    <section id="gallery">
-        <h1>Gallery</h1>
-        <div class="images-container">
-          <div class="container-gallery">
-            <img src="" alt="img-1">
-            <img src="" alt="img-2">
-            <img src="" alt="img-3">
-          </div>
-        </div>
+        <!-- images -->
       </section>
 
     <div class="footer-col">
       <div class="company-logo">
-        <h1 class="big">TSAR IT</h1>
-        <div>
-          <p class="small">Supercharging</p>
-          <p class="small">Progess™</p>
-        </div>
+        <h1 class="big">TSAR-IT</h1>
+        
       </div>
       <div class="ct-us">
         <div class="btns-s">

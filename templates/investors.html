@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TSAR-IT Investors Page</title>
+  <style>
+
+
+
+section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #333;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #000;
+}
+
+#financial-report {
+  display: none;
+}
+.img-container{
+  background: url('https://wallpapercave.com/wp/wp2446274.jpg') center/cover no-repeat;
+  padding: 300px 0;
+}
+  </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            {% include './header.html' %}
+        </ul>
+    </nav>
+    <main style="padding: 10px 10px" id="home">
+      <p>
+        <a href="/">Home</a> 
+        > Investors
+      </p>
+    </main>
+    <main>
+      <div class="img-container">
+        
+      </div>
+      <header>
+        <h1>Investor Relations</h1>
+      </header>
+    <section id="company-overview">
+      <h2>Company Overview</h2>
+      <p>TSAR-IT is a leading IT software company focused on innovation and excellence. We specialize in developing cutting-edge solutions for a wide range of industries, including healthcare, finance, and e-commerce.</p>
+      <p>Our commitment to delivering high-quality products and exceptional customer service has earned us a reputation for reliability and trustworthiness in the market.</p>
+    </section>
+    <section id="financials">
+      <h2>Financial Information</h2>
+      <p>For the latest financial reports and information, please contact our investor relations department.</p>
+      <button id="request-report-btn">Request Financial Report</button>
+      <div id="financial-report"></div>
+    </section>
+    <section id="contact">
+      <h2>Investor Relations Contact</h2>
+      <p>If you have any questions or inquiries regarding our company's financial performance or investment opportunities, please contact:</p>
+      <address>
+        <strong>John Doe</strong><br>
+        Investor Relations Officer<br>
+        TSAR-IT Software Company<br>
+        123 Main Street, City, Country<br>
+        Email: <a href="mailto:investor_relations@tsar-it.com">investor_relations@tsar-it.com</a><br>
+        Phone: +1 (123) 456-7890
+      </address>
+    </section>
+  </main>
+  <footer>
+    {% include './footer.html' %}
+  </footer>
+  <script >
+    document.getElementById('request-report-btn').addEventListener('click', function() {
+  document.getElementById('financial-report').innerHTML = `
+    <h3>Financial Report - Q1 2024</h3>
+    <p>Revenue: $10,000,000</p>
+    <p>Net Profit: $2,000,000</p>
+    <p>Assets: $50,000,000</p>
+    <p>Liabilities: $20,000,000</p>
+  `;
+  document.getElementById('financial-report').style.display = 'block';
+});
+
+  </script>
+</body>
+</html>

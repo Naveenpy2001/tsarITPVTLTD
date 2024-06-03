@@ -196,8 +196,24 @@ urlpatterns = [
 
     path('login', views.login, name='login'),
 
+    path('investors', views.investors),
+    
+    path('insights', views.insights),
+
     # path('resume/<int:applicant_id>/', views.display_resume, name='display_resume'),
 
+    # admin URLS
+    path('AdminLogin',views.adminLogin),
+    path('Dashboard',views.Dashboard,name='Dashboard'),
+    path('logout',views.logout, name='logout'),
+    path('searchService',views.searchService, name='searchService'),
+
+    # media post
+    path('media_page', views.media_page, name='media_page'),
+    path('update/<int:pk>/', views.update_post, name='update_post'),
+    path('delete/<int:pk>/', views.delete_post, name='delete_post'),
+
+    path('JobPosting', views.JobPosting, name='JobPost'),
 ] 
 
 if settings.DEBUG:

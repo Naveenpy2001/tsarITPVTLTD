@@ -30,26 +30,6 @@
         top: 0;
         z-index: 1;
         width: 100%;
-        /* background: rgb(16, 13, 250);
-        background: linear-gradient(
-          215deg,
-          rgba(16, 13, 250, 1) 26%,
-          rgba(16, 13, 250, 1) 51%,
-          rgba(252, 122, 0, 1) 51%,
-          rgba(252, 122, 0, 1) 75%
-        );
-        background-size: 200% 200%;
-        animation: moveBg 4s infinite alternate;
-      }
-      @keyframes moveBg {
-        from {
-          background-position: 0% 0%;
-        }
-        to {
-          background-position: 100% 100%;
-        }
-      
-      } */
       }
       .admin-login,
       .logo-container {
@@ -154,7 +134,6 @@
     </style>
   </head>
   <body>
-    <header>{% include './header.html' %}</header>
     <main>
       <div class="contaiener-video-bg">
         <video autoplay loop muted class="dashboard-video">
@@ -162,7 +141,7 @@
         </video>
       </div>
       <div class="container-admin-login">
-        <form action="/login" method="post" class="admin-login">
+        <form action="/Dashboard" method="post" class="admin-login" id="myForm">
           {% csrf_token %}
           <div class="logo-container">
             <img src="./media/TSAR-IT.png" alt="TSAR-IT" class="admin-logo" />
@@ -192,15 +171,30 @@
             </div>
           </div>
           <div class="block-btn">
-            <button class="login-btn-admin">login</button>
+            <button class="login-btn-admin" id="loginButton">login</button>
           </div>
-          {{ message }}
+          <br />
+          <strong style="color: red"> {{ message }} </strong>
         </form>
       </div>
     </main>
-    {% include 'footer.html' %}
-    <!-- resset password -->
 
+    <!-- resset password -->
+    <script>
+      document
+        .getElementById("loginButton")
+        .addEventListener("click", function () {
+          document.getElementById("myForm").submit();
+        });
+
+      // Listen for the Enter key press
+      document.addEventListener("keydown", function (event) {
+        if (event.keyCode === 13) {
+          // Check if the Enter key was pressed
+          document.getElementById("myForm").submit();
+        }
+      });
+    </script>
     <script>
       const showPswd = () => {
         let password = document.getElementById("password");
@@ -208,23 +202,6 @@
           password.type = "text";
         } else {
           password.type = "password";
-        }
-      };
-
-      const showPswds = () => {
-        let resetPassword = document.getElementById("re-password");
-        let resetConfurmPassword =
-          document.getElementById("re-confirmPassword");
-
-        if (
-          resetPassword.type === "password" &&
-          resetConfurmPassword.type === "password"
-        ) {
-          resetPassword.type = "text";
-          resetConfurmPassword.type = "text";
-        } else {
-          resetPassword.type = "password";
-          resetConfurmPassword.type = "password";
         }
       };
 

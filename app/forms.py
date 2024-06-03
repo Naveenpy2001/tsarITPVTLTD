@@ -1,7 +1,14 @@
 from django import forms
-from .models import JobApplication
 
-class JobApplicationForm(forms.ModelForm):
+
+# class JobApplicationForm(forms.ModelForm):
+#     class Meta:
+#         model = JobApplication
+#         fields = ['name', 'email', 'resume', 'is_fresher']
+
+from .models import MediaPost
+
+class MediaPostForm(forms.ModelForm):
     class Meta:
-        model = JobApplication
-        fields = ['name', 'email', 'resume', 'is_fresher']
+        model = MediaPost
+        fields = '__all__'

@@ -1664,3 +1664,202 @@ def HRM(request):
         return render(request, 'success.html',{'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     
     return render(request, 'thermal.html')
+
+
+# investors
+
+def investors(request):
+    return render(request, 'investors.html')
+
+def insights(request):
+    return render(request, 'insights.html')
+# admin details and fetch..data
+
+from .models import HomeContact, ContactUs, SignInUser, ContactMessage, Industries, Energy, Products, MediaPost, Job, JobApply
+def adminHome(request):
+    return render(request,'TSARIT-dashboard.html')
+
+def Dashboard(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        if email == 'tsaritservices@gmail.com' and password == 'tsarit@12345':
+            #  fetching the data if user authenticated
+           
+            #  home page contact data
+             homePage = HomeContact.objects.all()
+
+            #  services page data
+             web = ContactMessage.objects.filter(form_name = 'web-service').order_by('id')
+             app = ContactMessage.objects.filter(form_name = 'app-service').order_by('id')
+             bpo = ContactMessage.objects.filter(form_name = 'BPO-service').order_by('id')
+             sateliteServ = ContactMessage.objects.filter(form_name = 'satelite-service').order_by('id')
+             civil = ContactMessage.objects.filter(form_name = 'civil-service').order_by('id')
+             mpn = ContactMessage.objects.filter(form_name = 'man-power-supply-service').order_by('id')
+             payRoll = ContactMessage.objects.filter(form_name = 'payRoll-service').order_by('id')
+             ngo = ContactMessage.objects.filter(form_name = 'NGO-service').order_by('id')
+             photoVideo = ContactMessage.objects.filter(form_name = 'photo&Video-service').order_by('id')
+             dm = ContactMessage.objects.filter(form_name = 'digital-Marketing-service').order_by('id')
+             survey = ContactMessage.objects.filter(form_name = 'survey-service').order_by('id')
+             distrib = ContactMessage.objects.filter(form_name = 'distribution-service').order_by('id')
+
+            #  industries pages data
+             aero = Industries.objects.filter(form_name = 'Aerospace-industry').order_by('id')
+             auto = Industries.objects.filter(form_name = 'autoMotive-industry').order_by('id')
+             bank = Industries.objects.filter(form_name = 'banking-industry').order_by('id')
+             capital = Industries.objects.filter(form_name = 'capitalMarket-industry').order_by('id')
+             cmnctn = Industries.objects.filter(form_name = 'Communications-industry').order_by('id')
+             consumer = Industries.objects.filter(form_name = 'ConsumerElectronics-industry').order_by('id')
+             cpg = Industries.objects.filter(form_name = 'consumerPackagedGoods-industry').order_by('id')
+             edu = Industries.objects.filter(form_name = 'Education-industry').order_by('id')
+             eoi = Industries.objects.filter(form_name = 'EngineeringOperations-industry').order_by('id')
+             health = Industries.objects.filter(form_name = 'healthCare-industry').order_by('id')
+             iProcess = Industries.objects.filter(form_name = 'IndustrialProcess-industry').order_by('id')
+             insurance = Industries.objects.filter(form_name = 'insurance-industry').order_by('id')
+             pharma = Industries.objects.filter(form_name = 'LifePharma-industry').order_by('id')
+             media = Industries.objects.filter(form_name = 'MediaServices-industry').order_by('id')
+             natural = Industries.objects.filter(form_name = 'NaturalResources-industry').order_by('id')
+             network = Industries.objects.filter(form_name = 'NetworkEdgeProviders-industry').order_by('id')
+             oilGasss = Industries.objects.filter(form_name = 'oilGas-industry').order_by('id')
+             software = Industries.objects.filter(form_name = 'SoftwareProducts-industry').order_by('id')
+             professional = Industries.objects.filter(form_name = 'ProfessionalServices-industry').order_by('id')
+             publicSector = Industries.objects.filter(form_name = 'PublicSector-industry').order_by('id')
+             retail = Industries.objects.filter(form_name = 'Retail-industry').order_by('id')
+             semiC = Industries.objects.filter(form_name = 'Semiconductors-industry').order_by('id')
+             transport = Industries.objects.filter(form_name = 'TransportationServices-industry').order_by('id')
+             utilities = Industries.objects.filter(form_name = 'Utilities-industry').order_by('id')
+
+            #  Energy
+
+             solar =Energy.objects.filter(form_name = 'solar-energy').order_by('id')
+             wind = Energy.objects.filter(form_name = 'wind energy').order_by('id')
+             thermal = Energy.objects.filter(form_name = 'Thermal-energy').order_by('id')
+
+            #  conact us
+             conact = ContactUs.objects.all().order_by('id')
+             len_conact = len(conact)
+
+            # products data
+             hms = Products.objects.filter(form_name = 'Hospital Management System').order_by('id')
+             chatbot = Products.objects.filter(form_name = 'AI-Chatbot').order_by('id')
+             ems = Products.objects.filter(form_name = 'Education Management System').order_by('id')
+             fms = Products.objects.filter(form_name = 'finance Management System').order_by('id')
+             rms = Products.objects.filter(form_name = 'recruit-management').order_by('id')
+             hrm = Products.objects.filter(form_name = 'Human-Resource').order_by('id')
+
+            # combining the all tables
+
+             all_Services = list(web) + list(app) + list(bpo) + list(sateliteServ) + list(civil)+list(mpn)+list(payRoll)+list(ngo)+list(photoVideo)+list(dm)+list(survey)+list(distrib)
+             allServicsCount = len(all_Services)
+
+             all_industries = list(aero) + list(auto) + list(bank) + list(capital) + list(cmnctn) + list(consumer) + list(cpg) + list(edu) + list(eoi) + list(health) + list(iProcess) + list(insurance) + list(pharma) + list(media) + list(natural) + list(network) + list(oilGasss) + list(software) + list(professional) + list(publicSector) + list(retail) + list(semiC) + list(transport) + list(utilities)
+             industries_length = len(all_industries)
+
+             all_energy = list(solar) + list(wind) + list(thermal)
+             energy_len = len(all_energy)
+
+            #  products
+             all_products = list(hms) + list(chatbot) + list(ems) + list(fms) + list(rms) + list(hrm)
+             products_count = len(all_products)
+             
+          
+
+             return render(request,'TSARIT-dashboard.html',{
+                 "homePage":homePage,
+
+                #  servces pages data fetch
+                 'allServices':all_Services,
+                 'allServicsCount':allServicsCount,
+
+                #  industries data fetch
+                "all_industries":all_industries,
+                "industries_length":industries_length,
+
+                # energy
+                "all_energy":all_energy,
+                "energy_len":energy_len,
+
+                # conact us
+                "conact":conact,
+                "len_conact":len_conact,
+
+                # products
+                "all_products":all_products,
+                "products_count":products_count
+                 })
+        else:
+            # else for returning into login if pswd or email wrong.....................................
+            messages =  'Invalid email or password.'
+    return render(request, 'adminLogin.html')
+
+from django.contrib.auth import logout as django_logout
+
+def logout(request):
+    django_logout(request)
+    return render(request, 'adminLogin.html')
+
+def adminLogin(request):
+    return render(request,'adminLogin.html')
+
+
+def searchService(request):
+    if request.method == 'POST':
+        searchInp = request.POST['serviceInput']
+        fetchData = ContactMessage.objects.filter(form_name =searchInp)
+
+        return render(request, 'TSARIT-dashboard.html',{'fetchData':fetchData})
+
+# media page
+
+
+from .forms import MediaPostForm
+
+
+def media_page(request):
+    form = MediaPostForm()
+    posts = MediaPost.objects.all()
+
+    if request.method == 'POST':
+        form = MediaPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('media_page')
+
+    context = {'form': form, 'posts': posts}
+    return render(request, 'media_page.html', context)
+
+def update_post(request, pk):
+    post = get_object_or_404(MediaPost, pk=pk)
+    form = MediaPostForm(request.POST or None, request.FILES or None, instance=post)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('media_page')
+
+    return render(request, 'media_page.html', {'form': form})
+
+def delete_post(request, pk):
+    post = get_object_or_404(MediaPost, pk=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('media_page')
+
+    return render(request, 'media_page.html', {'post': post})
+
+#  job posting
+
+from app.models import Job
+
+def JobPosting(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        location = request.POST.get('location')
+        company = request.POST.get('company')
+        salary = request.POST.get('salary')
+        skills = request.POST.get('skills')
+        date = request.POST.get('date')
+        jobs = Job.objects.create(title=title,description=description,location=location,company=company,salary=salary,skills=skills,date=date)
+        jobs.save()
+        return render(request,'TSARIT-dashboard.html')
+    return render(request,'TSARIT-dashboard.html')

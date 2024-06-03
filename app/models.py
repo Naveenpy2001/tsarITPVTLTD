@@ -90,14 +90,14 @@ class Products(models.Model):
     def __str__(self):
         return f"{self.form_name} - {self.name}"
     
-class MediaPost(models.Model):
-    title = models.CharField(max_length=100)
-    image1 = models.ImageField(upload_to='uploads/')
-    image2 = models.ImageField(upload_to='uploads/')
-    narration = models.TextField()
+# class MediaPost(models.Model):
+#     title = models.CharField(max_length=100)
+#     image1 = models.ImageField(upload_to='uploads/')
+#     image2 = models.ImageField(upload_to='uploads/')
+#     narration = models.TextField()
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title
     
 
 # job posting
@@ -107,7 +107,9 @@ class Job(models.Model):
     description = models.TextField()
     location = models.CharField(max_length=100)
     company = models.CharField(max_length=100)
+    skills = models.CharField(max_length=100)
     salary = models.CharField(max_length=50)
+    date = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -130,3 +132,13 @@ class JobApply(models.Model):
     previous_employee_id = models.CharField(max_length=200, null=True)
     resume = models.FileField(upload_to='resumes/')
     terms_of_use_agreed = models.CharField(max_length=200, null=True)
+
+
+class MediaPost(models.Model):
+    title = models.CharField(max_length=100)
+    image1 = models.ImageField(upload_to='uploads/')
+    image2 = models.ImageField(upload_to='uploads/')
+    narration = models.TextField()
+
+    def __str__(self):
+        return self.title

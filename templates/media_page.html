@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Media Page</title>
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+    font-weight: 400;
+}
+.container-flex{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 20px;
+    gap: 10px;
+}
+.container-form{
+    width: 50%;
+    border: 1px solid #000;
+    padding: 30px;
+
+}
+.container-mediaPosts{
+    width: 100%;
+    border: 1px solid #000;
+    padding: 30px;
+    
+}
+.container-mediaPosts > h2{
+    padding: 2px 10px;
+    border-left: 3px solid red;
+    margin: 20px 0;
+}
+.flex-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.p{
+    margin: 10px;
+}
+.posted-media{
+    border: 1px solid #d1d1d1;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 48%;
+    box-shadow: 0 2px 5px 3px #dddddd;
+}
+.title-name{
+    font-weight: 500;
+    margin: 10px;
+}
+.media_imgs{
+    margin: 10px;
+}
+.button{
+    text-decoration: none;
+    color: #000;
+    padding: 4px 20px;
+    margin: 5px 5px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+.update:hover{
+    background-color: green;
+    color: #fff;
+}
+.delete:hover{
+    background-color: red;
+    color: #fff;
+}
+</style>
+<body>
+<div class="container-flex">
+       <div class="container-form">
+     <h2>Media Page</h2>
+
+    <!-- Upload Form -->
+    <h3>Upload Post</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="id_title">Title:</label>
+        <input type="text" id="id_title" name="title" required><br>
+        <label for="id_image1">Image 1:</label>
+        <input type="file" id="id_image1" name="image1" required><br>
+        <label for="id_image2">Image 2:</label>
+        <input type="file" id="id_image2" name="image2" required><br>
+        <label for="id_narration">Narration:</label><br>
+        <textarea id="id_narration" name="narration" rows="4" cols="50" required></textarea><br>
+        <button type="submit">Upload</button>
+    </form>
+
+
+    <div class="container-update">
+        <!-- Update Form (Hidden by Default) -->
+    {% if form.instance %}
+    <h3>Update Post</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    {% endif %}
+
+</div>
+
+   </div>
+
+    <!-- Display Posts -->
+<div class="container-mediaPosts">
+        <h2>Media Posts</h3>
+    <div class="flex-wrap">
+        {% for post in posts %}
+        <div class="posted-media">
+            <h4 class="title-name"> Title : {{ post.title }}</h4>
+            <div class="media_imgs">
+                <img src="{{ post.image1.url }}" width="100" height="100">
+            <img src="{{ post.image2.url }}" width="100" height="100">
+            </div>
+            <p class="p"> Content :  {{ post.narration }}</p>
+            <a href="{% url 'update_post' post.pk %}" ><button class="update button">Update</button></a> 
+            <form method="post" action="{% url 'delete_post' post.pk %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="delete button">Delete</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+</div>
+</body>
+</html>

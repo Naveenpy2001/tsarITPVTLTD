@@ -79,10 +79,7 @@
         width: 100%;
         margin: 40px 0;
       }
-      .header {
-        margin: 15px 0;
-        font-size: 20px;
-      }
+     
       hr {
         margin: 15px 0;
       }
@@ -162,11 +159,6 @@
       .user-input-pop {
         padding: 5px 10px;
       }
-      .blue{
-        font-weight: 500;
-        color: #080a55;
-        font-size: 23px;
-      }
 
       /* form styles */
 
@@ -207,24 +199,52 @@ button {
 
 
 a {
-    color: #007bff;
+    color: #0008ff;
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+
+.job-details{
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #f2f2f2;
 }
+.job-details > h1{
+  font-size: 26px;
+}
+.blue{
+  color: #070ca1;
+  font-weight: 500;
+}
+.header{
+  padding: 4px 10px;
+}
+.popLogin{
+  padding: 10px;
+  margin: 0 100px;
+  border: 2px solid #ddd;
+}
+
     </style>
   </head>
   <body>
     <header>
       {% include './header.html' %}
     </header>
+        <main style="padding: 10px 10px" id="home">
+      <p>
+        <a href="/">Home</a> 
+        > Job Apply
+      </p>
+    </main>
     <h1>{{ message }}</h1>
     <div class="container-job-apply">
-      <div class="top">
-        <h1 class="header">Career Opportunities : <b class="blue">{{ job.title }}</b> </h1>
-        <h6 class="header">Location : <b class="blue">{{ job.location }}</b> </h6>
+      <div class="top job-details">
+        <h1 class="header">Job Title : <span class="blue">{{ job.title }}</span> </h1>
+        <h3 class="header">Skills : <span class="blue">{{ job.skills }}</span> </h3>
+        <h3 class="header">Salary : <span class="blue">{{ job.salary }}</span> </h3>
+        <h3 class="header">Location : <span class="blue">{{ job.location }}</span> </h3>
+        <h3 class="header">Description : <span class="blue">{{ job.description }}</span> </h3>
 
       </div>
       
@@ -232,10 +252,12 @@ a:hover {
     <hr />
     <section>
 
-      <p>
+     <center>
+       <p class="popLogin">
           Already a registered user?
           <a href="#" class="pop-login" onclick="openForm()">Please sign in</a>
         </p>
+     </center>
 
         <div class="pop-form"  id="myform">
         <form action="" method="post" class="login-form">

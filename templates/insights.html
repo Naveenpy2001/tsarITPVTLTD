@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TSAR-IT Insights</title>
+  <style>
+  
+
+
+
+.article {
+  margin-bottom: 20px;
+}
+
+.article h3 {
+  color: #333;
+}
+
+.article p {
+  color: #666;
+}
+
+.article a {
+  color: #333;
+  text-decoration: none;
+}
+
+.article a:hover {
+  text-decoration: underline;
+}
+
+#trending-topics ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+#trending-topics {
+  margin-bottom: 10px;
+  color: #666;
+}
+#latest-articles h2{
+  margin: 0 0 0 30px;
+}
+.img-container{
+  background: url('https://otgconsulting.net/wp-content/uploads/2017/08/Insights.jpg') center/cover no-repeat;
+  height: 500px;
+}
+.flex-f{
+  display: flex;
+  gap: 20px;
+}
+.flex-sec{
+  width: 100%;
+  padding: 50px;
+  border: 1px solid #ddd;
+}
+.flex-sec > h2 {
+  font-size: 30px;
+  font-weight: 600;
+  margin:20px 0;
+}
+.flex-sec > p {
+
+  font-weight: 500;
+  font-size: 16px
+}
+.flex-sec ul li {
+  margin: 10px 0 10px 180px;
+  list-style: circle;
+  font-size: 14px;
+}
+.article {
+  /* border: 1px solid #ddd; */
+  padding: 15px 30px;
+  box-shadow: 0 2px 9px 2px #ebebeb;
+}
+.article > h3 {
+  padding: 6px 10px;
+  border-left: 2.5px solid tomato;
+  margin: 10px 0;
+}
+.article > p {
+  margin:  15px 10px 15px 30px;
+}
+.article > a {
+  margin:  10px 0 0 30px;
+  border: 1px solid #ddd;
+  padding: 6px 30px;
+  display: inline-block;
+  border-radius: 5px;
+  transition: all .2s linear;
+}
+.article > a:hover {
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+}
+.insigh-header{
+  margin: 20px 40px;
+  padding: 2px 15px;
+  border-left: 3px solid red;
+  font-size: 27px;
+}
+
+
+.container-m {
+          width: 100%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        .marquee-content {
+          overflow: hidden;
+        }
+        .marquee {
+            width: 100%;
+            white-space: nowrap;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+  </style>
+</head>
+<body>
+    <nav>
+        {% include 'header.html' %}
+    </ul>
+</nav>
+ <main style="padding: 10px 10px" id="home">
+      <p>
+        <a href="/">Home</a> 
+        > Insights
+      </p>
+    </main>
+<div class="img-container">
+
+</div>
+
+<div class="scroll ">
+  <marquee behavior="scroll" direction="left" class="marquee" >
+    <p class="marquee-content">
+      <p>
+        soon we will launching new products ~ payout,NGO,HMS 
+      </p>
+    </p>
+  </marquee>
+</div>
+<header>
+  <h1 class="insigh-header">Insights</h1>
+</header>
+  <main>
+    <section id="latest-articles">
+      <h2>Latest Articles</h2>
+      <br>
+      <div class="article">
+        <h3>5 Technology Trends Shaping the Future</h3>
+        <p>"5 Technology Trends Shaping the Future" explores the transformative power of emerging technologies and their profound impact on various industries. This article delves into the five key trends that are reshaping the landscape of innovation and driving unprecedented advancements in society.</p>
+        <p>
+          From artificial intelligence (AI) and machine learning to blockchain, Internet of Things (IoT), and augmented reality (AR), these trends represent the forefront of technological innovation. Each trend is examined in detail, highlighting its potential applications, benefits, and implications for businesses and consumers alike.
+        </p>
+        <p>
+          Moreover, the article discusses how these technologies are converging to create synergies and unlock new possibilities. It explores real-world examples and case studies to illustrate the practical applications and tangible benefits of these trends across different sectors, including healthcare, finance, manufacturing, and beyond.
+        </p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="article">
+        <h3>The Impact of AI in Healthcare</h3>
+        <p>"The Impact of AI in Healthcare" explores the revolutionary role that artificial intelligence (AI) is playing in transforming the healthcare industry. This article delves into how AI technologies are reshaping various aspects of healthcare delivery, from diagnosis and treatment to patient care and administrative tasks.</p>
+        <p>
+          AI-powered tools and algorithms are enabling healthcare providers to analyze vast amounts of medical data with unprecedented speed and accuracy. Machine learning algorithms, in particular, are adept at identifying patterns and insights within medical images, genomic data, electronic health records (EHRs), and other sources of patient information. This capability has significant implications for disease detection, diagnosis, and personalized treatment planning.
+        </p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="article">
+        <h3>The Future of Remote Work</h3>
+        <p>"The Future of Remote Work" explores the profound shift in work dynamics brought about by the rise of remote work arrangements, accelerated by global events such as the COVID-19 pandemic. This article delves into the evolving landscape of remote work, its impact on businesses and employees, and the potential long-term implications for the future of work.</p>
+        <p>
+          Remote work has become increasingly prevalent as advances in technology have made it easier for employees to collaborate and communicate effectively from anywhere in the world. The article discusses how remote work is not just a temporary solution but a fundamental restructuring of the traditional office-based work model.
+        </p>
+        <p>
+          One of the key advantages of remote work is its potential to increase flexibility and work-life balance for employees. By eliminating the need for daily commutes and offering greater autonomy over work schedules, remote work can enhance employee satisfaction and productivity.
+        </p>
+        <a href="#">Read More</a>
+      </div>
+    </section>
+    
+    <div class="flex-f">
+      <section class="flex-sec" id="trending-topics">
+      <h2>Trending Topics : </h2>
+      <ul>
+        <li>Artificial Intelligence</li>
+        <li>Data Privacy</li>
+        <li>Blockchain Technology</li>
+        <li>Internet of Things (IoT)</li>
+        <li>Cloud Computing</li>
+        <li>Augmented Reality (AR)</li>
+        <li>Virtual Reality (VR)</li>
+        <li>Cybersecurity</li>
+      </ul>
+    </section>
+    <section class="flex-sec" id="company-updates">
+      <h2>Company Updates : </h2>
+      <p>Stay up-to-date with the latest news and developments from TSAR-IT.</p>
+      <ul>
+        <li>Launch of New Product: TSAR-Cloud</li>
+        <li>Expansion into European Markets</li>
+        <li>Partnership with XYZ Corporation</li>
+        <li>Acquisition of ABC Tech Solutions</li>
+        <li>CEO Interview: Vision for the Future</li>
+      </ul>
+    </section>
+    </div>
+
+  </main>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>
