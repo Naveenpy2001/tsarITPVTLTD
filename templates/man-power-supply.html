@@ -118,7 +118,7 @@
               Help us find the answer to your questions by entering the details below:
               </p>
             <form action="/ManPowerService" method="post" class="reveal">
-              
+              {% csrf_token %}
                     <div class="block-container">
                         <div class="blcok">
                         <input type="text" name="first_name" id="" class="user-input" placeholder="First name*" autocomplete="off">

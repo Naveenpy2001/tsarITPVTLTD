@@ -22,14 +22,14 @@ def indexContact(request):
         userCompany = request.POST['userCompany']
         message = request.POST['message']
         if username:
-            user_contact = HomeContact(username=username, useremail=useremail, busines_email=busines_email, userphno=userphno, userjob=userjob, userCompany=userCompany, message=message)
+            user_contact = HomeContact.objects.create(username=username, useremail=useremail, busines_email=busines_email, userphno=userphno, userjob=userjob, userCompany=userCompany, message=message)
             user_contact.save()
-            return redirect('success')
+            return render(request, 'success.html', {'message':'Request has been sent !',"name":username,'info':'our team will be contact you within 24:00 Hours.'})
         else:
             error_msg = "Please provide a name."
             return HttpResponse(error_msg)
     else:
-        return render(request, 'success.html', {'message': "form submitted...!!."})
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":username,'info':'our team will be contact you within 24:00 Hours.'})
     
 # contactUs page
 def contact(request):
@@ -1077,7 +1077,7 @@ def serviceWebDev(request):
                                     company=company,
                                     message=message)
         webService.save()
-        return render(request, 'success.html',{'username':first_name})
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     else:
         return render(request,'web-development.html')
 
@@ -1112,7 +1112,7 @@ def AppDevService(request):
             message=message,
         )
         appService.save()
-        return redirect('success')
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     
     return render(request, 'app-development.html')
 
@@ -1145,7 +1145,7 @@ def ServiceBPO(request):
             message=message,
         )
         bpoServ.save()
-        return redirect('success')
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     return render(request, 'BPO-services.html')
 # Background Verifications
 def backgoundVerification(request):
@@ -1156,7 +1156,7 @@ def backgoundVerification(request):
         email = request.POST['email']
         phone = request.POST['phoneNo']
         jobTitle = request.POST['job_title']
-        select = request.POST['select_service']
+        select = request.POST['select']
         company = request.POST['company']
         message = request.POST['message']
 
@@ -1172,7 +1172,7 @@ def backgoundVerification(request):
             message=message,
         )
         bpoServ.save()
-        return redirect('success')
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     return render(request, 'backgoundVerification.html')
 # Satellite Projects-------------------------------------------------------------------------
 
@@ -1204,7 +1204,7 @@ def sateliteServices(request):
             message=message,
         )
         userSatelite.save()
-        return redirect('success')
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     return render(request, 'satelite.html')
 
 # Civil Construction-------------------------------------------------------------------------
@@ -1234,7 +1234,7 @@ def civilService(request):
                                     company=company,
                                     message=message)
         civilService.save()
-        return render(request, 'success.html',{'username':first_name})
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     else:
         return render(request,'web-development.html')
 
@@ -1265,7 +1265,7 @@ def ManPowerService(request):
                                     company=company,
                                     message=message)
         manPower.save()
-        return render(request, 'success.html',{'username':first_name})
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     else:
         return render(request,'web-development.html')
 
@@ -1296,7 +1296,7 @@ def payRollServ(request):
                                     company=company,
                                     message=message)
         payROllservices.save()
-        return render(request, 'success.html',{'username':first_name})
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     else:
         return render(request,'web-development.html')
 
@@ -1328,7 +1328,7 @@ def NGOservice(request):
                                     company=company,
                                     message=message)
         ngoObj.save()
-        return render(request, 'success.html',{'username':first_name})
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     else:
         return render(request,'web-development.html')
 
@@ -1359,7 +1359,7 @@ def PhotoVideoService(request):
                                     company=company,
                                     message=message)
         photoAndVideo.save()
-        return render(request, 'success.html',{'username':first_name})
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     else:
         return render(request,'web-development.html')
 # Digital Marketing-------------------------------------------------------------------------
@@ -1390,7 +1390,7 @@ def DigitalMarketingServ(request):
                                     company=company,
                                     message=message)
         dmMarketing.save()
-        return render(request, 'success.html',{'username':first_name})
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     else:
         return render(request,'web-development.html')
 
@@ -1421,7 +1421,7 @@ def SurveyService(request):
                                     company=company,
                                     message=message)
         surveyServ.save()
-        return render(request, 'success.html',{'username':first_name})
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     else:
         return render(request,'web-development.html')
 
@@ -1453,7 +1453,7 @@ def distributionService(request):
                                     company=company,
                                     message=message)
         distribute.save()
-        return render(request, 'success.html',{'username':first_name})
+        return render(request, 'success.html', {'message':'Request has been sent !',"name":first_name,'info':'our team will be contact you within 24:00 Hours.'})
     else:
         return render(request,'web-development.html')
     
@@ -1747,6 +1747,11 @@ def Dashboard(request):
              rms = Products.objects.filter(form_name = 'recruit-management').order_by('id')
              hrm = Products.objects.filter(form_name = 'Human-Resource').order_by('id')
 
+            # job apply
+
+             jobsApply = JobApply.objects.all().order_by('id')
+             len_jobApply = len(jobsApply)
+
             # combining the all tables
 
              all_Services = list(web) + list(app) + list(bpo) + list(sateliteServ) + list(civil)+list(mpn)+list(payRoll)+list(ngo)+list(photoVideo)+list(dm)+list(survey)+list(distrib)
@@ -1785,7 +1790,11 @@ def Dashboard(request):
 
                 # products
                 "all_products":all_products,
-                "products_count":products_count
+                "products_count":products_count,
+
+                # jobs apply perosons
+                'jobsApply':jobsApply,
+                'len_jobApply':len_jobApply
                  })
         else:
             # else for returning into login if pswd or email wrong.....................................

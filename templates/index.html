@@ -1176,7 +1176,7 @@ section{
           <a href="#" class="job-link">employee reference checks</a>.
         </p> -->
       </h1>
-      <form action="{% url 'indexContact' %}" method="post">
+      <form action="/indexContact" method="post">
         {% csrf_token %}
         <div class="block">
           <input type="text" name="username" id="username" placeholder="name" />

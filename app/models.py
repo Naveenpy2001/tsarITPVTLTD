@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class HomeContact(models.Model):
@@ -29,7 +29,7 @@ class SignInUser(models.Model):
 # services
     
 class ContactMessage(models.Model):
-    form_name = models.CharField(max_length=20)
+    form_name = models.CharField(max_length=100)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -132,6 +132,11 @@ class JobApply(models.Model):
     previous_employee_id = models.CharField(max_length=200, null=True)
     resume = models.FileField(upload_to='resumes/')
     terms_of_use_agreed = models.CharField(max_length=200, null=True)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # applied_jobs = models.ManyToManyField(Job, blank=True)
+    
+    # def __str__(self):
+    #     return self.user.username
 
 
 class MediaPost(models.Model):

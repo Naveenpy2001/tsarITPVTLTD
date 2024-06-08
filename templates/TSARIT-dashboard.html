@@ -494,7 +494,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" onclick="showTabs('tabs9')">
+                <a class="nav-link" href="/media_page" onclick="showTabs('tabs')">
                   <i class="fa-regular fa-newspaper"></i> media
                 </a>
               </li>
@@ -640,26 +640,18 @@
                         <th class="th">tell us more</th>
                       </tr>
                     </thead>
+                    {% for jobsapplying in jobsApply %}
                     <tr>
-                      <td class="td">01.</td>
-                      <td class="td"></td>
-                      <td class="td"></td>
-                      <td class="td"></td>
-                      <td class="td"></td>
-                      <td class="td"></td>
-                      <td class="td"></td>
-                      <td class="td"></td>
+                      <td class="td">{{ jobsapplying.id }}</td>
+                      <td class="td">{{ jobsapplying.first_name }}</td>
+                      <td class="td">{{ jobsapplying.email }}</td>
+                      <td class="td">{{ jobsapplying.phone_number }}</td>
+                      <td class="td">{{ jobsapplying.gender }}</td>
+                      <td class="td">{{ jobsapplying.aadhar_card_number }}</td>
+                      <td class="td">{{ jobsapplying.is_fresher }}</td>
+                      <td class="td">{{ jobsapplying.resume }}</td>
                     </tr>
-                    <tr>
-                      <td class="td">02.</td>
-                      <td class="td"></td>
-                      <td class="td"></td>
-                      <td class="td"></td>
-                      <td class="td"></td>
-                      <td class="td"></td>
-                      <td class="td"></td>
-                      <td class="td"></td>
-                    </tr>
+                   {% endfor %}
                   </table>
                 </div>
               </div>
