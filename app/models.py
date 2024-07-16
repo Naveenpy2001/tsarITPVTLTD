@@ -117,26 +117,50 @@ class Job(models.Model):
         
 
 
+# class JobApply(models.Model):
+#     form_name = models.CharField(max_length=200)
+#     email = models.EmailField()
+#     password = models.CharField(max_length=200)
+#     first_name = models.CharField(max_length=200, null=True)
+#     last_name = models.CharField(max_length=200,null=True)
+#     country_code = models.CharField(max_length=200, null=True)
+#     phone_number = models.CharField(max_length=200, null=True)
+#     gender = models.CharField(max_length=200, null=True)
+#     aadhar_card_number = models.CharField(max_length=200, null=True)
+#     is_fresher = models.CharField(max_length=200, null=True)
+#     applied_with_tsar_it = models.CharField(max_length=200, null=True)
+#     previous_employee_id = models.CharField(max_length=200, null=True)
+#     resume = models.FileField(upload_to='resumes/')
+#     terms_of_use_agreed = models.CharField(max_length=200, null=True)
+#     # user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     # applied_jobs = models.ManyToManyField(Job, blank=True)
+    
+#     # def __str__(self):
+#     #     return self.user.username
+from django.core.validators import MinLengthValidator
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
 class JobApply(models.Model):
-    form_name = models.CharField(max_length=200)
-    email = models.EmailField()
-    password = models.CharField(max_length=200)
-    first_name = models.CharField(max_length=200, null=True)
-    last_name = models.CharField(max_length=200,null=True)
-    country_code = models.CharField(max_length=200, null=True)
-    phone_number = models.CharField(max_length=200, null=True)
-    gender = models.CharField(max_length=200, null=True)
-    aadhar_card_number = models.CharField(max_length=200, null=True)
+    form_name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=128)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    country_code = models.CharField(max_length=10)
+    phone_number = models.CharField(max_length=15)
+    gender = models.CharField(max_length=10)
+    aadhar_card_number = models.CharField(max_length=12)
     is_fresher = models.CharField(max_length=200, null=True)
     applied_with_tsar_it = models.CharField(max_length=200, null=True)
-    previous_employee_id = models.CharField(max_length=200, null=True)
+    previous_employee_id = models.CharField(max_length=20, null=True, blank=True)
     resume = models.FileField(upload_to='resumes/')
     terms_of_use_agreed = models.CharField(max_length=200, null=True)
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # applied_jobs = models.ManyToManyField(Job, blank=True)
-    
-    # def __str__(self):
-    #     return self.user.username
+    applied_jobs = models.ManyToManyField(Job, related_name='applicants')
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
 
 
 class MediaPost(models.Model):

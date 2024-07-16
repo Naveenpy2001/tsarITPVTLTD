@@ -255,11 +255,11 @@ a {
      <center>
        <p class="popLogin">
           Already a registered user?
-          <a href="#" class="pop-login" onclick="openForm()">Please sign in</a>
+          <a href="/login" class="pop-login">Please sign in</a>
         </p>
      </center>
         <div class="pop-form"  id="myform">
-        <form action="/login" method="post" class="login-form">
+        <!-- <form action="/login" method="post" class="login-form">
           <span id="close" onclick="closeForm()">✕</span>
           {% csrf_token %}
           <h1 style="text-align: center; margin: 5px 0 40px 0">Sign In</h1>
@@ -277,11 +277,14 @@ a {
           <div style="display: flex; justify-content: center">
             <button class="loginbtn">submit</button>
           </div>
-        </form>
+           {% if error %}
+        <p>{{ error }}</p> -->
+    <!-- {% endif %} -->
+        <!-- </form> -->
       </div>
 
-<form method="post"  enctype="multipart/form-data" >
-      {% block content %}
+<form method="post" action="/job/apply/<int:job_id>"  enctype="multipart/form-data" >
+
       <div class="container-job-form">
         <div class="form">
           {% csrf_token %}
@@ -340,14 +343,16 @@ a {
           </div>
           <div class="block">
             <label for="">Are you a fresher?</label>
+            <!-- <input type="checkbox" id="is_fresher" name="is_fresher"> -->
             <select name="is_fresher" id="">
-              <option value="" disabled>select</option>
+              <option value="" disabled selected>select</option>
               <option value="yes">yes</option>
               <option value="no">no</option>
             </select>
           </div>
           <div class="block">
             <label for="">Have you applied with TSAR-IT in the last 30 days?</label>
+            <!-- <input type="checkbox" id="applied_with_tsar_it" name="applied_with_tsar_it"> -->
             <select name="applied_with_tsar_it" id="">
               <option value="" disabled selected>select</option>
               <option value="yes">yes</option>
@@ -362,7 +367,7 @@ a {
           
           <div class="block">
             <label for="">Terms of Use </label> 
-            <input type="checkbox" name="terms_of_use_agreed" id="" />&nbsp;
+            <input type="checkbox" id="terms_of_use_agreed" name="terms_of_use_agreed">&nbsp;
             <span style="color: red"> Hear more about career opportunities</span
             >
           </div>
@@ -371,7 +376,7 @@ a {
           </div>
         </div>
       </div>
-      {% endblock %}
+
 </form>
  
       </div>

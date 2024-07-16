@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TSAR-IT Investors Page</title>
   <style>
-
-
-
 section {
   margin-bottom: 20px;
+  padding: 10px 120px;
 }
 
 h2 {
   color: #333;
+}
+h1{
+  padding: 10px 80px;
 }
 
 button {
@@ -35,14 +36,31 @@ button:hover {
   background: url('https://wallpapercave.com/wp/wp2446274.jpg') center/cover no-repeat;
   padding: 300px 0;
 }
+.controls {
+            text-align: center;
+            margin: 20px;
+        }
+        .controls a, .controls button {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .controls a:hover, .controls button:hover {
+            background-color: #0056b3;
+        }
   </style>
 </head>
 <body>
-    <nav>
-        <ul>
+ 
             {% include './header.html' %}
-        </ul>
-    </nav>
+
     <main style="padding: 10px 10px" id="home">
       <p>
         <a href="/">Home</a> 
@@ -56,6 +74,14 @@ button:hover {
       <header>
         <h1>Investor Relations</h1>
       </header>
+
+      <div class="controls">
+        <h4>TSAR IT PITCH DESK : -</h4>
+
+        <a href="../media/doc/TSAR-IT-pitch_Deck.pdf" download>Download PDF</a>
+        <a href="../media/doc/TSAR-IT-pitch_Deck.pdf" target="TSAR_IT_pitch_desk">Open PDF in New Tab</a>
+    </div>
+
     <section id="company-overview">
       <h2>Company Overview</h2>
       <p>TSAR-IT is a leading IT software company focused on innovation and excellence. We specialize in developing cutting-edge solutions for a wide range of industries, including healthcare, finance, and e-commerce.</p>
