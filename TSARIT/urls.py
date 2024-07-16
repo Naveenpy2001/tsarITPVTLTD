@@ -214,6 +214,11 @@ urlpatterns = [
     path('delete/<int:pk>/', views.delete_post, name='delete_post'),
 
     path('JobPosting', views.JobPosting, name='JobPost'),
+
+    path('job/apply/<int:job_id>/', views.jobApply, name='job_apply'),
+    path('login/', views.login, name='login'),
+    path('account/', views.user_account, name='user_account'),
+    path('logoutUser/', views.logout, name='logoutUser'),
 ] 
 
 if settings.DEBUG:
