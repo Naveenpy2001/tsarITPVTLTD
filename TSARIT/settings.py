@@ -78,29 +78,13 @@ WSGI_APPLICATION = 'TSARIT.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tsarit',        # Replace 'your_database_name' with your actual database name
-        'HOST': 'localhost',                 # Replace 'localhost' with your MySQL host if it's not running locally
-        'USER': 'root',       # Replace 'your_mysql_username' with your MySQL username
-        'PASSWORD': 'root',   # Replace 'your_mysql_password' with your MySQL password
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-# DATABASES = {
-#     'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'TSARITPVTLTD',        # Replace 'your_database_name' with your actual database name
-#         'HOST': 'tsarit-db.chcq2k0ykmnq.ap-south-1.rds.amazonaws.com',                 # Replace 'localhost' with your MySQL host if it's not running locally
-#         'USER': 'admin',       # Replace 'your_mysql_username' with your MySQL username
-#         'PASSWORD': 'Tsarit12345',   # Replace 'your_mysql_password' with your MySQL password
-#         'PORT': '3306',
-#     }
-# }
 
 
 # Password validation
@@ -150,4 +134,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-# CSRF_USE_SESSIONS = True           #enable this command if the code was updated
+CSRF_USE_SESSIONS = True           #enable this command if the code was updated
