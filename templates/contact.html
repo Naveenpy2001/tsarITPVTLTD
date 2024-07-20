@@ -130,9 +130,16 @@
       }
       .connect {
         font-size: 40px;
+        padding: 0 10px;
+        border-left: 4px solid red;
+        margin: 10px 0;
       }
       .title {
         font-size: 38px;
+         padding: 0 10px;
+        border-left: 4px solid red;
+        margin: 10px 0;
+
       }
       .numbers {
         font-size: 28px;
@@ -145,7 +152,7 @@
         color: #12132d;
       }
       main {
-        padding: 30px 50px;
+        padding: 0px 50px;
         display: flex;
         font-size: 24px;
         gap: 10px;
@@ -163,6 +170,20 @@
         font-size: 20px;
         font-weight: 400;
       }
+      .information{
+        display: flex;
+        gap: 2px;
+        margin: 10px 30px;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .fas{
+        border-right: 2px solid red;
+        padding: 5px 10px 5px 0;
+      }
+      .information > p {
+        font-size: 16px;
+      }
     </style>
   </head>
   <body>
@@ -176,7 +197,7 @@
         <div class="contact-us">
           <div
             class="address-column"
-            style="padding: 50px 50px; background-color: #12132d"
+            style="padding: 0px 50px; background-color: #12132d"
           >
             <div
               class="context"
@@ -188,31 +209,49 @@
               "
             >
               <h1 class="title">Contact Us</h1>
-              <p style="font-size: 22px; font-weight: 400">
+              <p style="font-size: 18px; font-weight: 400; margin: 0 20px;">
                 Let's talk. Learn more about TSAR-IT and how we're supercharging
                 progress with our clients, our people and in our communities.
               </p>
 
-              <div style="margin: 80px 0">
+              <div style="margin: 80px 0  40px 0">
                 <h2 class="connect">Connect With Us</h2>
+                <div class="info">
+            <div class="information">
+              &nbsp
+              <i class="fas fa-map-marker-alt"></i> &nbsp &nbsp
+
+              <p>12-203/745, Church Street, Nakkabanda, <br /> Pungunur,
+Chittoor - 517247, <br /> Andhra Pradesh</p>
+            </div>
+            <div class="information">
+              <i class="fas fa-envelope"></i> &nbsp 
+              <p>info@tsaritservices.com</p>
+            </div>
+            <div class="information">
+              <i class="fas fa-envelope"></i> &nbsp 
+              <p>tsaritservices@gmail.com</p>
+            </div>
+            <div class="information">
+              <i class="fas fa-phone"></i>&nbsp
+              <p>+91 9491301258</p>
+            </div>
+            <div class="information">
+              <i class="fas fa-phone"></i>&nbsp
+              <p>+91 8142616767</p>
+            </div>
+          </div>
                 <br />
                 <!-- <h3 class="title">Our Mobile No.</h3> -->
-                <p class="numbers">
-                  <i class="fa-solid fa-phone"></i> +91 9491301258
-                </p>
-                <p class="numbers">
-                  <i class="fa-solid fa-phone"></i> +91 8142616767
-                </p>
-                <br />
+  
+               
                 <!-- <h3 class="title">Our Email Id :</h3> -->
-                <p class="numbers">
-                  <i class="fa-solid fa-envelope"></i> info@tsaritservices.com
-                </p>
-                <p class="numbers">
-                  <i class="fa-solid fa-envelope"></i> tsaritservices@gmail.com
-                </p>
+                 
+               
               </div>
+              
             </div>
+            
           </div>
 
           <div class="form-column">
