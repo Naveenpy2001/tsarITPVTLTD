@@ -83,7 +83,6 @@ urlpatterns = [
     path('SoftwareProducts',views.SoftwareProducts),
     path('privacypolicy',views.privacypolicy),
     path('ProfessionalServices',views.ProfessionalServices),
-    path('profileDashboard',views.profileDashboard),
     path('PublicSector',views.PublicSector),
     path('recruitmanagement',views.recruitmanagement),
 

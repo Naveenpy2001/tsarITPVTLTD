@@ -1172,8 +1172,7 @@ def serviceIndustry(request):
     
     return render(request, 'Aerospace&Defence.html')
 
-def profileDashboard(request):
-    return render(request,'profile-dashboard.html')
+
 
 def PublicSector(request):
     return render(request,'Public-Sector.html')
