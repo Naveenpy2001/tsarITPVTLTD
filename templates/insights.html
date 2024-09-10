@@ -111,14 +111,21 @@
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
+          overflow: hidden;
+
         }
         .marquee-content {
           overflow: hidden;
         }
+        .scroll{
+        overflow:hidden;
+        }
         .marquee {
             width: 100%;
             white-space: nowrap;
-            animation: marquee 15s linear infinite;
+            animation: marquee 30s linear infinite;
+          overflow: hidden;
+
         }
         @keyframes marquee {
             0% { transform: translateX(100%); }
@@ -145,7 +152,7 @@
   <marquee behavior="scroll" direction="left" class="marquee" >
     <p class="marquee-content">
       <p>
-        soon we will launching new products ~ payout,NGO,HMS 
+        Soon We Will Launching New Products ~ Payout, NGO, HMS
       </p>
     </p>
   </marquee>
@@ -207,6 +214,8 @@
       <h2>Company Updates : </h2>
       <p>Stay up-to-date with the latest news and developments from TSAR-IT.</p>
       <ul>
+        <br />
+
         <li>Launch of New Product: TSAR-Cloud</li>
         <li>Expansion into European Markets</li>
         <li>Partnership with XYZ Corporation</li>

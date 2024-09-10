@@ -11,6 +11,11 @@ from .models import MediaPost
 # Create your views here.
 def index(request):
     return render(request,'index.html')
+
+def ReturnPolicy(request):
+    return render(request,'RefundAndReturnsPolicy.html')
+
+
 #  in home page contact us
 def indexContact(request):
     if request.method == 'POST':

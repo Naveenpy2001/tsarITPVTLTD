@@ -28,6 +28,7 @@ urlpatterns = [
     path('',views.index),
     path('header',views.header),
 
+
     path('about',views.about),
     path('conactForm',views.conactForm),
     path('accessbility',views.accessbility),
@@ -218,6 +219,9 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('account/', views.user_account, name='user_account'),
     path('logoutUser/', views.logout, name='logoutUser'),
+
+    path('ReturnPolicy', views.ReturnPolicy),
+
 ] 
 
 if settings.DEBUG:
