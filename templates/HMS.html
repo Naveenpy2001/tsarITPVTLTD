@@ -438,6 +438,34 @@ select, option{
   background-color: red;
   color: #fff;
 }
+
+.hms-link-section {
+  padding: 50px 20px;
+  background-color: #f4f4f4;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.hms-link-section .container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.hms-link-button {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #080c59;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.hms-link-button:hover {
+  background-color: #1f2151;
+}
+
 </style>
 
   </head>
@@ -458,6 +486,8 @@ select, option{
       </div>
     </section>
 
+
+
      <nav class="animation">
       <div class="company-name animation">
         <a href="#home" style="color: #000;"><h1>HMS  </h1></a>
@@ -470,22 +500,21 @@ select, option{
         <button class="contact-button" onclick="showForm()">Contact with us</button>
       </div>
     </nav>
-    <section style="margin: 0; padding: 0;">
-      <div class="blur" id="show-warn">
-        <div class="main-view">
-          <span onclick="closeTab()" class="close-tab">✕</span>
-          <h1>
-          We are developing the product , now it's under construction, soon we are going to launch this product.
-If any one needs this software
-We will specially design as your basis and features.
-Don't hagitate to contact with us 
-Plz connect with us 
-We are for your needs of  software solutions
-        </h1>
-        <button class="ct-btn" onclick="showContactForm()">Contact With Us</button>
+
+    <section class="hms-link-section">
+      <div class="container animation">
+        <h1 style="text-align: center; font-size: 36px; padding: 40px 0; margin: 20px 0; color: #080c59;
+        text-shadow: 0 2px 4px #1f2151;">Discover Our Hospital Management System</h1>
+        <p style="text-align: center; font-size: 18px; margin-bottom: 20px;">
+          Experience the efficiency and comprehensive features of our Hospital Management System (HMS) by visiting our dedicated website.
+        </p>
+        <div style="text-align: center;">
+          <a href="https://hms.tsaritservices.com/" target="_blank" class="hms-link-button">Visit HMS Website</a>
         </div>
       </div>
     </section>
+    
+
     <section id="overview">
       <h1>Overview of HMS</h1>
         <div class="over-view reveal" style="overflow: hidden;">
