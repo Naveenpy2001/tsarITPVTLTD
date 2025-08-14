@@ -1949,7 +1949,7 @@ def Dashboard(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-        if email == 'tsaritservices@gmail.com' and password == 'tsarit@12345':
+        if email == 'tsaritservices@gmail.com' and password == 'Tsarit@12345':
             #  fetching the data if user authenticated
            
             #  home page contact data

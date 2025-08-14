@@ -203,8 +203,8 @@ urlpatterns = [
     # path('resume/<int:applicant_id>/', views.display_resume, name='display_resume'),
 
     # admin URLS
-    path('AdminLogin',views.adminLogin),
-    path('Dashboard',views.Dashboard,name='Dashboard'),
+    path('login/admin/',views.adminLogin),
+    path('dashboard',views.Dashboard,name='Dashboard'),
     path('logout',views.logout, name='logout'),
     path('searchService',views.searchService, name='searchService'),
 
